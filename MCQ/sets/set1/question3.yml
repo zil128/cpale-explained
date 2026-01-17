@@ -1,0 +1,40 @@
+code: FAR-CE-003
+difficulty: EASY
+text: Which of the following is usually classified as cash on the statement of financial position?
+access-level: FREE
+topic: Cash and Cash Equivalents
+choices:
+  choice1:
+    label: Certificates of deposit
+    why-wrong-choice: Certificates of deposit are time deposits, not demand deposits, and are typically classified as cash equivalents or other investments.
+  choice2:
+    correct: true
+    label: Savings accounts
+  choice3:
+    label: Postdated checks
+    why-wrong-choice: Postdated checks cannot be cashed until the future date and are treated as receivables, not cash.
+  choice4:
+    label: Bank overdrafts
+    why-wrong-choice: Bank overdrafts are liabilities representing negative cash balances, not cash assets.
+explanation:
+  short: Savings accounts are demand deposits that can be withdrawn anytime, making them cash.
+  long: |
+    Cash comprises cash on hand and demand deposits that can be withdrawn without advance notice.
+    
+    WHAT IS INCLUDED IN CASH:
+    - Cash on hand (currency, coins)
+    - Demand deposits (checking accounts, savings accounts)
+    - Undeposited negotiable checks payable to company
+    - Bank drafts, money orders, cashier's checks
+    - Traveler's checks
+    
+    WHAT IS EXCLUDED FROM CASH:
+    - Certificates of deposit (time deposits)
+    - Postdated checks (treated as receivables)
+    - NSF/DAIF checks (treated as receivables)
+    - Stale checks (treated as receivables)
+    - Bank overdrafts (current liabilities)
+    
+    KEY PRINCIPLE: Only items that are readily available for use as cash should be classified as cash.
+tip: Think "AVAILABLE NOW" - if you can't use it immediately as cash, it's not cash.
+reference: PAS 7, Statement of Cash Flows

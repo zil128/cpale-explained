@@ -1,0 +1,41 @@
+code: FAR-CE-004
+difficulty: MEDIUM
+text: According to PAS 7, Statement of Cash Flows, which of the following is NOT one of the requirements for an investment to qualify as a cash equivalent?
+access-level: FREE
+topic: Cash and Cash Equivalents
+choices:
+  choice1:
+    label: Readily convertible to a known amount of cash
+    why-wrong-choice: This is a requirement - cash equivalents must be easily convertible to cash.
+  choice2:
+    label: Subject to an insignificant risk of changes in value
+    why-wrong-choice: This is a requirement - cash equivalents must have minimal value risk.
+  choice3:
+    label: A short maturity of three months or less from the date of acquisition
+    why-wrong-choice: This is a requirement - the 3-month rule applies from acquisition to maturity.
+  choice4:
+    correct: true
+    label: Equity investments
+explanation:
+  short: Equity investments are never cash equivalents because they have significant value risk and no maturity date.
+  long: |
+    PAS 7 defines cash equivalents as short-term, highly liquid investments that are:
+    
+    1. READILY CONVERTIBLE to known amounts of cash
+    2. Subject to INSIGNIFICANT RISK of changes in value
+    3. Have SHORT MATURITY (three months or less from acquisition date)
+    
+    EXAMPLES OF CASH EQUIVALENTS:
+    - Treasury bills due within 3 months
+    - Commercial paper maturing within 3 months
+    - Time deposits with 3-month maturity
+    - Preference shares with specified redemption date within 3 months
+    
+    NEVER CASH EQUIVALENTS:
+    - Equity investments (common shares, preferred shares without redemption date)
+    - Investments with significant value risk
+    - Investments with maturity exceeding 3 months
+    
+    KEY POINT: Equity investments inherently have significant value risk due to market fluctuations and no guaranteed redemption value, making them ineligible as cash equivalents.
+tip: Think "SAFE and SHORT" - if it has market risk or matures beyond 3 months, it's not a cash equivalent.
+reference: PAS 7, Statement of Cash Flows, Paragraph 6

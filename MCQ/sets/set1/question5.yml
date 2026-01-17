@@ -1,0 +1,41 @@
+code: FAR-CE-005
+difficulty: MEDIUM
+text: A compensating balance of ₱200,000 is required by a bank as collateral for a ₱2,000,000 long-term loan. The compensating balance is legally restricted as to withdrawal. How should this compensating balance be presented in the financial statements?
+access-level: FREE
+topic: Cash and Cash Equivalents
+choices:
+  choice1:
+    label: Included as part of cash and cash equivalents
+    why-wrong-choice: Legally restricted compensating balances cannot be included in cash and cash equivalents.
+  choice2:
+    correct: true
+    label: Other non-current asset
+  choice3:
+    label: Other current asset
+    why-wrong-choice: When related to long-term borrowing, legally restricted compensating balances are classified as non-current assets.
+  choice4:
+    label: Current liability
+    why-wrong-choice: Compensating balances are assets, not liabilities. They represent deposits that the company owns but cannot access.
+explanation:
+  short: Legally restricted compensating balances for long-term loans are classified as other non-current assets.
+  long: |
+    Compensating balances are minimum deposits required to be maintained as collateral for loans. Their presentation depends on legal restrictions and loan terms:
+    
+    COMPENSATING BALANCE CLASSIFICATION:
+    
+    1. NOT LEGALLY RESTRICTED:
+       - Included in cash and cash equivalents
+    
+    2. LEGALLY RESTRICTED:
+       - Related to SHORT-TERM loan → Other CURRENT asset (separate from cash)
+       - Related to LONG-TERM loan → Other NON-CURRENT asset (separate from cash)
+    
+    ACCOUNTING TREATMENT:
+    - The ₱200,000 compensating balance cannot be used for other purposes
+    - It serves as collateral for the ₱2,000,000 long-term loan
+    - Since the loan is long-term and the balance is legally restricted, it's classified as non-current
+    - It's disclosed separately from cash and cash equivalents
+    
+    KEY PRINCIPLE: Match the classification of the compensating balance with the classification of the related loan.
+tip: Think "MATCH THE LOAN TERM" - short-term loan = current asset, long-term loan = non-current asset.
+reference: PAS 1, Presentation of Financial Statements; PFRS for SMEs

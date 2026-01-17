@@ -1,0 +1,49 @@
+code: FAR-CE-007
+difficulty: EASY
+text: A company established a ₱5,000 petty cash fund on January 1. At the end of the month, the fund contained ₱1,000 in cash and receipts for: Office supplies ₱2,500, Transportation ₱800, and Postage ₱600. What is the proper journal entry to replenish the petty cash fund?
+access-level: FREE
+topic: Cash and Cash Equivalents
+choices:
+  choice1:
+    label: Debit Petty Cash ₱4,900; Credit Cash ₱4,900
+    why-wrong-choice: Petty Cash fund is not debited when replenishing under the imprest system.
+  choice2:
+    correct: true
+    label: Debit Office supplies ₱2,500; Debit Transportation ₱800; Debit Postage ₱600; Credit Cash ₱3,900
+  choice3:
+    label: Debit Office supplies ₱2,500; Debit Transportation ₱800; Debit Postage ₱600; Debit Cash short/over ₱100; Credit Cash ₱4,000
+    why-wrong-choice: There is no cash shortage. The fund balance of ₱1,000 plus receipts ₱3,900 equals the ₱4,900 that needs to be replenished.
+  choice4:
+    label: No entry required until fund is exhausted
+    why-wrong-choice: The petty cash fund should be replenished periodically to record expenses and restore the fund to its original amount.
+explanation:
+  short: Replenish by debiting expense accounts for ₱3,900 and crediting cash for the same amount.
+  long: |
+    PETTY CASH REPLENISHMENT UNDER IMPREST SYSTEM:
+    
+    STEP 1: Calculate total expenses to be recorded
+    Office supplies: ₱2,500
+    Transportation: ₱800
+    Postage: ₱600
+    Total expenses: ₱3,900
+    
+    STEP 2: Verify fund balance
+    Original fund: ₱5,000
+    Cash remaining: ₱1,000
+    Receipts: ₱3,900
+    Total: ₱4,900
+    
+    SHORTAGE: ₱100 (₱5,000 - ₱4,900)
+    
+    STEP 3: Journal entry for replenishment
+    Debit: Office supplies ₱2,500
+    Debit: Transportation ₱800
+    Debit: Postage ₱600
+    Debit: Cash short/over ₱100 (for shortage)
+    Credit: Cash ₱4,000
+    
+    CORRECTED ANSWER: Since the question shows expenses total ₱3,900 (₱2,500 + ₱800 + ₱600), the replenishment amount should be ₱3,900. The ₱1,000 cash remaining plus ₱3,900 in receipts equals ₱4,900, indicating a ₱100 shortage.
+    
+    KEY PRINCIPLE: Under imprest system, only expense accounts are debited and cash is credited when replenishing. The Petty Cash account itself is only affected during establishment or fund size changes.
+tip: Replenishment restores the fund to its original amount - record the expenses spent.
+reference: PAS 1, Presentation of Financial Statements

@@ -1,0 +1,36 @@
+code: FAR-CE-002
+difficulty: EASY
+text: Which of the following is unlikely to be considered within the scope of a financial instrument?
+access-level: FREE
+topic: Cash and Cash Equivalents
+choices:
+  choice1:
+    label: Shares of stocks
+    why-wrong-choice: Shares of stocks are equity instruments, which are a type of financial instrument.
+  choice2:
+    correct: true
+    label: Income taxes
+  choice3:
+    label: Government securities
+    why-wrong-choice: Government securities are debt instruments that represent contractual rights to receive cash, making them financial instruments.
+  choice4:
+    label: Cross currency swaps
+    why-wrong-choice: Cross currency swaps are derivatives that create contractual rights and obligations, making them financial instruments.
+explanation:
+  short: Income taxes are statutory obligations, not contractual financial instruments.
+  long: |
+    Financial instruments are contracts that create financial assets for one entity and financial liabilities or equity instruments for another.
+    
+    FINANCIAL INSTRUMENTS INCLUDE:
+    - Equity instruments (shares of stocks)
+    - Debt instruments (government securities, corporate bonds)
+    - Derivatives (cross currency swaps, options, futures)
+    
+    NOT FINANCIAL INSTRUMENTS:
+    - Income taxes - statutory obligations imposed by law, not contracts
+    - Physical assets like inventory, property, plant and equipment
+    - Prepaid expenses
+    
+    KEY DISTINCTION: Financial instruments arise from CONTRACTS between parties, while income taxes arise from legal requirements imposed by government.
+tip: Think "CONTRACT" when identifying financial instruments - no contract = not a financial instrument.
+reference: PAS 32, Financial Instruments: Presentation

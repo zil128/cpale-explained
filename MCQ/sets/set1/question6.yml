@@ -1,0 +1,46 @@
+code: FAR-CE-006
+difficulty: MEDIUM
+text: A company has cash balance per books of ₱100,000. The following items were identified during bank reconciliation: (1) Outstanding checks of ₱8,000, (2) Deposits in transit of ₱12,000, (3) Bank service charge of ₱500 not yet recorded, (4) NSF check of ₱2,000 returned by bank. What is the correct cash balance to be reported on the statement of financial position?
+access-level: FREE
+topic: Cash and Cash Equivalents
+choices:
+  choice1:
+    label: ₱100,000
+    why-wrong-choice: This is the book balance before adjustments. NSF check and bank service charge must be deducted from books.
+  choice2:
+    label: ₱104,000
+    why-wrong-choice: This incorrectly adds outstanding checks and deposits in transit to the book balance without making necessary adjustments.
+  choice3:
+    label: ₱96,000
+    why-wrong-choice: This only considers NSF check and service charge but ignores the book balance reconciliation.
+  choice4:
+    correct: true
+    label: ₱97,500
+explanation:
+  short: The correct cash balance is ₱97,500, derived from adjusting the book balance for NSF check and bank service charge.
+  long: |
+    BANK RECONCILIATION PROCESS:
+    
+    STEP 1: Adjust BOOK BALANCE to CORRECTED BOOK BALANCE
+    Starting book balance: ₱100,000
+    Less: NSF check: (₱2,000) - Customer's check bounced
+    Less: Bank service charge: (₱500) - Bank fee not yet recorded
+    CORRECTED BOOK BALANCE: ₱97,500
+    
+    STEP 2: Verify with BANK BALANCE adjustments
+    Bank balance would be adjusted by:
+    Add: Deposits in transit: ₱12,000
+    Less: Outstanding checks: (₱8,000)
+    
+    KEY POINT: Only items that affect the company's books (NSF checks, bank charges, errors) change the cash balance reported on financial statements.
+    
+    ITEMS THAT DON'T CHANGE REPORTED CASH:
+    - Outstanding checks (already recorded in books)
+    - Deposits in transit (already recorded in books)
+    
+    ITEMS THAT CHANGE REPORTED CASH:
+    - NSF checks (reduce cash, increase receivables)
+    - Bank service charges (reduce cash, increase expenses)
+    - Bank errors (require adjustment)
+tip: Book adjustments change your cash balance; bank timing differences don't.
+reference: PAS 7, Statement of Cash Flows
