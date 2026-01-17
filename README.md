@@ -189,6 +189,23 @@ docker-compose down -v
 | `docker-compose logs -f mysql` | View MySQL logs |
 | `docker exec -it cpale-mysql mysql -u cpale_user -p` | Access MySQL CLI |
 
+## Git Commands
+
+### Essential Commands
+```bash
+# Check what changed
+git status
+
+# Stage all changes
+git add .
+
+# Save changes
+git commit -m "your message"
+
+# Upload to repository
+git push
+```
+
 ### Access URLs
 
 | URL | Description |
