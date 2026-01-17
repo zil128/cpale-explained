@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CPALE Explained - Pass the Board Exam Smarter</title>
+    <meta name="description" content="Get 50 FREE practice questions with deep explanations.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#10B981',
+                        accent: '#F472B6',
+                        lavender: '#FDF4FF',
+                        mint: '#ECFDF5',
+                        peach: '#FFF7ED',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Mesh Gradient Background */
+        .mesh-gradient {
+            background:
+                radial-gradient(at 40% 20%, #FDF4FF 0px, transparent 50%),
+                radial-gradient(at 80% 0%, #ECFDF5 0px, transparent 50%),
+                radial-gradient(at 0% 50%, #FEE2E2 0px, transparent 50%),
+                radial-gradient(at 80% 50%, #E0E7FF 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #FCE7F3 0px, transparent 50%),
+                radial-gradient(at 80% 100%, #D1FAE5 0px, transparent 50%),
+                linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #F472B6 100%);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-dark {
+            background: rgba(124, 58, 237, 0.1);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes float-reverse {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(20px) rotate(-5deg); }
+        }
+
+        @keyframes blob {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.6); }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-reverse {
+            animation: float-reverse 7s ease-in-out infinite;
+        }
+
+        .animate-blob {
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        .animate-gradient {
+            background-size: 200% 200%;
+            animation: gradient-shift 5s ease infinite;
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Staggered animations */
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(135deg, #7C3AED 0%, #F472B6 50%, #10B981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Decorative Blobs */
+        .blob {
+            position: absolute;
+            filter: blur(60px);
+            opacity: 0.6;
+        }
+
+        /* Button Glow */
+        .btn-glow {
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(124, 58, 237, 0.3);
+        }
+
+        .btn-secondary-glow:hover {
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Card Tilt */
+        .card-tilt-1 { transform: rotate(-2deg); }
+        .card-tilt-2 { transform: rotate(1deg); }
+        .card-tilt-3 { transform: rotate(-1deg); }
+
+        .card-tilt-1:hover,
+        .card-tilt-2:hover,
+        .card-tilt-3:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        /* Input Glow */
+        .input-glow:focus {
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
+            border-color: #7C3AED;
+        }
+
+        /* Grain Texture Overlay */
+        .grain::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-lavender font-body">
+
+    <!-- NAVIGATION -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/20">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <a href="/landing-page/" class="flex items-center gap-2">
+                    <img src="/landing-page/logos/logo-concept-1.svg" alt="CPALE Explained" class="h-10">
+                </a>
+
+                <!-- Nav Links -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-primary font-medium transition-colors">How It Works</a>
+                    <a href="#features" class="text-gray-600 hover:text-primary font-medium transition-colors">Features</a>
+                    <a href="/landing-page/login.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Login</a>
+                    <a href="/landing-page/register.html" class="bg-gradient-to-r from-primary to-purple-500 text-white px-5 py-2.5 rounded-xl font-semibold hover:shadow-lg transition-all">
+                        Start FREE
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-600" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-200 pt-4">
+                <div class="flex flex-col gap-4">
+                    <a href="#how-it-works" class="text-gray-600 hover:text-primary font-medium">How It Works</a>
+                    <a href="#features" class="text-gray-600 hover:text-primary font-medium">Features</a>
+                    <a href="/landing-page/login.html" class="text-gray-600 hover:text-primary font-medium">Login</a>
+                    <a href="/landing-page/register.html" class="bg-gradient-to-r from-primary to-purple-500 text-white px-5 py-2.5 rounded-xl font-semibold text-center">
+                        Start FREE
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="mesh-gradient grain relative min-h-screen flex items-center overflow-hidden pt-20">
+        <!-- Decorative Blobs -->
+        <div class="blob w-96 h-96 bg-gradient-to-r from-purple-300 to-pink-300 top-10 -left-20 animate-blob animate-float"></div>
+        <div class="blob w-80 h-80 bg-gradient-to-r from-green-200 to-cyan-200 top-40 right-10 animate-blob animate-float-reverse" style="animation-delay: 2s;"></div>
+        <div class="blob w-64 h-64 bg-gradient-to-r from-pink-200 to-orange-200 bottom-20 left-1/3 animate-blob" style="animation-delay: 4s;"></div>
+
+        <div class="max-w-7xl mx-auto px-6 py-20 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                <!-- Left: Story -->
+                <div class="animate-fade-in-up">
+                    <div class="inline-flex items-center gap-2 glass rounded-full px-5 py-2.5 text-sm font-semibold mb-8 animate-pulse-glow">
+                        <span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+                        <span class="text-primary">Your AI-Powered Study Companion</span>
+                    </div>
+
+                    <h1 class="font-heading text-5xl md:text-7xl font-bold leading-tight mb-6 text-gray-900">
+                        Pass CPALE<br/>
+                        <span class="gradient-text">on YOUR Terms</span>
+                    </h1>
+
+                    <p class="text-xl text-gray-700 mb-10 leading-relaxed max-w-lg">
+                        <strong class="text-gray-900">I'll be your second brain.</strong> Study smarter with AI-powered analytics tracking every answer, analyzing every weak spot, and telling you exactly what to study next.
+                        <strong class="text-primary">No guessing. Just results.</strong>
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                        <button onclick="scrollToSignup()" class="btn-glow btn-secondary-glow bg-gradient-to-r from-secondary to-emerald-400 hover:from-emerald-400 hover:to-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg animate-gradient">
+                            Get 50 FREE Questions
+                        </button>
+                        <button onclick="scrollToHowItWorks()" class="btn-glow glass text-primary px-8 py-4 rounded-2xl font-bold text-lg border-2 border-primary/20 hover:border-primary/40">
+                            How It Works
+                        </button>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-gray-600">
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center">
+                                <span class="text-secondary text-xs">✓</span>
+                            </span>
+                            <span>No Credit Card</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center">
+                                <span class="text-secondary text-xs">✓</span>
+                            </span>
+                            <span>Forever FREE</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center">
+                                <span class="text-secondary text-xs">✓</span>
+                            </span>
+                            <span>Start Immediately</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Visual Card -->
+                <div class="hidden lg:block animate-fade-in-up stagger-2">
+                    <div class="glass rounded-3xl p-8 animate-float shadow-2xl relative">
+                        <!-- Decorative circles -->
+                        <div class="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-br from-accent to-pink-300 rounded-full opacity-60 animate-blob"></div>
+                        <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-gradient-to-br from-secondary to-cyan-300 rounded-full opacity-60 animate-blob" style="animation-delay: 1s;"></div>
+
+                        <div class="text-6xl mb-6">📚</div>
+                        <h3 class="font-heading text-2xl font-bold mb-6 text-gray-900">What You'll Get:</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start gap-4 animate-fade-in-up stagger-1">
+                                <span class="w-8 h-8 bg-gradient-to-br from-secondary to-emerald-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                    <span class="text-white text-sm">✓</span>
+                                </span>
+                                <span class="text-gray-700">50 FREE CPALE practice questions</span>
+                            </li>
+                            <li class="flex items-start gap-4 animate-fade-in-up stagger-2">
+                                <span class="w-8 h-8 bg-gradient-to-br from-primary to-purple-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                    <span class="text-white text-sm">✓</span>
+                                </span>
+                                <span class="text-gray-700">AI-powered weak topic detection</span>
+                            </li>
+                            <li class="flex items-start gap-4 animate-fade-in-up stagger-3">
+                                <span class="w-8 h-8 bg-gradient-to-br from-accent to-pink-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                    <span class="text-white text-sm">✓</span>
+                                </span>
+                                <span class="text-gray-700">Real-time performance analytics</span>
+                            </li>
+                            <li class="flex items-start gap-4 animate-fade-in-up stagger-4">
+                                <span class="w-8 h-8 bg-gradient-to-br from-orange-400 to-amber-400 rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                    <span class="text-white text-sm">✓</span>
+                                </span>
+                                <span class="text-gray-700">Deep explanations (why right AND wrong)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="py-10 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-lavender via-white to-mint opacity-80"></div>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <p class="text-center text-gray-500 mb-6 font-semibold text-sm uppercase tracking-wider">Trusted by students from</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                <span class="text-gray-400 font-heading font-bold text-lg hover:text-primary transition-colors cursor-default">UP Diliman</span>
+                <span class="text-gray-400 font-heading font-bold text-lg hover:text-primary transition-colors cursor-default">UST</span>
+                <span class="text-gray-400 font-heading font-bold text-lg hover:text-primary transition-colors cursor-default">Ateneo</span>
+                <span class="text-gray-400 font-heading font-bold text-lg hover:text-primary transition-colors cursor-default">De La Salle</span>
+                <span class="text-gray-400 font-heading font-bold text-lg hover:text-primary transition-colors cursor-default">FEU</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-24 bg-white relative overflow-hidden grain">
+        <!-- Decorative elements -->
+        <div class="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-br from-green-100 to-cyan-100 rounded-full blur-2xl"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-20 reveal">
+                <span class="inline-block glass-dark rounded-full px-4 py-2 text-sm font-semibold text-primary mb-4">Simple Process</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-4">How It Works</h2>
+                <p class="text-xl text-gray-600">3 simple steps to start studying smarter</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 md:gap-6">
+
+                <!-- Step 1 -->
+                <div class="reveal card-tilt-1 transition-all duration-500">
+                    <div class="glass rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-transparent rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-primary to-purple-400 text-white rounded-2xl flex items-center justify-center text-2xl font-heading font-bold mb-6 shadow-lg relative z-10">
+                            1
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold mb-4 text-gray-900">Sign Up FREE</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Enter your email. No credit card. No payment. Just instant access to 50 questions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="reveal card-tilt-2 transition-all duration-500 md:mt-8">
+                    <div class="glass rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-transparent rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-secondary to-emerald-400 text-white rounded-2xl flex items-center justify-center text-2xl font-heading font-bold mb-6 shadow-lg relative z-10">
+                            2
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold mb-4 text-gray-900">Practice & Learn</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Answer questions. Get instant feedback. See deep explanations for every answer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="reveal card-tilt-3 transition-all duration-500">
+                    <div class="glass rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all h-full relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/10 to-transparent rounded-full -mr-10 -mt-10 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent to-pink-400 text-white rounded-2xl flex items-center justify-center text-2xl font-heading font-bold mb-6 shadow-lg relative z-10">
+                            3
+                        </div>
+                        <h3 class="font-heading text-2xl font-bold mb-4 text-gray-900">Track & Improve</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            See your weak topics. Focus your study. Upgrade when ready for 10,000+ questions.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-POWERED FEATURES - VALUE PROPOSITIONS -->
+    <section id="features" class="py-24 bg-gradient-to-b from-white to-lavender relative overflow-hidden grain">
+        <!-- Decorative elements -->
+        <div class="absolute top-10 right-20 w-40 h-40 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-10 left-20 w-48 h-48 bg-gradient-to-br from-secondary/10 to-cyan-100 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <span class="inline-block glass-dark rounded-full px-4 py-2 text-sm font-semibold text-primary mb-4">Why Choose Us</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                    AI That <span class="gradient-text">Actually Helps You Pass</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Not just another reviewer. Our AI is built specifically for CPALE - analyzing patterns, identifying traps, and guiding you to exactly what you need to study.
+                </p>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Feature 1 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-purple-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🎯</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Exam-Focused AI Analytics</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        The AI analyzes how CPALE questions are structured, identifies examiner traps, and pinpoints the exact concepts that cost you marks.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-secondary to-emerald-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🔄</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Weakness-to-Action Mapping</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Every mistake is translated into a clear corrective action - review rule, recall exception, practice calculation, or reframe concept.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-accent to-pink-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🧠</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Concept Mastery</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Explains why the rule exists, when it applies, and when it does NOT - building correct CPALE context, not rote memorization.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-400 to-amber-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">💡</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">High-Yield Mnemonics</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        AI generates simple, exam-safe mnemonics focusing only on items likely to appear in CPALE - no clutter, no fluff.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-400 to-blue-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">⚡</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">"Power" One-Liner Tips</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Each topic includes a power sentence designed for instant recall during the exam - short, decisive, and confidence-boosting.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-red-400 to-rose-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">🚨</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Mistake Pattern Recognition</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Detects repeated errors (misreading facts, wrong formula, exception confusion) and flags them as priority risks before the exam.
+                    </p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-indigo-400 to-violet-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">⏱️</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Time-Efficiency Optimization</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Guided on what to prioritize and what to skip, ensuring study time is spent where it has the highest passing impact.
+                    </p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="reveal glass rounded-2xl p-6 hover:shadow-xl transition-all group">
+                    <div class="w-14 h-14 bg-gradient-to-br from-teal-400 to-green-400 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        <span class="text-2xl">📊</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Exam-Readiness Intelligence</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Differentiates between guessed answers, partial understanding, and true mastery - reducing false confidence.
+                    </p>
+                </div>
+
+                <!-- Feature 9 - Highlighted -->
+                <div class="reveal glass-dark rounded-2xl p-6 hover:shadow-xl transition-all group border-2 border-primary/30">
+                    <div class="w-14 h-14 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform animate-pulse-glow">
+                        <span class="text-2xl">🏆</span>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3 text-gray-900">Pass-Oriented, Not Content-Heavy</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        All analytics, explanations, mnemonics, and tips are engineered with one objective: <strong class="text-primary">increase CPALE passing probability</strong>.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- CTA & PRICING PREVIEW -->
+            <div class="text-center mt-16 reveal">
+                <button onclick="scrollToSignup()" class="btn-glow bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg animate-gradient">
+                    Start FREE with 50 Questions
+                </button>
+                <p class="text-gray-500 text-sm mt-4">Experience the AI difference. Upgrade anytime for premium features.</p>
+                
+                <!-- Pricing Preview -->
+                <div class="mt-12 glass rounded-3xl p-8 max-w-4xl mx-auto">
+                    <h3 class="font-heading text-2xl font-bold text-gray-900 mb-8 text-center">Choose Your Study Plan</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- FREE Plan -->
+                        <div class="glass rounded-2xl p-6 text-center hover:shadow-xl transition-all">
+                            <div class="mb-4">
+                                <h4 class="font-heading text-xl font-bold text-gray-900 mb-2">FREE</h4>
+                                <div class="text-4xl font-heading font-bold text-primary mb-2">₱0</div>
+                                <p class="text-gray-500 text-sm">Forever free</p>
+                            </div>
+                            <ul class="text-left space-y-3 mb-6 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">50 MCQs unlimited repetition</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 text-xs mt-0.5">✗</span>
+                                    <span class="text-gray-400">Basic analytics</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 text-xs mt-0.5">✗</span>
+                                    <span class="text-gray-400">AI assessment</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 text-xs mt-0.5">✗</span>
+                                    <span class="text-gray-400">Priority support</span>
+                                </li>
+                            </ul>
+                            <button onclick="scrollToSignup()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+                                Get Started
+                            </button>
+                        </div>
+
+                        <!-- BASIC Plan -->
+                        <div class="glass-dark rounded-2xl p-6 text-center hover:shadow-xl transition-all border-2 border-primary/30 relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-secondary to-emerald-400 text-white text-xs font-bold px-3 py-1 rounded-full">
+                                MOST POPULAR
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-heading text-xl font-bold text-gray-900 mb-2">BASIC</h4>
+                                <div class="text-4xl font-heading font-bold text-secondary mb-2">₱149</div>
+                                <p class="text-gray-500 text-sm">per month OR ₱800 for 6 months</p>
+                            </div>
+                            <ul class="text-left space-y-3 mb-6 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">25 MCQs per topic</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">50 practice sets per subject</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Basic analytics</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Email support</span>
+                                </li>
+                            </ul>
+                            <button onclick="selectPlan('BASIC')" class="w-full bg-gradient-to-r from-secondary to-emerald-400 text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">
+                                Choose Basic
+                            </button>
+                        </div>
+
+                        <!-- ADVANCE Plan -->
+                        <div class="glass rounded-2xl p-6 text-center hover:shadow-xl transition-all relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                                BEST VALUE
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-heading text-xl font-bold text-gray-900 mb-2">ADVANCE</h4>
+                                <div class="text-4xl font-heading font-bold text-primary mb-2">₱449</div>
+                                <p class="text-gray-500 text-sm">per month OR ₱2,000 for 6 months</p>
+                            </div>
+                            <ul class="text-left space-y-3 mb-6 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">10,000+ MCQs access with AI analytics</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">AI-powered assessment</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Advanced analytics</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Priority support</span>
+                                </li>
+                            </ul>
+                            <button onclick="selectPlan('ADVANCE')" class="w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">
+                                Choose Advance
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMAIL SIGNUP FORM -->
+    <section id="signup" class="py-24 relative overflow-hidden">
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-accent animate-gradient"></div>
+
+        <!-- Decorative blobs -->
+        <div class="blob w-80 h-80 bg-white/10 top-10 -left-20 animate-blob"></div>
+        <div class="blob w-64 h-64 bg-white/10 bottom-10 right-10 animate-blob" style="animation-delay: 3s;"></div>
+
+        <div class="max-w-2xl mx-auto px-6 text-center relative z-10">
+            <div class="reveal">
+                <span class="inline-block bg-white/20 backdrop-blur rounded-full px-4 py-2 text-sm font-semibold text-white mb-6">Limited Time Offer</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white">Get Your 50 FREE Questions Now</h2>
+                <p class="text-xl text-white/80 mb-10">
+                    Join 1,000+ students preparing smarter. No credit card required.
+                </p>
+            </div>
+
+            <form id="signupForm" class="glass rounded-3xl p-8 md:p-10 shadow-2xl reveal">
+                <div class="mb-5">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        required
+                        class="input-glow w-full px-6 py-4 text-lg rounded-2xl border-2 border-gray-200 focus:outline-none text-gray-900 transition-all bg-white/80"
+                    >
+                </div>
+
+                <div class="mb-5">
+                    <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Your first name (optional)"
+                        class="input-glow w-full px-6 py-4 text-lg rounded-2xl border-2 border-gray-200 focus:outline-none text-gray-900 transition-all bg-white/80"
+                    >
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-3">Choose Your Plan:</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <label class="relative">
+                            <input type="radio" name="plan" value="FREE" checked class="peer sr-only">
+                            <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:shadow-md">
+                                <div class="font-bold text-gray-900 mb-1">FREE</div>
+                                <div class="text-2xl font-heading text-primary">₱0</div>
+                                <div class="text-xs text-gray-500">50 MCQs</div>
+                            </div>
+                        </label>
+                        <label class="relative">
+                            <input type="radio" name="plan" value="BASIC" class="peer sr-only">
+                            <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all hover:shadow-md">
+                                <div class="font-bold text-gray-900 mb-1">BASIC</div>
+                                <div class="text-2xl font-heading text-secondary">₱149</div>
+                                <div class="text-xs text-gray-500">200/subject</div>
+                            </div>
+                        </label>
+                        <label class="relative">
+                            <input type="radio" name="plan" value="ADVANCE" class="peer sr-only">
+                            <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-accent peer-checked:bg-accent/5 transition-all hover:shadow-md">
+                                <div class="font-bold text-gray-900 mb-1">ADVANCE</div>
+                                <div class="text-2xl font-heading text-accent">₱449</div>
+                                <div class="text-xs text-gray-500">All MCQs</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-glow w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-8 py-5 rounded-2xl font-bold text-lg shadow-lg animate-gradient"
+                >
+                    Start Practicing Now
+                </button>
+
+                <p class="text-gray-500 text-sm mt-6">
+                    By signing up, you agree to receive study tips and updates. Unsubscribe anytime.
+                </p>
+            </form>
+
+            <div id="successMessage" class="hidden glass rounded-3xl p-8 mt-6 border-2 border-secondary">
+                <div class="text-5xl mb-4">🎉</div>
+                <h3 class="font-heading text-2xl font-bold mb-2 text-gray-900">Success!</h3>
+                <p class="text-lg text-gray-700">Check your email for access to your FREE 50 questions!</p>
+            </div>
+
+            <div id="errorMessage" class="hidden glass rounded-3xl p-8 mt-6 border-2 border-red-400">
+                <div class="text-5xl mb-4">😅</div>
+                <h3 class="font-heading text-2xl font-bold mb-2 text-gray-900">Oops!</h3>
+                <p class="text-lg text-gray-700" id="errorText">Something went wrong. Please try again.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="relative overflow-hidden py-16">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
+
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+            <div class="mb-8">
+                <h3 class="font-heading text-white text-3xl font-bold mb-3">
+                    <span class="gradient-text">CPALE</span> Explained
+                </h3>
+                <p class="text-gray-400">Making CPALE prep affordable for everyone.</p>
+            </div>
+
+            <div class="flex justify-center gap-8 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">About</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">Contact</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">Privacy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">Terms</a>
+            </div>
+
+            <div class="pt-8 border-t border-gray-700">
+                <p class="text-sm text-gray-500">© 2026 CPALE Explained. Built with 💜 for CPA students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Smooth scroll functions
+        function scrollToSignup() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function scrollToHowItWorks() {
+            document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Scroll reveal animation
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Select plan function (from pricing cards)
+        function selectPlan(planType) {
+            const planInputs = document.querySelectorAll('input[name="plan"]');
+            planInputs.forEach(input => {
+                if (input.value === planType) {
+                    input.checked = true;
+                }
+            });
+            scrollToSignup();
+        }
+
+        // Form submission
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('firstName').value;
+            const selectedPlan = document.querySelector('input[name="plan"]:checked').value;
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const form = document.getElementById('signupForm');
+
+            // Hide previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
+            try {
+                const response = await fetch('http://localhost:5000/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        firstName: firstName || null,
+                        plan: selectedPlan,
+                        source: 'WEBSITE'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success - redirect based on plan
+                    if (selectedPlan === 'FREE') {
+                        form.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        successMessage.innerHTML = `
+                            <div class="text-5xl mb-4">🎉</div>
+                            <h3 class="font-heading text-2xl font-bold mb-2 text-gray-900">Welcome to CPALE Explained!</h3>
+                            <p class="text-lg text-gray-700">Check your email for access to your FREE 50 questions!</p>
+                        `;
+                    } else {
+                        // Redirect to payment page for paid plans
+                        showPaymentModal(selectedPlan, firstName, email);
+                    }
+
+                    // Track signup (you can add analytics here)
+                    console.log('Signup successful:', data, 'Plan:', selectedPlan);
+                } else {
+                    // Error from API
+                    errorMessage.classList.remove('hidden');
+                    document.getElementById('errorText').textContent = data.error || 'Something went wrong';
+                }
+            } catch (error) {
+                // Network error
+                errorMessage.classList.remove('hidden');
+                document.getElementById('errorText').textContent = 'Unable to connect. Please check your internet connection.';
+                console.error('Signup error:', error);
+            }
+        });
+
+        // Payment modal for paid plans
+        function showPaymentMethodSelector(paymentMethod) {
+            const plan = window.selectedPlan || 'ADVANCE';
+            const planDetails = {
+                'BASIC': {
+                    price: '₱149',
+                    oneTime: '₱800',
+                    period: 'per month OR 6 months',
+                    features: ['25 MCQs per topic', '50 practice sets per subject', 'Basic analytics', 'Email support']
+                },
+                'ADVANCE': {
+                    price: '₱449',
+                    oneTime: '₱2,000',
+                    period: 'per month OR 6 months',
+                    features: ['10,000+ MCQs access', 'AI assessment and AI analytics']
+                }
+            };
+
+            const details = planDetails[plan];
+            if (!details) return;
+
+            // Update payment modal content with selected method
+            document.getElementById('paymentPlanTitle').textContent = `Complete Your ${plan} Plan`;
+            document.getElementById('paymentPrice').textContent = details.price;
+            document.getElementById('paymentPeriod').textContent = details.period;
+            
+            // Show payment method buttons for monthly/one-time selection
+            const monthlyButtons = document.querySelectorAll('.payment-monthly');
+            const oneTimeButtons = document.querySelectorAll('.payment-onetime');
+            
+            if (paymentMethod === 'BANK_TRANSFER') {
+                monthlyButtons.forEach(btn => btn.style.display = 'none');
+                oneTimeButtons.forEach(btn => btn.style.display = 'block');
+                document.getElementById('billingMessage').textContent = 'Bank transfer details will be sent after confirmation';
+            } else {
+                monthlyButtons.forEach(btn => btn.style.display = 'block');
+                oneTimeButtons.forEach(btn => btn.style.display = 'none');
+                document.getElementById('billingMessage').textContent = 'Secure mobile payment processing';
+            }
+
+            // Show payment modal
+            document.getElementById('paymentMethodModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            window.selectedPlan = plan;
+            window.selectedPaymentMethod = paymentMethod;
+        }
+
+        function showPaymentModal(plan, firstName, email) {
+            const planDetails = {
+                'BASIC': {
+                    price: '₱149',
+                    oneTime: '₱800',
+                    period: 'per month OR 6 months',
+                    features: ['25 MCQs per topic', '50 practice sets per subject', 'Basic analytics', 'Email support']
+                },
+                'ADVANCE': {
+                    price: '₱449',
+                    oneTime: '₱2,000',
+                    period: 'per month OR 6 months',
+                    features: ['10,000+ MCQs access', 'AI assessment and AI analytics']
+                }
+            };
+
+            const details = planDetails[plan];
+            if (!details) return;
+
+            // Update payment modal content
+            document.getElementById('paymentPlanTitle').textContent = `Complete Your ${plan} Plan`;
+            document.getElementById('paymentPrice').textContent = details.price;
+            document.getElementById('paymentPeriod').textContent = details.period;
+            
+            // Show payment modal
+            document.getElementById('paymentMethodModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            window.selectedPlan = plan;
+        }
+            };
+
+            const details = planDetails[plan];
+            if (!details) return;
+
+            // Create modal HTML
+            const modalHtml = `
+                <div id="paymentModal" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+                    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closePaymentModal()"></div>
+                    <div class="relative glass rounded-3xl p-8 max-w-md w-full shadow-2xl">
+                        <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-gradient-to-br ${details.color} rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <span class="text-4xl">💳</span>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-gray-900 mb-3">Complete Your ${plan} Plan</h3>
+                            <p class="text-gray-600 mb-6">Welcome ${firstName}! You're just one step away from premium CPALE preparation.</p>
+
+                            <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-6 mb-6">
+                                <div class="flex items-center justify-center gap-2 mb-2">
+                                    <span class="text-3xl font-heading font-bold text-primary">${details.price}</span>
+                                    <span class="text-gray-500 text-lg">${details.period}</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Starting with ${plan} features</p>
+                            </div>
+
+                            <ul class="text-left space-y-3 mb-6">
+                                ${details.features.map(feature => `
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <span class="w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-sm">✓</span>
+                                        ${feature}
+                                    </li>
+                                `).join('')}
+                            </ul>
+
+                            <div class="space-y-3">
+                                <button onclick="processPayment('${plan}', '${email}')" class="w-full bg-gradient-to-r ${details.color} text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all">
+                                    Pay ${details.price} ${details.period}
+                                </button>
+                                <button onclick="closePaymentModal()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+                                    Maybe Later
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-4">Secure payment via GCash, Maya, or Credit Card</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Add modal to body
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePaymentModal() {
+            const modal = document.getElementById('paymentModal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = '';
+            }
+        }
+
+        function processPayment(plan, email) {
+            // TODO: Integrate with payment gateway (GCash, Maya, etc.)
+            alert(`Payment integration coming soon for ${plan} plan! Contact us for early access at cpale.explained@gmail.com\n\nEmail: ${email}`);
+            closePaymentModal();
+        }
+    </script>
+
+</body>
+</html>

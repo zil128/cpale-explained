@@ -1,0 +1,183 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CPALE MCQ Question",
+  "description": "Schema for a Certified Public Accountant Licensure Examination Multiple Choice Question",
+  "type": "object",
+  "required": [
+    "question_code",
+    "subject",
+    "topic",
+    "difficulty_level",
+    "question_text",
+    "choices",
+    "correct_answer",
+    "short_explanation",
+    "detailed_explanation",
+    "why_wrong_choices"
+  ],
+  "properties": {
+    "question_code": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}-[A-Z]{3}-\\d{3}-[EMDT]$",
+      "description": "Format: {SUBJECT}-{TOPIC_CODE}-{NUMBER}-{DIFFICULTY}"
+    },
+    "subject": {
+      "type": "string",
+      "enum": ["FAR", "AFAR", "MS", "RFBT", "TAX", "AUD"],
+      "description": "CPALE subject code"
+    },
+    "topic": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Main topic area"
+    },
+    "subtopic": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Specific subtopic if applicable"
+    },
+    "difficulty_level": {
+      "type": "string",
+      "enum": ["Easy", "Medium", "Difficult", "Tricky"],
+      "description": "Question difficulty level"
+    },
+    "question_text": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 1000,
+      "description": "The question stem"
+    },
+    "choices": {
+      "type": "array",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "type": "object",
+        "required": ["label", "text", "is_correct"],
+        "properties": {
+          "label": {
+            "type": "string",
+            "enum": ["A", "B", "C", "D"]
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          },
+          "is_correct": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "correct_answer": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D"]
+    },
+    "short_explanation": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 200,
+      "description": "Brief 1-2 sentence explanation"
+    },
+    "detailed_explanation": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 2000,
+      "description": "Comprehensive explanation with references"
+    },
+    "why_wrong_choices": {
+      "type": "object",
+      "properties": {
+        "A": {"type": "string"},
+        "B": {"type": "string"},
+        "C": {"type": "string"},
+        "D": {"type": "string"}
+      }
+    },
+    "memory_tip": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "Mnemonic or study tip"
+    },
+    "standards_reference": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 50
+      },
+      "description": "PAS, PFRS, PSA references"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 50
+      }
+    },
+    "access_level": {
+      "type": "string",
+      "enum": ["FREE", "PREMIUM"],
+      "default": "FREE"
+    },
+    "layman_story": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Real-life scenario illustration"
+    },
+    "latin_breakdown": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {"type": "string"}
+      },
+      "description": "Latin term breakdown for legal concepts"
+    },
+    "formal_definition": {
+      "type": "string",
+      "maxLength": 1000,
+      "description": "Reviewer-level formal definition"
+    },
+    "elements_checklist": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "maxLength": 100
+      },
+      "description": "Checklist of elements/conditions"
+    },
+    "distinction_from_similar": {
+      "type": "string",
+      "maxLength": 500,
+      "description": "Clear distinction from similar concepts"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "name", "reference"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["law", "standard", "section", "article"]
+          },
+          "name": {
+            "type": "string"
+          },
+          "reference": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "computation_link": {
+      "type": "string",
+      "format": "uri",
+      "description": "Link to computation spreadsheet or video"
+    },
+    "memory_trigger": {
+      "type": "string",
+      "maxLength": 100,
+      "description": "One-line CPALE memory trigger"
+    }
+  }
+}

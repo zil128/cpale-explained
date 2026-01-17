@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - CPALE Explained</title>
+    <meta name="description" content="Login to your CPALE Explained account">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#10B981',
+                        accent: '#F472B6',
+                        lavender: '#FDF4FF',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+        .mesh-gradient {
+            background:
+                radial-gradient(at 40% 20%, #FDF4FF 0px, transparent 50%),
+                radial-gradient(at 80% 0%, #ECFDF5 0px, transparent 50%),
+                radial-gradient(at 0% 50%, #FEE2E2 0px, transparent 50%),
+                radial-gradient(at 80% 50%, #E0E7FF 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #FCE7F3 0px, transparent 50%),
+                radial-gradient(at 80% 100%, #D1FAE5 0px, transparent 50%),
+                #fff;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #7C3AED 0%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .input-glow:focus {
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
+            border-color: #7C3AED;
+        }
+
+        .btn-glow {
+            transition: all 0.3s ease;
+        }
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+        }
+
+        .blob {
+            position: absolute;
+            filter: blur(60px);
+            opacity: 0.5;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+    </style>
+</head>
+<body class="mesh-gradient min-h-screen flex items-center justify-center p-6 relative overflow-hidden">
+
+    <!-- Decorative Blobs -->
+    <div class="blob w-80 h-80 bg-gradient-to-r from-purple-300 to-pink-300 -top-20 -left-20 animate-float"></div>
+    <div class="blob w-64 h-64 bg-gradient-to-r from-green-200 to-cyan-200 -bottom-10 -right-10 animate-float" style="animation-delay: 2s;"></div>
+
+    <div class="w-full max-w-md relative z-10">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <a href="/landing-page/" class="inline-block">
+                <img src="/landing-page/logos/logo-concept-1.svg" alt="CPALE Explained" class="h-12 mx-auto">
+            </a>
+            <p class="text-gray-500 mt-4">Welcome back, future CPA!</p>
+        </div>
+
+        <!-- Login Form -->
+        <div class="glass rounded-3xl p-8 shadow-xl">
+            <h2 class="font-heading text-2xl font-bold text-gray-900 mb-6 text-center">Login to Your Account</h2>
+
+            <form id="loginForm" class="space-y-5">
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        required
+                        class="input-glow w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-gray-900 transition-all"
+                        placeholder="you@example.com"
+                    >
+                </div>
+
+                <div>
+                    <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        required
+                        class="input-glow w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:outline-none text-gray-900 transition-all"
+                        placeholder="Enter your password"
+                    >
+                </div>
+
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center gap-2 cursor-pointer">
+                        <input type="checkbox" class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary">
+                        <span class="text-gray-600">Remember me</span>
+                    </label>
+                    <a href="#" class="text-primary hover:underline font-medium">Forgot password?</a>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-glow w-full bg-gradient-to-r from-primary to-purple-500 text-white py-4 rounded-xl font-bold text-lg"
+                >
+                    Login
+                </button>
+
+                <div id="errorMessage" class="hidden bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm text-center"></div>
+            </form>
+
+            <div class="mt-6 text-center">
+                <p class="text-gray-600">
+                    Don't have an account?
+                    <a href="/landing-page/register.html" class="text-primary font-semibold hover:underline">Sign up FREE</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div class="text-center mt-6">
+            <a href="/landing-page/" class="text-gray-500 hover:text-primary transition-colors text-sm">
+                &larr; Back to Home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            errorMessage.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Store token and redirect
+                    localStorage.setItem('token', data.token);
+                    localStorage.setItem('user', JSON.stringify(data.user));
+                    window.location.href = '/landing-page/dashboard.html';
+                } else {
+                    errorMessage.textContent = data.error || 'Invalid email or password';
+                    errorMessage.classList.remove('hidden');
+                }
+            } catch (error) {
+                errorMessage.textContent = 'Unable to connect. Please try again.';
+                errorMessage.classList.remove('hidden');
+            }
+        });
+
+        // Check if already logged in
+        if (localStorage.getItem('token')) {
+            window.location.href = '/landing-page/dashboard.html';
+        }
+    </script>
+</body>
+</html>

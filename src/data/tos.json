@@ -1,0 +1,775 @@
+{
+  "exam": {
+    "name": "Certified Public Accountant Licensure Examination",
+    "acronym": "CPALE",
+    "alternate_name": "LECPA",
+    "country": "Philippines",
+    "regulatory_body": "Board of Accountancy (BOA)",
+    "administering_body": "Professional Regulation Commission (PRC)",
+    "total_items": 450,
+    "passing_rate": 75,
+    "format": "Multiple Choice Questions (MCQ)",
+    "choices_per_item": 4
+  },
+  "subjects": [
+    {
+      "code": "FAR",
+      "name": "Financial Accounting and Reporting",
+      "total_items": 70,
+      "weight_percent": 15.56,
+      "target_questions": 1556,
+      "topics": [
+        {
+          "name": "Development of Financial Reporting Framework, Standard-Setting Bodies and Regulation of the Accountancy Profession",
+          "code": "FRF",
+          "weight_percent": 5.71,
+          "items": 4,
+          "target_questions": 89
+        },
+        {
+          "name": "Conceptual Framework, Accounting Process and Presentation of Financial Statements",
+          "code": "CFP",
+          "weight_percent": 12.86,
+          "items": 9,
+          "target_questions": 200
+        },
+        {
+          "name": "Cash and other Financial Assets",
+          "code": "CFA",
+          "weight_percent": 14.29,
+          "items": 10,
+          "target_questions": 222
+        },
+        {
+          "name": "Non-financial Assets",
+          "code": "NFA",
+          "weight_percent": 20.00,
+          "items": 14,
+          "target_questions": 311
+        },
+        {
+          "name": "Financial Liabilities",
+          "code": "FLI",
+          "weight_percent": 5.71,
+          "items": 4,
+          "target_questions": 89
+        },
+        {
+          "name": "Non-financial liabilities, provisions, and contingencies",
+          "code": "NFL",
+          "weight_percent": 5.71,
+          "items": 4,
+          "target_questions": 89
+        },
+        {
+          "name": "Shareholders' Equity",
+          "code": "SHE",
+          "weight_percent": 14.29,
+          "items": 10,
+          "target_questions": 222
+        },
+        {
+          "name": "Other Topics",
+          "code": "OTH",
+          "weight_percent": 14.29,
+          "items": 10,
+          "target_questions": 222
+        },
+        {
+          "name": "Other Reporting Frameworks",
+          "code": "ORF",
+          "weight_percent": 7.14,
+          "items": 5,
+          "target_questions": 111
+        }
+      ]
+    },
+    {
+      "code": "AFAR",
+      "name": "Advanced Financial Accounting and Reporting",
+      "total_items": 70,
+      "weight_percent": 15.56,
+      "target_questions": 1556,
+      "topics": [
+        {
+          "name": "Partnership Accounting",
+          "code": "PAR",
+          "weight_percent": 14.29,
+          "items": 10,
+          "target_questions": 222
+        },
+        {
+          "name": "Corporate Liquidation",
+          "code": "CLQ",
+          "weight_percent": 5.71,
+          "items": 4,
+          "target_questions": 89
+        },
+        {
+          "name": "Joint Arrangements (PFRS 11)",
+          "code": "JAR",
+          "weight_percent": 5.71,
+          "items": 4,
+          "standards": ["PFRS 11"],
+          "target_questions": 89
+        },
+        {
+          "name": "Revenue Recognition",
+          "code": "REV",
+          "weight_percent": 14.29,
+          "items": 10,
+          "standards": ["PFRS 15"],
+          "target_questions": 222
+        },
+        {
+          "name": "Accounting for Home Office, Branch and Agency Transactions",
+          "code": "HBA",
+          "weight_percent": 5.71,
+          "items": 4,
+          "target_questions": 89
+        },
+        {
+          "name": "Accounting for Business Combination (PFRS 3)",
+          "code": "BCB",
+          "weight_percent": 8.57,
+          "items": 6,
+          "standards": ["PFRS 3"],
+          "target_questions": 133
+        },
+        {
+          "name": "Separate Financial Statements (PAS 27)",
+          "code": "SFS",
+          "weight_percent": 5.71,
+          "items": 4,
+          "standards": ["PAS 27"],
+          "target_questions": 89
+        },
+        {
+          "name": "Consolidated Financial Statements (PFRS 10)",
+          "code": "CFS",
+          "weight_percent": 7.14,
+          "items": 5,
+          "standards": ["PFRS 10"],
+          "target_questions": 111
+        },
+        {
+          "name": "Derivatives and Hedge Accounting (PFRS 9)",
+          "code": "DHA",
+          "weight_percent": 5.71,
+          "items": 4,
+          "standards": ["PFRS 9"],
+          "target_questions": 89
+        },
+        {
+          "name": "Translation of Foreign Currency Financial Statements (PAS 21/PAS 29)",
+          "code": "TFC",
+          "weight_percent": 4.29,
+          "items": 3,
+          "standards": ["PAS 21", "PAS 29"],
+          "target_questions": 67
+        },
+        {
+          "name": "Not-for-Profit Organizations",
+          "code": "NPO",
+          "weight_percent": 2.86,
+          "items": 2,
+          "target_questions": 44
+        },
+        {
+          "name": "Government Accounting - General Fund",
+          "code": "GAG",
+          "weight_percent": 2.86,
+          "items": 2,
+          "target_questions": 44
+        },
+        {
+          "name": "Cost Accounting",
+          "code": "COA",
+          "weight_percent": 14.29,
+          "items": 10,
+          "target_questions": 222
+        },
+        {
+          "name": "Other Special Topics (Insurance contracts, Build, operate and transfer)",
+          "code": "OST",
+          "weight_percent": 2.86,
+          "items": 2,
+          "standards": ["PFRS 17"],
+          "target_questions": 44
+        }
+      ]
+    },
+    {
+      "code": "MS",
+      "name": "Management Services",
+      "total_items": 70,
+      "weight_percent": 15.56,
+      "target_questions": 1556,
+      "sections": [
+        {
+          "name": "Management Accounting",
+          "code": "MAC",
+          "weight_percent": 57.1,
+          "items": 40,
+          "target_questions": 889,
+          "topics": [
+            {
+              "name": "Objectives, role and scope of management accounting",
+              "code": "ORS",
+              "weight_percent": 2.9,
+              "items": 2,
+              "target_questions": 45
+            },
+            {
+              "name": "Management accounting concepts and techniques for planning and control",
+              "code": "PCN",
+              "weight_percent": 31.4,
+              "items": 22,
+              "target_questions": 489
+            },
+            {
+              "name": "Management accounting concepts and techniques for performance measurement",
+              "code": "PMS",
+              "weight_percent": 11.4,
+              "items": 8,
+              "target_questions": 177
+            },
+            {
+              "name": "Management accounting concepts and techniques for decision making",
+              "code": "DMS",
+              "weight_percent": 11.4,
+              "items": 8,
+              "target_questions": 177
+            }
+          ]
+        },
+        {
+          "name": "Financial Management",
+          "code": "FIM",
+          "weight_percent": 35.7,
+          "items": 25,
+          "target_questions": 555,
+          "topics": [
+            {
+              "name": "Nature, objectives, and scope of financial management",
+              "code": "NOS",
+              "weight_percent": 4.3,
+              "items": 3,
+              "target_questions": 67
+            },
+            {
+              "name": "Financial statement analysis",
+              "code": "FSA",
+              "weight_percent": 7.1,
+              "items": 5,
+              "target_questions": 111
+            },
+            {
+              "name": "Working capital management methods and techniques",
+              "code": "WCM",
+              "weight_percent": 8.5,
+              "items": 6,
+              "target_questions": 133
+            },
+            {
+              "name": "Capital budgeting investment decisions",
+              "code": "CBD",
+              "weight_percent": 7.1,
+              "items": 5,
+              "target_questions": 111
+            },
+            {
+              "name": "Risk and leverage",
+              "code": "RAL",
+              "weight_percent": 2.9,
+              "items": 2,
+              "target_questions": 45
+            },
+            {
+              "name": "Techniques in managing capital structure and long-term financing decisions",
+              "code": "CCS",
+              "weight_percent": 2.9,
+              "items": 2,
+              "target_questions": 45
+            },
+            {
+              "name": "Financial markets",
+              "code": "FIM",
+              "weight_percent": 2.9,
+              "items": 2,
+              "target_questions": 45
+            }
+          ]
+        },
+        {
+          "name": "Economics Concepts",
+          "code": "ECO",
+          "weight_percent": 7.2,
+          "items": 5,
+          "target_questions": 112,
+          "topics": [
+            {
+              "name": "Basic concepts of macroeconomics",
+              "code": "MAC",
+              "weight_percent": 4.3,
+              "items": 3,
+              "target_questions": 67
+            },
+            {
+              "name": "Basic concepts of microeconomics",
+              "code": "MIC",
+              "weight_percent": 2.9,
+              "items": 2,
+              "target_questions": 45
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "RFBT",
+      "name": "Regulatory Framework for Business Transactions",
+      "total_items": 100,
+      "weight_percent": 22.22,
+      "target_questions": 2222,
+      "sections": [
+        {
+          "name": "Law on Business Transactions",
+          "code": "LBT",
+          "weight_percent": 18,
+          "items": 18,
+          "target_questions": 400,
+          "topics": [
+            {
+              "name": "Obligations",
+              "code": "OBL",
+              "weight_percent": 6,
+              "items": 6,
+              "target_questions": 133
+            },
+            {
+              "name": "Contracts",
+              "code": "CON",
+              "weight_percent": 6,
+              "items": 6,
+              "target_questions": 133
+            },
+            {
+              "name": "Sales",
+              "code": "SAL",
+              "weight_percent": 3,
+              "items": 3,
+              "target_questions": 67
+            },
+            {
+              "name": "Credit Transactions",
+              "code": "CRT",
+              "weight_percent": 3,
+              "items": 3,
+              "target_questions": 67
+            }
+          ]
+        },
+        {
+          "name": "Other Business Transaction Laws",
+          "code": "OBL",
+          "weight_percent": 11,
+          "items": 11,
+          "target_questions": 244,
+          "topics": [
+            {
+              "name": "Bouncing Checks",
+              "code": "BCH",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["BP 22"],
+              "target_questions": 44
+            },
+            {
+              "name": "Consumer Protection",
+              "code": "CNP",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 7394"],
+              "target_questions": 44
+            },
+            {
+              "name": "Financial Rehabilitation and Insolvency",
+              "code": "FRI",
+              "weight_percent": 5,
+              "items": 5,
+              "laws": ["FRIA"],
+              "target_questions": 111
+            },
+            {
+              "name": "Philippine Competition Act",
+              "code": "PCA",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 10667"],
+              "target_questions": 44
+            },
+            {
+              "name": "Government Procurement Law",
+              "code": "GPL",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 9184"],
+              "target_questions": 44
+            }
+          ]
+        },
+        {
+          "name": "Law on Business Organization",
+          "code": "LBO",
+          "weight_percent": 44,
+          "items": 44,
+          "target_questions": 978,
+          "topics": [
+            {
+              "name": "Partnerships",
+              "code": "PAR",
+              "weight_percent": 6,
+              "items": 6,
+              "laws": ["Civil Code"],
+              "target_questions": 133
+            },
+            {
+              "name": "Corporations",
+              "code": "COR",
+              "weight_percent": 30,
+              "items": 30,
+              "laws": ["Revised Corporation Code", "RA 11232"],
+              "target_questions": 667
+            },
+            {
+              "name": "Insurance",
+              "code": "INS",
+              "weight_percent": 3,
+              "items": 3,
+              "laws": ["Insurance Code"],
+              "target_questions": 67
+            },
+            {
+              "name": "Cooperatives",
+              "code": "COO",
+              "weight_percent": 5,
+              "items": 5,
+              "laws": ["RA 9520"],
+              "target_questions": 111
+            }
+          ]
+        },
+        {
+          "name": "Law on Other Business Transactions",
+          "code": "LOT",
+          "weight_percent": 25,
+          "items": 25,
+          "target_questions": 555,
+          "topics": [
+            {
+              "name": "PDIC",
+              "code": "PDI",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["PDIC Charter"],
+              "target_questions": 44
+            },
+            {
+              "name": "Secrecy of Bank Deposits",
+              "code": "SBD",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 1405"],
+              "target_questions": 44
+            },
+            {
+              "name": "Truth in Lending Act",
+              "code": "TIL",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 3765"],
+              "target_questions": 44
+            },
+            {
+              "name": "AMLA",
+              "code": "AML",
+              "weight_percent": 6,
+              "items": 6,
+              "laws": ["RA 9160", "AMLA"],
+              "target_questions": 133
+            },
+            {
+              "name": "Intellectual Property Law",
+              "code": "IPL",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 8293"],
+              "target_questions": 44
+            },
+            {
+              "name": "Data Privacy",
+              "code": "DPR",
+              "weight_percent": 3,
+              "items": 3,
+              "laws": ["RA 10173", "Data Privacy Act"],
+              "target_questions": 67
+            },
+            {
+              "name": "E-commerce Act",
+              "code": "ECA",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 8792"],
+              "target_questions": 44
+            },
+            {
+              "name": "Ease of Doing Business",
+              "code": "EOD",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["RA 11032"],
+              "target_questions": 44
+            },
+            {
+              "name": "Labor law",
+              "code": "LAB",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["Labor Code"],
+              "target_questions": 44
+            },
+            {
+              "name": "Social Security Law",
+              "code": "SSL",
+              "weight_percent": 2,
+              "items": 2,
+              "laws": ["SSS Law", "GSIS Law"],
+              "target_questions": 44
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "code": "TAX",
+      "name": "Taxation",
+      "total_items": 70,
+      "weight_percent": 15.56,
+      "target_questions": 1556,
+      "topics": [
+        {
+          "name": "Principles of Taxation",
+          "code": "POT",
+          "weight_percent": 11.43,
+          "items": 8,
+          "target_questions": 178
+        },
+        {
+          "name": "Tax Remedies",
+          "code": "TRE",
+          "weight_percent": 11.43,
+          "items": 8,
+          "target_questions": 178
+        },
+        {
+          "name": "Income Taxation",
+          "code": "INC",
+          "weight_percent": 20.00,
+          "items": 14,
+          "laws": ["NIRC", "TRAIN Law"],
+          "target_questions": 311
+        },
+        {
+          "name": "Transfer Taxes",
+          "code": "TRT",
+          "weight_percent": 17.14,
+          "items": 12,
+          "subtopics": ["Estate Tax", "Donor's Tax"],
+          "target_questions": 267
+        },
+        {
+          "name": "Business Taxes",
+          "code": "BUT",
+          "weight_percent": 17.14,
+          "items": 12,
+          "subtopics": ["VAT", "Percentage Tax"],
+          "target_questions": 267
+        },
+        {
+          "name": "Excise Taxes",
+          "code": "EXT",
+          "weight_percent": 2.85,
+          "items": 2,
+          "target_questions": 44
+        },
+        {
+          "name": "Documentary Stamp Tax",
+          "code": "DST",
+          "weight_percent": 2.85,
+          "items": 2,
+          "target_questions": 44
+        },
+        {
+          "name": "Taxation under the Local Government Code",
+          "code": "LGT",
+          "weight_percent": 5.73,
+          "items": 4,
+          "laws": ["LGC"],
+          "target_questions": 89
+        },
+        {
+          "name": "Preferential Taxation",
+          "code": "PFT",
+          "weight_percent": 11.43,
+          "items": 8,
+          "subtopics": ["Tax incentives", "Special economic zones", "PEZA"],
+          "target_questions": 178
+        }
+      ]
+    },
+    {
+      "code": "AUD",
+      "name": "Auditing",
+      "total_items": 70,
+      "weight_percent": 15.56,
+      "target_questions": 1556,
+      "sections": [
+        {
+          "name": "Auditing Theory",
+          "code": "AUT",
+          "weight_percent": 50,
+          "items": 35,
+          "target_questions": 778,
+          "topics": [
+            {
+              "name": "Fundamentals of Auditing and Assurance Services",
+              "code": "FAS",
+              "weight_percent": 5.7,
+              "items": 4,
+              "target_questions": 89
+            },
+            {
+              "name": "The Risk-based Financial Statement Audit - Client Acceptance, Audit Planning, Supervision and Monitoring",
+              "code": "RBA",
+              "weight_percent": 5.7,
+              "items": 4,
+              "standards": ["PSA 210", "PSA 300", "PSA 220"],
+              "target_questions": 89
+            },
+            {
+              "name": "Understanding the Entity and its Environment including its Internal Control and Assessing the Risks of Material Misstatement",
+              "code": "UER",
+              "weight_percent": 7.1,
+              "items": 5,
+              "standards": ["PSA 315"],
+              "target_questions": 111
+            },
+            {
+              "name": "Audit Objectives, Procedures, Evidence and Documentation",
+              "code": "AEP",
+              "weight_percent": 7.1,
+              "items": 5,
+              "standards": ["PSA 500", "PSA 230"],
+              "target_questions": 111
+            },
+            {
+              "name": "Completing the Audit/Post-Audit Responsibilities",
+              "code": "CAR",
+              "weight_percent": 7.1,
+              "items": 5,
+              "standards": ["PSA 560", "PSA 570", "PSA 580"],
+              "target_questions": 111
+            },
+            {
+              "name": "Reports on Audited Financial Statements",
+              "code": "RFS",
+              "weight_percent": 5.7,
+              "items": 4,
+              "standards": ["PSA 700", "PSA 705", "PSA 706"],
+              "target_questions": 89
+            },
+            {
+              "name": "Auditing in a Computerized Information Systems (CIS) Environment",
+              "code": "CIS",
+              "weight_percent": 4.2,
+              "items": 3,
+              "target_questions": 67
+            },
+            {
+              "name": "Attestation Services",
+              "code": "ATS",
+              "weight_percent": 7.1,
+              "items": 5,
+              "standards": ["PSAE", "PSRS", "PSRE"],
+              "target_questions": 111
+            }
+          ]
+        },
+        {
+          "name": "Auditing Practice",
+          "code": "AUP",
+          "weight_percent": 50,
+          "items": 35,
+          "target_questions": 778,
+          "topics": [
+            {
+              "name": "Governance, Ethics and Quality Management",
+              "code": "GEQ",
+              "weight_percent": 7.1,
+              "items": 5,
+              "standards": ["Code of Ethics", "PSQM 1"],
+              "target_questions": 111
+            },
+            {
+              "name": "Planning the Audit and Performing Risk Assessment Procedures",
+              "code": "PAR",
+              "weight_percent": 25.7,
+              "items": 18,
+              "standards": ["PSA 300", "PSA 315", "PSA 320"],
+              "target_questions": 400
+            },
+            {
+              "name": "Risk Response",
+              "code": "RRR",
+              "weight_percent": 8.5,
+              "items": 6,
+              "standards": ["PSA 330"],
+              "target_questions": 133
+            },
+            {
+              "name": "Audit Communication and Reporting",
+              "code": "ACR",
+              "weight_percent": 8.6,
+              "items": 6,
+              "standards": ["PSA 260", "PSA 265"],
+              "target_questions": 134
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "difficulty_distribution": {
+    "Easy": {
+      "percentage": 20,
+      "questions_per_subject": 311,
+      "total_questions": 2000
+    },
+    "Medium": {
+      "percentage": 40,
+      "questions_per_subject": 622,
+      "total_questions": 4000
+    },
+    "Difficult": {
+      "percentage": 30,
+      "questions_per_subject": 467,
+      "total_questions": 3000
+    },
+    "Tricky": {
+      "percentage": 10,
+      "questions_per_subject": 156,
+      "total_questions": 1000
+    }
+  }
+}

@@ -1,0 +1,19 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: cpale-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: cpale2026
+      MYSQL_DATABASE: cpale_explained
+      MYSQL_USER: cpale_user
+      MYSQL_PASSWORD: cpale_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - cpale_mysql_data:/var/lib/mysql
+      - ./database:/docker-entrypoint-initdb.d
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  cpale_mysql_data:

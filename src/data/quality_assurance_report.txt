@@ -1,0 +1,71 @@
+
+================================================================================
+                    CPALE MCQ QUALITY ASSURANCE REPORT
+================================================================================
+
+📊 SUMMARY STATISTICS:
+   Total Questions: 9800
+   Valid Questions: 8250 (84.2%)
+   Invalid Questions: 1550 (15.8%)
+   Total Warnings: 0
+   Total Errors: 1550
+
+📚 SUBJECT BREAKDOWN:
+
+   FAR:
+     Total: 2050
+     Valid: 2050 (100.0%)
+     Invalid: 0
+     Warnings: 0
+     Errors: 0
+
+   AFAR:
+     Total: 2050
+     Valid: 2050 (100.0%)
+     Invalid: 0
+     Warnings: 0
+     Errors: 0
+
+   MS:
+     Total: 1550
+     Valid: 0 (0.0%)
+     Invalid: 1550
+     Warnings: 0
+     Errors: 1550
+     Issues: 1550 questions have problems
+
+   RFBT:
+     Total: 1550
+     Valid: 1550 (100.0%)
+     Invalid: 0
+     Warnings: 0
+     Errors: 0
+
+   TAX:
+     Total: 1550
+     Valid: 1550 (100.0%)
+     Invalid: 0
+     Warnings: 0
+     Errors: 0
+
+   AUD:
+     Total: 1050
+     Valid: 1050 (100.0%)
+     Invalid: 0
+     Warnings: 0
+     Errors: 0
+
+🚨 TOP ISSUES FOUND:
+   ERROR: question_code (1550 occurrences)
+     Examples: MS-24-925-E, MS-34-320-E, MS-33-170-E
+
+💡 RECOMMENDATIONS:
+   🚫 CRITICAL ISSUES TO FIX:
+     - Review question code formats
+     - Ensure exactly one correct answer per question
+     - Validate all required fields are present
+     - Check for duplicate choice texts
+
+   🚨 POOR QUALITY: Significant improvements required
+
+================================================================================

@@ -1,0 +1,48 @@
+{
+  "summary": {
+    "totalSuites": 6,
+    "passedSuites": 3,
+    "failedSuites": 3,
+    "successRate": "50.0",
+    "totalDuration": 52,
+    "timestamp": "2026-01-11T00:59:06.853Z"
+  },
+  "results": [
+    {
+      "suite": "MCQ Generation System",
+      "status": "PASS",
+      "duration": 8,
+      "timestamp": "2026-01-11T00:59:06.768Z"
+    },
+    {
+      "suite": "API Endpoints",
+      "status": "PASS",
+      "duration": 38,
+      "timestamp": "2026-01-11T00:59:06.806Z"
+    },
+    {
+      "suite": "Data Validation",
+      "status": "FAIL",
+      "error": "Cannot find module '../src/schemas/mcqSchema.json'\nRequire stack:\n- C:\\Users\\LD3\\Desktop\\cpale-explained\\tests\\comprehensive.test.js",
+      "timestamp": "2026-01-11T00:59:06.806Z"
+    },
+    {
+      "suite": "Premium Analytics",
+      "status": "FAIL",
+      "error": "Access denied for user 'root'@'172.18.0.1' (using password: NO)",
+      "timestamp": "2026-01-11T00:59:06.836Z"
+    },
+    {
+      "suite": "Integration Tests",
+      "status": "FAIL",
+      "error": "Integration failed: TOS API not working",
+      "timestamp": "2026-01-11T00:59:06.847Z"
+    },
+    {
+      "suite": "Performance Tests",
+      "status": "PASS",
+      "duration": 6,
+      "timestamp": "2026-01-11T00:59:06.853Z"
+    }
+  ]
+}

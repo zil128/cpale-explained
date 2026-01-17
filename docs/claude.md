@@ -1,0 +1,113 @@
+
+# CLAUDE CHAT HISTORY
+ <https://claude.ai/chat/5ff67dd2-9e17-4d01-bd8a-c246d77534c6> 
+
+
+
+
+## SKILSS
+
+1. Typoghraphy - do not use generic fonts. Pick something interesting for Gen-Z
+
+2. Color and Theme - Comit to a cohesive color pallete. Avoid ordinary and basic color and theme. Make it amazing and attractive.
+
+3. Motion - Use animation strategically.
+
+4. Spatial composition - Break the grid. Use asymetry. Overlap elements. Create unexpected layouts.
+
+5. Background and Details - Do not just use solid colors. Add textures, subtle gradients, decorative elements that match your aesthetic and interesting to Gen-Z
+
+
+## MCQ generation RULE
+FAR - Financial Accounting and Reporting
+AFAR - Advanced Financial Accounting and Reporting
+AUD - Auditing
+MS - Management Services
+RFBT - Regulatory Framework for Business Transactions
+TAX - Taxation
+
+Every MCQ will include:
+    1. Exam-style question
+    2. 4 choices
+    3. Correct answer
+    4. Illustration - (illustrate using real life situation or scenario if applicable for the question and correct answer to illustrate)
+    5. Explanation breakdown (for correct AND wrong choices when applicable)
+    6. Plain-English explanation
+    7. Formal definition (reviewer-level)
+    8. Elements / conditions checklist
+    9. Distinction from other similar concepts
+    10. Why EACH wrong choice is wrong
+    11. References (IFRS, PFRS, Civil Code / general law, special law reference, and other necessary applicable references - all reference to specify what section)
+    12. One-line "power" CPALE memory trigger
+
+Layman story first (so the concept sticks) 
+✅ if there is a Latin term or other non-layman term, explain it in layman's team
+ ✅ Formal legal definition (exam-accurate, not watered down) 
+✅ Checklist of elements (for issue spotting)
+ ✅ Clear distinction from similar concept or context
+ ✅ Why wrong choices are wrong (this is where most pass/fail happens)
+ ✅ Exact reference - References (IFRS, PFRS, Civil Code / general law, special law reference, and other necessary applicable references - all reference to specify what section)
+ ✅ One-line "power" CPALE memory trigger
+
+
+sample MCQ QUESTION 
+
+36 A buyer discovered that the thing sold had a hidden defect that made it unfit for its intended use. 
+What is the proper legal action to cancel the sale? A. Accion reinvindicatoria B. Accion redhibitoria C. Accion publiciana D. Accion pauliana
+
+ ✅ Correct Answer B. Accion redhibitoria 
+
+🏠 Illustration = Real-Life Scenario (Very Simple) 
+You buy a refrigerator.
+    • It looks fine when delivered
+    • After using it, you discover: 
+        ○ It cannot cool properly
+    • You later learn: 
+        ○ The defect already existed at the time of sale You don’t want a discount. You don’t want repairs. 👉 You want to return the refrigerator and get your money back. 
+        ○ 🧠 Breaking Down the Legal Term (So It Makes Sense) Accion → 
+        ○ action or lawsuit Redhibitoria → to return or give back 
+        ○ 👉 Accion redhibitoria = an action to return the thing and cancel the sale In simple words: This is the buyer’s lawsuit to cancel the sale because of a hidden and serious defect. 
+        ○ 
+        ○ 📘 Formal Legal Meaning (Reviewer-Level, Still Simple) Accion redhibitoria (redhibitory action) is a legal remedy in civil law that allows a buyer to rescind or cancel a sale when the thing sold has a hidden defect so serious that:
+    • It makes the thing unfit for its intended use, or
+    • It makes the use extremely inconvenient, and
+    • The buyer would not have bought it if the defect were known The result:
+    • The buyer returns the item
+    • The seller returns the price paid, plus interest and expenses ✅ Conditions for Accion Redhibitoria (Easy Checklist) All must be present: ✔ The defect is hidden ✔ The defect is serious ✔ The defect existed at the time of sale ✔ The buyer was unaware of the defect ✔ The defect makes the thing unfit or extremely inconvenient If these are present → Accion redhibitoria applies 🔄 Distinguished from a Similar Remedy If the buyer says: “I’ll keep the item, but I want a lower price.” That is NOT accion redhibitoria. That remedy is: 👉 Accion quanti minoris (Price reduction instead of cancellation) ❌ Why the Other Choices Are Wrong ❌ A. Accion reinvindicatoria Reivindicar → to recover ownership
+    • Used by an owner to recover property from someone else
+    • ❌ Not about defects
+    • ❌ Not about canceling a sale ❌ C. Accion publiciana
+    • Used to recover possession, not ownership
+    • ❌ Not related to defects
+    • ❌ Not a remedy to cancel a sale ❌ D. Accion pauliana
+    • Used by creditors
+    • Purpose: to rescind fraudulent transfers made to prejudice creditors
+    • ❌ Not a buyer’s remedy
+    • ❌ Not about defective goods 📜 Legal Basis Civil Code, Article 1567 “In the cases of Articles 1561 and 1566, the buyer may elect between withdrawing from the contract and demanding a proportionate reduction of the price…” 🎯 CPALE Memory Trigger 👉 Hidden defect + cancel the sale = ACCION REDHIBITORIA
+References: civil code section xxx / supreme court xxx
+
+
+
+
+## TIERED PRICING PLAN
+
+FREE = P0 - for free 50 MCQs for ALL 6 subjects unlimited repetition
+
+BASIC = P149 per month OR P800 for six (6) months to consider one-time payment discount. To access 500 MCQs with basic analytics, create two tabs for "monthly" and "6-months" option plan for payment
+
+ADVANCE = P299 per month OR P1,599 for six (6) months to consider one-time payment discount - To access 10,000+ MCQ access with AI advance analytics, create two tabs for "monthly" and "6-months" option plan for payment
+
+## PRACTICE SETS
+
+For Basic and Advance plans, breakdown Practice Set MCQ into 75 per practice set with number of exam attempts:(label command button "Practice Set 01", 'Practice Set 01", until completion of a total 500 MCQs in Basic Plan, and completion of 10,000+ MCQs in Advance plan)
+
+for MOCK PREBOARD - timed exam where MCQs is set to 100 per subject, pattern the time bound from CPALE exam like if it is a 3-hour timed-exam
+
+## PAYMENT OPTIONS
+
+- Gcash
+- Paymaya
+- Bank Transfer
+
+OR any payment flatform yoou can recommend
+- One-time payment options available for better value

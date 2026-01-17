@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - CPALE Explained</title>
+    <meta name="description" content="Choose your plan and start your CPALE journey. Affordable pricing for every aspiring CPA.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Space Grotesk + Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#10B981',
+                        accent: '#F472B6',
+                        lavender: '#FDF4FF',
+                        mint: '#ECFDF5',
+                        peach: '#FFF7ED',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Mesh Gradient Background */
+        .mesh-gradient {
+            background:
+                radial-gradient(at 40% 20%, #FDF4FF 0px, transparent 50%),
+                radial-gradient(at 80% 0%, #ECFDF5 0px, transparent 50%),
+                radial-gradient(at 0% 50%, #FEE2E2 0px, transparent 50%),
+                radial-gradient(at 80% 50%, #E0E7FF 0px, transparent 50%),
+                radial-gradient(at 0% 100%, #FCE7F3 0px, transparent 50%),
+                radial-gradient(at 80% 100%, #D1FAE5 0px, transparent 50%),
+                linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #F472B6 100%);
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-purple {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(167, 139, 250, 0.1) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(124, 58, 237, 0.2);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(124, 58, 237, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(124, 58, 237, 0.5); }
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Tab styling */
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Pricing card hover effect */
+        .pricing-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px) scale(1.02);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #7C3AED;
+            position: relative;
+            overflow: visible;
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #7C3AED 0%, #F472B6 100%);
+            color: white;
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Savings badge */
+        .savings-badge {
+            background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        /* Decorative blobs */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        /* Payment provider buttons */
+        .payment-btn {
+            transition: all 0.3s ease;
+        }
+
+        .payment-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+        }
+
+        .payment-btn.selected {
+            border-color: #7C3AED;
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        /* Confetti effect for checkout */
+        @keyframes confetti {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="min-h-screen mesh-gradient">
+    <!-- Decorative blobs -->
+    <div class="blob w-96 h-96 bg-purple-400 top-20 -left-48"></div>
+    <div class="blob w-80 h-80 bg-pink-400 top-1/3 right-0"></div>
+    <div class="blob w-64 h-64 bg-emerald-400 bottom-20 left-1/4"></div>
+
+    <!-- Navigation -->
+    <nav class="glass fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                    <span class="text-white font-bold text-lg">C</span>
+                </div>
+                <span class="font-heading font-bold text-xl text-gray-800">CPALE Explained</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-primary transition">Home</a>
+                <a href="pricing.html" class="text-primary font-semibold">Pricing</a>
+                <a href="login.html" class="text-gray-600 hover:text-primary transition">Login</a>
+                <a href="register.html" class="px-5 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full font-semibold hover:shadow-lg hover:shadow-primary/30 transition">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-28 pb-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+                    Choose Your
+                    <span class="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+                        CPALE Journey
+                    </span>
+                </h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Invest in your future. Pass the CPA Licensure Exam with confidence.
+                </p>
+            </div>
+
+            <!-- Billing Period Tabs -->
+            <div class="flex justify-center mb-10">
+                <div class="glass rounded-full p-1.5 flex space-x-1">
+                    <button id="monthlyTab" class="tab-btn active px-6 py-2.5 rounded-full font-semibold text-sm">
+                        Monthly
+                    </button>
+                    <button id="semiAnnualTab" class="tab-btn px-6 py-2.5 rounded-full font-semibold text-sm text-gray-600">
+                        6 Months
+                        <span class="ml-1 text-xs bg-emerald-100 text-emerald-600 px-2 py-0.5 rounded-full">Save up to 11%</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8" id="pricingCards">
+                <!-- FREE Plan -->
+                <div class="pricing-card glass rounded-3xl p-8 relative">
+                    <div class="mb-6">
+                        <span class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Starter</span>
+                        <h3 class="text-2xl font-bold text-gray-800 mt-1">Free Plan</h3>
+                    </div>
+                    <div class="mb-6">
+                        <span class="text-5xl font-bold text-gray-800">P0</span>
+                        <span class="text-gray-500">/forever</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">Perfect for getting started and testing the waters.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>50 MCQs</strong> across all subjects</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>All 6 CPALE subjects</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Unlimited repetition</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Basic progress tracking</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Practice Sets</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Mock Preboard Exams</span>
+                        </li>
+                    </ul>
+                    <a href="register.html" class="block w-full py-3 px-6 text-center border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-primary hover:text-primary transition">
+                        Start Free
+                    </a>
+                </div>
+
+                <!-- BASIC Plan -->
+                <div class="pricing-card glass rounded-3xl p-8 relative" id="basicCard">
+                    <div class="mb-6">
+                        <span class="text-sm font-semibold text-primary uppercase tracking-wider">Popular</span>
+                        <h3 class="text-2xl font-bold text-gray-800 mt-1">Basic Plan</h3>
+                    </div>
+                    <div class="mb-6" id="basicPrice">
+                        <span class="text-5xl font-bold text-gray-800">P149</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">For serious reviewers ready to level up.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>500 MCQs</strong> with explanations</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>All 6 CPALE subjects</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>Practice Sets</strong> (75 MCQs each)</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Basic analytics dashboard</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Email support</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Mock Preboard Exams</span>
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('BASIC')" class="block w-full py-3 px-6 text-center bg-gradient-to-r from-primary to-purple-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-primary/30 transition">
+                        Get Basic
+                    </button>
+                </div>
+
+                <!-- ADVANCE Plan -->
+                <div class="pricing-card featured glass rounded-3xl p-8 relative animate-pulse-glow" id="advanceCard">
+                    <div class="mb-6">
+                        <span class="text-sm font-semibold text-accent uppercase tracking-wider">Best Value</span>
+                        <h3 class="text-2xl font-bold text-gray-800 mt-1">Advance Plan</h3>
+                    </div>
+                    <div class="mb-6" id="advancePrice">
+                        <span class="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">P299</span>
+                        <span class="text-gray-500">/month</span>
+                    </div>
+                    <p class="text-gray-600 mb-6">Full access for maximum exam readiness.</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>10,000+ MCQs</strong> full database</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>All 6 CPALE subjects</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-emerald-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>Practice Sets</strong> (75 MCQs each)</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-primary mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>Mock Preboard</strong> (100 MCQs, 3hrs)</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-primary mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span><strong>AI-Powered</strong> analytics</span>
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <svg class="w-5 h-5 text-primary mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Priority support</span>
+                        </li>
+                    </ul>
+                    <button onclick="selectPlan('ADVANCE')" class="block w-full py-3 px-6 text-center bg-gradient-to-r from-primary via-accent to-pink-500 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-accent/30 transition">
+                        Get Advance
+                    </button>
+                </div>
+            </div>
+
+            <!-- Savings badge for 6-month (hidden by default) -->
+            <div id="savingsBadge" class="hidden text-center mt-8">
+                <div class="inline-flex items-center space-x-2 savings-badge text-white px-6 py-3 rounded-full">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="font-semibold">You're saving up to P195 with the 6-month plan!</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="glass rounded-3xl max-w-lg w-full p-8 relative animate-float">
+            <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Complete Your Purchase</h3>
+            <p class="text-gray-600 mb-6" id="selectedPlanInfo">You selected: Basic Monthly - P149</p>
+
+            <!-- Promo Code -->
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">Have a promo code?</label>
+                <div class="flex space-x-2">
+                    <input type="text" id="promoCodeInput" placeholder="Enter code" class="flex-1 px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
+                    <button onclick="applyPromoCode()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition font-semibold">
+                        Apply
+                    </button>
+                </div>
+                <p id="promoMessage" class="text-sm mt-2 hidden"></p>
+            </div>
+
+            <!-- Price Summary -->
+            <div class="bg-gray-50 rounded-xl p-4 mb-6">
+                <div class="flex justify-between mb-2">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span id="subtotalPrice" class="font-semibold">P149.00</span>
+                </div>
+                <div id="discountRow" class="flex justify-between mb-2 hidden">
+                    <span class="text-emerald-600">Discount</span>
+                    <span id="discountAmount" class="text-emerald-600 font-semibold">-P0.00</span>
+                </div>
+                <div class="border-t border-gray-200 pt-2 flex justify-between">
+                    <span class="font-bold text-gray-800">Total</span>
+                    <span id="totalPrice" class="font-bold text-xl text-primary">P149.00</span>
+                </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-3">Choose payment method</label>
+                <div class="grid grid-cols-3 gap-3" id="paymentMethods">
+                    <button onclick="selectPaymentMethod('GCASH')" class="payment-btn flex flex-col items-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary">
+                        <img src="images/gcash-logo.png" alt="GCash" class="h-8 mb-2" onerror="this.src='https://via.placeholder.com/80x32?text=GCash'">
+                        <span class="text-sm font-medium text-gray-700">GCash</span>
+                    </button>
+                    <button onclick="selectPaymentMethod('PAYMAYA')" class="payment-btn flex flex-col items-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary">
+                        <img src="images/paymaya-logo.png" alt="Maya" class="h-8 mb-2" onerror="this.src='https://via.placeholder.com/80x32?text=Maya'">
+                        <span class="text-sm font-medium text-gray-700">Maya</span>
+                    </button>
+                    <button onclick="selectPaymentMethod('BANK_TRANSFER')" class="payment-btn flex flex-col items-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary">
+                        <img src="images/bank-logo.png" alt="Bank" class="h-8 mb-2" onerror="this.src='https://via.placeholder.com/80x32?text=Bank'">
+                        <span class="text-sm font-medium text-gray-700">Bank</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Payment Instructions -->
+            <div id="paymentInstructions" class="hidden bg-lavender rounded-xl p-4 mb-6">
+                <p class="text-sm text-gray-700" id="instructionsText"></p>
+            </div>
+
+            <!-- Proceed Button -->
+            <button onclick="proceedToPayment()" id="proceedBtn" disabled class="w-full py-4 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-primary/30 transition">
+                Proceed to Payment
+            </button>
+
+            <p class="text-xs text-center text-gray-500 mt-4">
+                By proceeding, you agree to our Terms of Service and Privacy Policy.
+            </p>
+        </div>
+    </div>
+
+    <!-- Payment Confirmation Modal -->
+    <div id="confirmationModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="glass rounded-3xl max-w-md w-full p-8 text-center">
+            <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Payment Initiated!</h3>
+            <p class="text-gray-600 mb-4">Your reference number:</p>
+            <div class="bg-gray-100 rounded-xl p-4 mb-6">
+                <span id="referenceNumber" class="text-xl font-mono font-bold text-primary">CPALE-20260116-XXXXX</span>
+            </div>
+            <p class="text-sm text-gray-600 mb-6" id="confirmInstructions">
+                Please complete your payment using the selected method. Once confirmed, your subscription will be activated within 24 hours.
+            </p>
+            <button onclick="closeConfirmationModal()" class="w-full py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition">
+                Got it!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+
+        // State
+        let currentBillingPeriod = 'MONTHLY';
+        let selectedPlanType = null;
+        let selectedPlanCode = null;
+        let selectedPaymentMethod = null;
+        let appliedPromo = null;
+        let currentPrice = 0;
+
+        // Plans data
+        const plansData = {
+            BASIC: {
+                MONTHLY: { code: 'BASIC_MONTHLY', price: 149, name: 'Basic Monthly' },
+                SEMI_ANNUAL: { code: 'BASIC_SEMI', price: 800, originalPrice: 894, name: 'Basic 6-Month' }
+            },
+            ADVANCE: {
+                MONTHLY: { code: 'ADVANCE_MONTHLY', price: 299, name: 'Advance Monthly' },
+                SEMI_ANNUAL: { code: 'ADVANCE_SEMI', price: 1599, originalPrice: 1794, name: 'Advance 6-Month' }
+            }
+        };
+
+        // Tab switching
+        document.getElementById('monthlyTab').addEventListener('click', () => switchBillingPeriod('MONTHLY'));
+        document.getElementById('semiAnnualTab').addEventListener('click', () => switchBillingPeriod('SEMI_ANNUAL'));
+
+        function switchBillingPeriod(period) {
+            currentBillingPeriod = period;
+
+            // Update tabs
+            document.getElementById('monthlyTab').classList.toggle('active', period === 'MONTHLY');
+            document.getElementById('semiAnnualTab').classList.toggle('active', period === 'SEMI_ANNUAL');
+
+            // Update prices
+            if (period === 'MONTHLY') {
+                document.getElementById('basicPrice').innerHTML = '<span class="text-5xl font-bold text-gray-800">P149</span><span class="text-gray-500">/month</span>';
+                document.getElementById('advancePrice').innerHTML = '<span class="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">P299</span><span class="text-gray-500">/month</span>';
+                document.getElementById('savingsBadge').classList.add('hidden');
+            } else {
+                document.getElementById('basicPrice').innerHTML = `
+                    <span class="text-3xl text-gray-400 line-through">P894</span>
+                    <span class="text-5xl font-bold text-gray-800">P800</span>
+                    <span class="text-gray-500">/6 months</span>
+                    <span class="block text-sm text-emerald-500 font-semibold mt-1">Save P94!</span>
+                `;
+                document.getElementById('advancePrice').innerHTML = `
+                    <span class="text-3xl text-gray-400 line-through">P1,794</span>
+                    <span class="text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">P1,599</span>
+                    <span class="text-gray-500">/6 months</span>
+                    <span class="block text-sm text-emerald-500 font-semibold mt-1">Save P195!</span>
+                `;
+                document.getElementById('savingsBadge').classList.remove('hidden');
+            }
+        }
+
+        function selectPlan(planType) {
+            // Check if user is logged in
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert('Please login or register first to subscribe.');
+                window.location.href = 'register.html';
+                return;
+            }
+
+            selectedPlanType = planType;
+            const plan = plansData[planType][currentBillingPeriod];
+            selectedPlanCode = plan.code;
+            currentPrice = plan.price;
+
+            // Update modal info
+            document.getElementById('selectedPlanInfo').textContent = `You selected: ${plan.name} - P${plan.price.toLocaleString()}`;
+            document.getElementById('subtotalPrice').textContent = `P${plan.price.toLocaleString()}.00`;
+            document.getElementById('totalPrice').textContent = `P${plan.price.toLocaleString()}.00`;
+
+            // Reset promo and payment
+            appliedPromo = null;
+            selectedPaymentMethod = null;
+            document.getElementById('discountRow').classList.add('hidden');
+            document.getElementById('promoMessage').classList.add('hidden');
+            document.getElementById('promoCodeInput').value = '';
+            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
+            document.getElementById('paymentInstructions').classList.add('hidden');
+            document.getElementById('proceedBtn').disabled = true;
+
+            // Show modal
+            document.getElementById('paymentModal').classList.remove('hidden');
+            document.getElementById('paymentModal').classList.add('flex');
+        }
+
+        function closePaymentModal() {
+            document.getElementById('paymentModal').classList.add('hidden');
+            document.getElementById('paymentModal').classList.remove('flex');
+        }
+
+        async function applyPromoCode() {
+            const code = document.getElementById('promoCodeInput').value.trim();
+            if (!code) return;
+
+            try {
+                const response = await fetch(`${API_URL}/payment/validate-promo`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ code, planCode: selectedPlanCode })
+                });
+
+                const data = await response.json();
+                const messageEl = document.getElementById('promoMessage');
+
+                if (data.valid) {
+                    appliedPromo = data.promo;
+                    let discount = 0;
+
+                    if (data.promo.discountType === 'PERCENTAGE') {
+                        discount = currentPrice * (data.promo.discountValue / 100);
+                    } else {
+                        discount = data.promo.discountValue;
+                    }
+
+                    const finalPrice = Math.max(0, currentPrice - discount);
+
+                    document.getElementById('discountRow').classList.remove('hidden');
+                    document.getElementById('discountAmount').textContent = `-P${discount.toFixed(2)}`;
+                    document.getElementById('totalPrice').textContent = `P${finalPrice.toFixed(2)}`;
+
+                    messageEl.textContent = `Promo applied: ${data.promo.description}`;
+                    messageEl.classList.remove('hidden', 'text-red-500');
+                    messageEl.classList.add('text-emerald-500');
+                } else {
+                    messageEl.textContent = data.error || 'Invalid promo code';
+                    messageEl.classList.remove('hidden', 'text-emerald-500');
+                    messageEl.classList.add('text-red-500');
+                }
+            } catch (error) {
+                console.error('Promo validation error:', error);
+            }
+        }
+
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+
+            // Update UI
+            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            // Show instructions
+            const instructions = {
+                'GCASH': 'Send payment to GCash number: 0917-XXX-XXXX (CPALE Explained). Include your email as reference.',
+                'PAYMAYA': 'Send payment to Maya number: 0917-XXX-XXXX (CPALE Explained). Include your email as reference.',
+                'BANK_TRANSFER': 'Transfer to BDO Account: 1234-5678-9012 (CPALE Explained Inc.). Send proof to payment@cpaleexplained.com'
+            };
+
+            document.getElementById('instructionsText').textContent = instructions[method];
+            document.getElementById('paymentInstructions').classList.remove('hidden');
+            document.getElementById('proceedBtn').disabled = false;
+        }
+
+        async function proceedToPayment() {
+            if (!selectedPaymentMethod || !selectedPlanCode) return;
+
+            const token = localStorage.getItem('token');
+            if (!token) {
+                alert('Please login first');
+                return;
+            }
+
+            try {
+                const response = await fetch(`${API_URL}/payment/create`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        planCode: selectedPlanCode,
+                        paymentProvider: selectedPaymentMethod,
+                        promoCode: appliedPromo?.code || null
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Show confirmation modal
+                    closePaymentModal();
+                    document.getElementById('referenceNumber').textContent = data.transaction.reference;
+                    document.getElementById('confirmInstructions').textContent = data.transaction.instructions;
+                    document.getElementById('confirmationModal').classList.remove('hidden');
+                    document.getElementById('confirmationModal').classList.add('flex');
+                } else {
+                    alert(data.error || 'Failed to create payment');
+                }
+            } catch (error) {
+                console.error('Payment creation error:', error);
+                alert('Failed to create payment. Please try again.');
+            }
+        }
+
+        function closeConfirmationModal() {
+            document.getElementById('confirmationModal').classList.add('hidden');
+            document.getElementById('confirmationModal').classList.remove('flex');
+            window.location.href = 'dashboard.html';
+        }
+
+        // Close modal on outside click
+        document.getElementById('paymentModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('paymentModal')) {
+                closePaymentModal();
+            }
+        });
+    </script>
+</body>
+</html>
