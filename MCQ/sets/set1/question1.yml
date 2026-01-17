@@ -1,0 +1,37 @@
+code: <code>
+difficulty: EASY|MEDIUM|HARD
+text: According to the Conceptual Framework, income includes:
+access-level: FREE|PAID
+topic: <topic>
+choices:
+  choice1:
+    label: Revenue Only
+    why-wrong-choice: Revenue Only is wrong due to something
+  choice2:
+    correct: true
+    label: Revenue and gains
+  choice3:
+    label: Revenue, gains, and contributions
+    why-wrong-choice: There is no contributions
+  choice4:
+    label: All increases in assets
+    why-wrong-choice: There is no increase in assets. Only Revenue and gains.
+explanation:
+  short: Income means any money coming in that makes the owners richer - whether from regular business or occasional windfalls.
+  long: |
+    A bakery makes money from selling bread (REVENUE - main activity) and also from selling an old oven (GAIN - not main activity). Both increase the owner's wealth, so both are INCOME.
+    
+    The Conceptual Framework defines income broadly to include both revenue from ordinary activities and gains.
+
+    FORMAL DEFINITION: Income is increases in assets, or decreases in liabilities, that result in increases in equity, other than those relating to contributions from holders of equity claims. It encompasses both revenue and gains.
+
+    ELEMENTS:
+    INCOME includes:
+    1. Revenue (ordinary activities)
+    2. Gains (non-ordinary activities)
+
+    Does NOT include:
+    - Owner contributions
+    DISTINCTION: Revenue = regular business income; Gains = incidental/peripheral income. Both are INCOME.
+tip: Financial statements = INVESTOR DECISION TOOL
+reference: Conceptual Framework, Chapter 4, Paragraphs 4.68-4.72

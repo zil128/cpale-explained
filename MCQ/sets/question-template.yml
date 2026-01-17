@@ -1,0 +1,24 @@
+code: <code>
+difficulty: <EASY|MEDIUM|HARD>
+text: <text>
+access-level: <FREE|PAID>
+topic: <topic>
+choices:
+  choice1:
+    label: <Choice 1>
+    correct: <true|false>
+  choice2:
+    label: <Choice 2>
+    why-wrong-choice: <Explanation for Choice 2>
+  choice3:
+    label: <Choice 3>
+    why-wrong-choice: <Explanation for Choice 3>
+  choice4:
+    label: <Choice 4>
+    why-wrong-choice: <Explanation for Choice 4>
+explanation:
+  short: <short exlpanation>
+  long: |
+    <long explanation>
+tip: <tip>
+reference: <reference> 
