@@ -318,6 +318,9 @@
     </main>
 
     <script>
+        // API Base URL - use backend server
+        const API_BASE = 'http://localhost:5000';
+
         // Check authentication
         const token = localStorage.getItem('token');
         if (!token) {
@@ -341,13 +344,13 @@
         // Load questions
         async function loadQuestions() {
             try {
-                let url = '/api/questions/free';
+                let url = `${API_BASE}/api/questions/free`;
                 let headers = {};
 
                 // Check for practice set mode
                 if (practiceSetNum && subjectFilter) {
                     // First, get practice sets to find the correct ID
-                    const setsResponse = await fetch(`/api/practice-sets?subject=${subjectFilter}`);
+                    const setsResponse = await fetch(`${API_BASE}/api/practice-sets?subject=${subjectFilter}`);
                     const setsData = await setsResponse.json();
 
                     // Find the practice set matching the number (e.g., PS-01, PS-02)
@@ -372,13 +375,13 @@
                             headers['Authorization'] = `Bearer ${token}`;
                         }
 
-                        url = `/api/practice-sets/${practiceSetId}/questions`;
+                        url = `${API_BASE}/api/practice-sets/${practiceSetId}/questions`;
 
                         // Update page title
                         document.querySelector('h1').textContent = `${subjectFilter} Practice Set ${practiceSetNum}`;
                     }
                 } else if (subjectFilter) {
-                    url += `?subject=${subjectFilter}`;
+                    url = `${url}?subject=${subjectFilter}`;
                 }
 
                 const token = localStorage.getItem('authToken');
@@ -494,7 +497,7 @@
         // Save progress to server
         async function saveProgress(questionId, isCorrect, topicId) {
             try {
-                await fetch('/api/progress/save', {
+                await fetch(`${API_BASE}/api/progress/save`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -510,7 +513,7 @@
         // Check if user has exhausted free questions
         async function checkFreeLimit() {
             try {
-                const response = await fetch('/api/progress/check-limit', {
+                const response = await fetch(`${API_BASE}/api/progress/check-limit`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
                 const data = await response.json();
@@ -552,61 +555,74 @@
             // Hide submit button
             document.getElementById('submitSection').classList.add('hidden');
 
-            // Load and show explanation
+            // Update result header (moved outside try-catch to always show)
+            const resultIcon = document.getElementById('resultIcon');
+            const resultTitle = document.getElementById('resultTitle');
+            const resultSubtitle = document.getElementById('resultSubtitle');
+
+            if (isCorrect) {
+                resultIcon.className = 'w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-secondary/20';
+                resultIcon.textContent = '✓';
+                resultTitle.textContent = 'Correct!';
+                resultTitle.className = 'font-heading text-2xl font-bold text-secondary';
+                resultSubtitle.textContent = 'Great job! Keep it up.';
+            } else {
+                resultIcon.className = 'w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-red-100';
+                resultIcon.textContent = '✗';
+                resultTitle.textContent = 'Incorrect';
+                resultTitle.className = 'font-heading text-2xl font-bold text-red-500';
+                resultSubtitle.textContent = 'Don\'t worry, learn from this!';
+            }
+
+            // Update correct answer (always available from question data)
+            document.getElementById('correctAnswerText').textContent = `${correctChoice.choice_label}. ${correctChoice.choice_text}`;
+            
+            // Update question code (always available from question data)
+            document.getElementById('questionCode').textContent = question.question_code || 'N/A';
+
+            // Build "why wrong" display from per-choice data with dynamic labels
+            const whyWrongText = question.choices
+                .filter(c => !c.is_correct && c.why_wrong)
+                .map(c => `${c.choice_label}. ${c.why_wrong}`)
+                .join('\n');
+            document.getElementById('whyWrongChoices').textContent = whyWrongText || 'No explanation available for wrong choices.';
+
+            // Update next button text
+            if (currentIndex === questions.length - 1) {
+                document.getElementById('nextBtn').textContent = 'See Results';
+            } else {
+                document.getElementById('nextBtn').textContent = 'Next Question';
+            }
+
+            // Load explanation from API (may fail, but button will still show)
             try {
-                const response = await fetch(`/api/questions/${question.question_id}/explanation`, {
+                const response = await fetch(`${API_BASE}/api/questions/${question.question_id}/explanation`, {
                     headers: { 'Authorization': `Bearer ${token}` }
                 });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
+                
                 const data = await response.json();
+                const explanation = data.explanation || {};
 
-                // Update result header
-                const resultIcon = document.getElementById('resultIcon');
-                const resultTitle = document.getElementById('resultTitle');
-                const resultSubtitle = document.getElementById('resultSubtitle');
-
-                if (isCorrect) {
-                    resultIcon.className = 'w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-secondary/20';
-                    resultIcon.textContent = '✓';
-                    resultTitle.textContent = 'Correct!';
-                    resultTitle.className = 'font-heading text-2xl font-bold text-secondary';
-                    resultSubtitle.textContent = 'Great job! Keep it up.';
-                } else {
-                    resultIcon.className = 'w-16 h-16 rounded-2xl flex items-center justify-center text-3xl bg-red-100';
-                    resultIcon.textContent = '✗';
-                    resultTitle.textContent = 'Incorrect';
-                    resultTitle.className = 'font-heading text-2xl font-bold text-red-500';
-                    resultSubtitle.textContent = 'Don\'t worry, learn from this!';
-                }
-
-                // Update explanation content
-                document.getElementById('correctAnswerText').textContent = `${correctChoice.choice_label}. ${correctChoice.choice_text}`;
-                document.getElementById('shortExplanation').textContent = data.explanation?.short_explanation || 'No explanation available.';
-                document.getElementById('detailedExplanation').textContent = data.explanation?.exam_explanation || '';
-                
-                // Build "why wrong" display from per-choice data with dynamic labels
-                const whyWrongText = question.choices
-                    .filter(c => !c.is_correct && c.why_wrong)
-                    .map(c => `${c.choice_label}. ${c.why_wrong}`)
-                    .join('\n');
-                document.getElementById('whyWrongChoices').textContent = whyWrongText || 'No explanation available for wrong choices.';
-                
-                document.getElementById('memoryTip').textContent = data.explanation?.memory_tip || 'No tip available.';
-                document.getElementById('legalReference').textContent = data.explanation?.legal_reference || 'N/A';
-                
-                // Populate question code (from the question object)
-                document.getElementById('questionCode').textContent = question.question_code || 'N/A';
-
-                // Update next button text
-                if (currentIndex === questions.length - 1) {
-                    document.getElementById('nextBtn').textContent = 'See Results';
-                }
+                // Update explanation content with defensive null checks
+                document.getElementById('shortExplanation').textContent = explanation.short_explanation || 'No explanation available.';
+                document.getElementById('detailedExplanation').textContent = explanation.exam_explanation || '';
+                document.getElementById('memoryTip').textContent = explanation.memory_tip || 'No tip available.';
+                document.getElementById('legalReference').textContent = explanation.legal_reference || 'N/A';
 
             } catch (error) {
                 console.error('Error loading explanation:', error);
+                // Set fallback values for explanation fields
                 document.getElementById('shortExplanation').textContent = 'Unable to load explanation.';
+                document.getElementById('detailedExplanation').textContent = '';
+                document.getElementById('memoryTip').textContent = 'N/A';
+                document.getElementById('legalReference').textContent = 'N/A';
             }
 
-            // Show explanation section
+            // ALWAYS show explanation section (contains next button)
             document.getElementById('explanationSection').classList.add('show');
         }
 

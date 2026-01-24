@@ -178,6 +178,9 @@ docker-compose down
 docker-compose down -v
 ```
 
+=======================================================================================================
+## STEP BY STEP PROCESS HOW TO COMMIT AND PUSH TO GIT
+
 ### Useful Commands
 
 | Command | Description |
@@ -228,6 +231,8 @@ git commit -m "Your descriptive commit message here"
 git push origin master
 ```
 
+============================================================================================================
+
 ### Complete Example: Commit and Push
 ```bash
 # 1. Check status
@@ -242,6 +247,8 @@ git commit -m "Add new feature: mock exam system"
 # 4. Push to GitHub
 git push origin master
 ```
+
+===============================================================================================================
 
 ### Other Useful Git Commands
 
