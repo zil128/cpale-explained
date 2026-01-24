@@ -191,19 +191,98 @@ docker-compose down -v
 
 ## Git Commands
 
-### Essential Commands
+### Repository URL
+```
+https://github.com/zil128/cpale-explained
+```
+
+### First-Time Setup (Clone Repository)
 ```bash
-# Check what changed
+# Clone the repository to your local machine
+git clone https://github.com/zil128/cpale-explained.git
+
+# Navigate into the project folder
+cd cpale-explained
+```
+
+### Daily Workflow: Commit and Push Changes
+
+**Step 1: Check what files have changed**
+```bash
+git status
+```
+
+**Step 2: Stage all changes for commit**
+```bash
+git add -A
+```
+> Note: Use `git add -A` to include all changes (new, modified, and deleted files)
+
+**Step 3: Commit with a descriptive message**
+```bash
+git commit -m "Your descriptive commit message here"
+```
+
+**Step 4: Push to GitHub**
+```bash
+git push origin master
+```
+
+### Complete Example: Commit and Push
+```bash
+# 1. Check status
 git status
 
-# Stage all changes
-git add .
+# 2. Stage all changes
+git add -A
 
-# Save changes
-git commit -m "your message"
+# 3. Commit with message
+git commit -m "Add new feature: mock exam system"
 
-# Upload to repository
-git push
+# 4. Push to GitHub
+git push origin master
+```
+
+### Other Useful Git Commands
+
+| Command | Description |
+|---------|-------------|
+| `git status` | See what files have changed |
+| `git add -A` | Stage all changes (new, modified, deleted) |
+| `git add <file>` | Stage a specific file |
+| `git commit -m "message"` | Save staged changes with a message |
+| `git push origin master` | Upload commits to GitHub |
+| `git pull origin master` | Download latest changes from GitHub |
+| `git log --oneline -5` | View last 5 commits |
+| `git diff` | See unstaged changes |
+| `git diff --staged` | See staged changes |
+
+### Troubleshooting
+
+**If push fails with "rejected" error:**
+```bash
+# Pull latest changes first, then push
+git pull origin master
+git push origin master
+```
+
+**If you have merge conflicts:**
+```bash
+# 1. Open the conflicted files and resolve conflicts manually
+# 2. Stage the resolved files
+git add -A
+
+# 3. Complete the merge
+git commit -m "Resolve merge conflicts"
+
+# 4. Push
+git push origin master
+```
+
+**To discard all local changes (WARNING: loses all uncommitted work):**
+```bash
+git checkout -- .
+git clean -fd
 ```
 
 ### Access URLs
