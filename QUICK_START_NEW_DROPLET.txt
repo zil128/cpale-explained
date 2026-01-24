@@ -1,0 +1,108 @@
+╔════════════════════════════════════════════════════════════════╗
+║          🚀 QUICK START - NEW DROPLET DEPLOYMENT              ║
+╚════════════════════════════════════════════════════════════════╝
+
+Your current droplet: 143.198.206.143 (Singapore) - INACCESSIBLE
+Solution: Create new droplet with SSH key - 5 minutes!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 1: ADD SSH KEY (2 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to: https://cloud.digitalocean.com/account/security
+
+2. Click: "Add SSH Key"
+
+3. Paste this (entire line):
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGyYHz0IqpfJANhZfPY9j912bh7ow/V2OS/ZsJnMjUYk cpale-deployment-key
+
+4. Name: CPALE Deployment Key
+
+5. Click: "Add SSH Key"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 2: CREATE NEW DROPLET (3 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to: https://cloud.digitalocean.com/droplets/new
+
+2. Settings:
+   Region:         Singapore - SGP1
+   Image:          Ubuntu 22.04 (LTS) x64
+   Size:           Basic - $6/month
+   Authentication: CPALE Deployment Key ✅
+   Hostname:       cpaleexplained-server
+
+3. Click: "Create Droplet"
+
+4. Wait 60 seconds
+
+5. Note the NEW IP address (e.g., 159.89.xxx.xxx)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 3: SSH & DEPLOY (30 minutes)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Open Command Prompt and run (replace NEW_IP):
+
+ssh -i C:\Users\LD3\.ssh\digitalocean_cpale root@NEW_IP
+
+If it works (no password!), you're in! Now deploy:
+
+cd /root
+git clone https://github.com/zil128/cpale-explained.git
+cd cpale-explained/deployment
+chmod +x *.sh
+bash install_server.sh
+bash setup_database.sh
+bash deploy_application.sh
+bash setup_nginx.sh
+bash setup_ssl.sh
+
+Wait ~25 minutes for all scripts to complete.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 4: UPDATE DNS (2 minutes + propagation)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Go to: https://ap.www.namecheap.com/domains/list/
+
+2. Manage: cpaleexplained.com → Advanced DNS
+
+3. Update A records to NEW_IP:
+   @ → NEW_IP (TTL: 5 min)
+   www → NEW_IP (TTL: 5 min)
+
+4. Save changes
+
+5. Wait 5-30 minutes for DNS to propagate
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STEP 5: VERIFY & CELEBRATE 🎉
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Test via IP (works immediately):
+http://NEW_IP
+
+Test via domain (after DNS):
+https://cpaleexplained.com
+
+If everything works:
+✅ Register a test account
+✅ Login
+✅ Try a quiz
+✅ Check admin dashboard
+
+Then destroy old droplet:
+https://cloud.digitalocean.com/droplets
+→ Select old droplet (143.198.206.143)
+→ Destroy
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TOTAL TIME: ~1 hour active work + 30 min DNS wait = 1.5 hours
+COST: ~$0.05 extra during transition
+RESULT: Your site live at https://cpaleexplained.com 🚀
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+READY? Start with STEP 1 now!
