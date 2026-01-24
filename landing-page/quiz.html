@@ -198,15 +198,26 @@
                         <div id="whyWrongChoices" class="text-gray-600 leading-relaxed whitespace-pre-line"></div>
                     </div>
 
-                    <!-- Memory Tip -->
-                    <div class="bg-accent/10 rounded-xl p-4 mb-6">
-                        <p class="text-sm text-accent font-semibold mb-1">Memory Tip</p>
-                        <p id="memoryTip" class="text-gray-900"></p>
-                    </div>
+                    <!-- Memory Tip and Reference (with Question Code) -->
+                    <div class="bg-gray-50 rounded-xl p-6 space-y-4 mb-6 relative">
+                        <!-- Memory Tip -->
+                        <div>
+                            <p class="text-sm text-accent font-semibold mb-1">Memory Tip</p>
+                            <p id="memoryTip" class="text-gray-900"></p>
+                        </div>
 
-                    <!-- Legal Reference -->
-                    <div class="text-sm text-gray-500">
-                        <span class="font-semibold">Reference:</span> <span id="legalReference"></span>
+                        <!-- Legal Reference -->
+                        <div class="text-sm text-gray-500">
+                            <span class="font-semibold">Reference:</span> <span id="legalReference"></span>
+                        </div>
+
+                        <!-- Question Code (absolutely positioned bottom-right) -->
+                        <div class="absolute bottom-4 right-4">
+                            <div class="text-xs bg-white border border-gray-300 rounded px-3 py-1.5 shadow-sm">
+                                <span class="text-gray-500 font-semibold">Code:</span> 
+                                <span id="questionCode" class="font-mono text-gray-700"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -571,9 +582,19 @@
                 document.getElementById('correctAnswerText').textContent = `${correctChoice.choice_label}. ${correctChoice.choice_text}`;
                 document.getElementById('shortExplanation').textContent = data.explanation?.short_explanation || 'No explanation available.';
                 document.getElementById('detailedExplanation').textContent = data.explanation?.exam_explanation || '';
-                document.getElementById('whyWrongChoices').textContent = data.explanation?.why_wrong_choices || '';
+                
+                // Build "why wrong" display from per-choice data with dynamic labels
+                const whyWrongText = question.choices
+                    .filter(c => !c.is_correct && c.why_wrong)
+                    .map(c => `${c.choice_label}. ${c.why_wrong}`)
+                    .join('\n');
+                document.getElementById('whyWrongChoices').textContent = whyWrongText || 'No explanation available for wrong choices.';
+                
                 document.getElementById('memoryTip').textContent = data.explanation?.memory_tip || 'No tip available.';
                 document.getElementById('legalReference').textContent = data.explanation?.legal_reference || 'N/A';
+                
+                // Populate question code (from the question object)
+                document.getElementById('questionCode').textContent = question.question_code || 'N/A';
 
                 // Update next button text
                 if (currentIndex === questions.length - 1) {

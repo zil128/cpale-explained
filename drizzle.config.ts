@@ -3,7 +3,7 @@ import { defineConfig } from 'drizzle-kit';
 
 export default defineConfig({
   out: './drizzle',
-  schema: './src/db/schema/schema.ts',
+  schema: './drizzle/schema.ts',
   dialect: 'mysql',
   dbCredentials: {
     host: process.env.DB_HOST || 'localhost',
@@ -12,4 +12,6 @@ export default defineConfig({
     password: process.env.DB_PASSWORD || 'cpale_password',
     database: process.env.DB_NAME || 'cpale_explained',
   },
+  verbose: true,
+  strict: false,
 });

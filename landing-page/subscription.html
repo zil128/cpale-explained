@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Subscription - CPALE Explained</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#10B981',
+                        accent: '#F472B6',
+                        lavender: '#FDF4FF',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-lavender via-white to-blue-50 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-heading text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                CPALE Explained
+            </a>
+            <div class="flex items-center space-x-4">
+                <a href="dashboard.html" class="text-gray-600 hover:text-primary transition">Dashboard</a>
+                <button onclick="logout()" class="text-gray-600 hover:text-primary transition">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-5xl mx-auto px-6 py-10">
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            Manage Subscription
+        </h1>
+
+        <!-- Current Subscription Card -->
+        <div class="glass rounded-3xl p-8 mb-8">
+            <div class="flex items-start justify-between mb-6">
+                <div>
+                    <h2 class="font-heading text-2xl font-bold text-gray-900 mb-2">Current Plan</h2>
+                    <div id="planBadge" class="inline-block px-4 py-1 bg-gray-100 text-gray-600 text-sm font-bold rounded-full uppercase mb-4">
+                        Free
+                    </div>
+                </div>
+                <div id="statusBadge" class="px-4 py-2 bg-green-100 text-green-600 text-sm font-bold rounded-full">
+                    Active
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
+                <div class="bg-white/50 rounded-xl p-4">
+                    <p class="text-sm text-gray-500 mb-1">Plan Type</p>
+                    <p class="text-xl font-bold text-gray-900" id="planName">Free Plan</p>
+                </div>
+                <div class="bg-white/50 rounded-xl p-4" id="pricingInfo">
+                    <p class="text-sm text-gray-500 mb-1">Monthly Cost</p>
+                    <p class="text-xl font-bold text-gray-900">₱0</p>
+                </div>
+                <div class="bg-white/50 rounded-xl p-4" id="expiryInfo">
+                    <p class="text-sm text-gray-500 mb-1">Valid Until</p>
+                    <p class="text-xl font-bold text-gray-900">Never Expires</p>
+                </div>
+            </div>
+
+            <!-- Usage Stats (for FREE users) -->
+            <div id="usageStats" class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+                <div class="flex justify-between items-center mb-2">
+                    <p class="text-sm font-semibold text-blue-800">MCQ Usage</p>
+                    <p class="text-sm text-blue-700" id="usageText">0 / 50</p>
+                </div>
+                <div class="w-full bg-blue-200 rounded-full h-3">
+                    <div id="usageBar" class="bg-blue-600 h-3 rounded-full transition-all" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Features List -->
+            <div class="mb-6">
+                <p class="text-sm font-semibold text-gray-700 mb-3">Your Plan Includes:</p>
+                <ul id="featuresList" class="grid md:grid-cols-2 gap-3">
+                    <!-- Features will be populated by JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Action Buttons -->
+            <div id="actionButtons" class="flex gap-3">
+                <a href="pricing.html" class="flex-1 py-3 px-6 text-center bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition">
+                    Upgrade Plan
+                </a>
+            </div>
+        </div>
+
+        <!-- Payment History -->
+        <div class="glass rounded-3xl p-8 mb-8">
+            <h2 class="font-heading text-2xl font-bold text-gray-900 mb-6">Payment History</h2>
+            
+            <div id="paymentHistoryList" class="space-y-4">
+                <!-- Payment history will be populated by JavaScript -->
+                <div class="text-center py-8 text-gray-500">
+                    <p>No payment history yet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscription History -->
+        <div class="glass rounded-3xl p-8">
+            <h2 class="font-heading text-2xl font-bold text-gray-900 mb-6">Subscription History</h2>
+            
+            <div id="subscriptionHistoryList" class="space-y-4">
+                <!-- Subscription history will be populated by JavaScript -->
+                <div class="text-center py-8 text-gray-500">
+                    <p>No subscription changes yet</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const API_URL = 'http://localhost:5000/api';
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            window.location.href = 'login.html';
+        }
+
+        function logout() {
+            localStorage.removeItem('token');
+            localStorage.removeItem('user');
+            window.location.href = 'login.html';
+        }
+
+        // Load subscription details
+        async function loadSubscription() {
+            try {
+                const response = await fetch(`${API_URL}/subscription/status`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    updateSubscriptionUI(data);
+                }
+            } catch (error) {
+                console.error('Failed to load subscription:', error);
+            }
+        }
+
+        function updateSubscriptionUI(data) {
+            const isFree = data.subscription_type === 'FREE';
+            
+            // Update plan badge
+            document.getElementById('planBadge').textContent = isFree ? 'FREE' : 'PAID';
+            document.getElementById('planBadge').className = isFree 
+                ? 'inline-block px-4 py-1 bg-gray-100 text-gray-600 text-sm font-bold rounded-full uppercase mb-4'
+                : 'inline-block px-4 py-1 bg-gradient-to-r from-primary to-accent text-white text-sm font-bold rounded-full uppercase mb-4';
+            
+            // Update plan name
+            document.getElementById('planName').textContent = data.plan_name || 'Free Plan';
+            
+            // Update pricing info
+            const pricingInfo = document.getElementById('pricingInfo');
+            if (isFree) {
+                pricingInfo.innerHTML = `
+                    <p class="text-sm text-gray-500 mb-1">Monthly Cost</p>
+                    <p class="text-xl font-bold text-gray-900">₱0</p>
+                `;
+            } else {
+                pricingInfo.innerHTML = `
+                    <p class="text-sm text-gray-500 mb-1">Monthly Cost</p>
+                    <p class="text-xl font-bold text-gray-900">₱149</p>
+                `;
+            }
+            
+            // Update expiry info
+            const expiryInfo = document.getElementById('expiryInfo');
+            if (isFree) {
+                expiryInfo.innerHTML = `
+                    <p class="text-sm text-gray-500 mb-1">Valid Until</p>
+                    <p class="text-xl font-bold text-gray-900">Never Expires</p>
+                `;
+            } else {
+                const daysLeft = data.days_remaining || 0;
+                expiryInfo.innerHTML = `
+                    <p class="text-sm text-gray-500 mb-1">Days Remaining</p>
+                    <p class="text-xl font-bold ${daysLeft < 7 ? 'text-red-600' : 'text-gray-900'}">${daysLeft} days</p>
+                `;
+            }
+            
+            // Update usage stats (show only for FREE)
+            const usageStats = document.getElementById('usageStats');
+            if (isFree) {
+                const used = data.mcqs_used || 0;
+                const limit = data.mcq_limit || 50;
+                const percentage = (used / limit) * 100;
+                
+                document.getElementById('usageText').textContent = `${used} / ${limit}`;
+                document.getElementById('usageBar').style.width = `${percentage}%`;
+                usageStats.classList.remove('hidden');
+            } else {
+                usageStats.classList.add('hidden');
+            }
+            
+            // Update features list
+            const featuresList = document.getElementById('featuresList');
+            const features = isFree 
+                ? [
+                    '50 MCQs across all subjects',
+                    'Unlimited repetition',
+                    'Basic progress tracking',
+                    'Community support'
+                  ]
+                : [
+                    'Unlimited MCQs',
+                    'Practice Sets (75 MCQs each)',
+                    'Basic analytics dashboard',
+                    'Email support',
+                    '30 days access',
+                    'All 6 CPALE subjects'
+                  ];
+            
+            featuresList.innerHTML = features.map(feature => `
+                <li class="flex items-start gap-2">
+                    <svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-gray-700">${feature}</span>
+                </li>
+            `).join('');
+            
+            // Update action buttons
+            const actionButtons = document.getElementById('actionButtons');
+            if (!isFree && daysLeft <= 7) {
+                actionButtons.innerHTML = `
+                    <a href="pricing.html" class="flex-1 py-3 px-6 text-center bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition">
+                        Renew Subscription
+                    </a>
+                `;
+            } else if (isFree) {
+                actionButtons.innerHTML = `
+                    <a href="pricing.html" class="flex-1 py-3 px-6 text-center bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition">
+                        Upgrade to Paid
+                    </a>
+                `;
+            } else {
+                actionButtons.innerHTML = `
+                    <button class="flex-1 py-3 px-6 text-center border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-primary hover:text-primary transition" disabled>
+                        Subscription Active
+                    </button>
+                `;
+            }
+        }
+
+        // Load payment history
+        async function loadPaymentHistory() {
+            try {
+                const response = await fetch(`${API_URL}/payment/history`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    displayPaymentHistory(data.payments || []);
+                }
+            } catch (error) {
+                console.error('Failed to load payment history:', error);
+            }
+        }
+
+        function displayPaymentHistory(payments) {
+            const container = document.getElementById('paymentHistoryList');
+            
+            if (payments.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-8 text-gray-500">
+                        <p>No payment history yet</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = payments.map(payment => {
+                const statusColors = {
+                    'PENDING': 'bg-yellow-100 text-yellow-700',
+                    'VERIFYING': 'bg-blue-100 text-blue-700',
+                    'SUCCESS': 'bg-green-100 text-green-700',
+                    'FAILED': 'bg-red-100 text-red-700'
+                };
+                
+                const date = new Date(payment.created_at).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric'
+                });
+                
+                return `
+                    <div class="bg-white/50 rounded-xl p-4 flex items-center justify-between">
+                        <div class="flex-1">
+                            <p class="font-semibold text-gray-900">${payment.payment_method}</p>
+                            <p class="text-sm text-gray-600">${date} • Ref: ${payment.transaction_ref}</p>
+                        </div>
+                        <div class="text-right">
+                            <p class="font-bold text-gray-900">₱${payment.amount.toFixed(2)}</p>
+                            <span class="inline-block px-3 py-1 ${statusColors[payment.payment_status] || 'bg-gray-100 text-gray-700'} text-xs font-bold rounded-full mt-1">
+                                ${payment.payment_status}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Initialize
+        loadSubscription();
+        loadPaymentHistory();
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+code: TAX-HARD-007
+active: true
+difficulty: HARD
+text: "A non-resident foreign corporation engaged in business in the Philippines had gross income of PHP 50,000,000. Under CREATE Law, what is the applicable corporate income tax rate?"
+access-level: FREE
+topic: 97
+choices:
+  choice1:
+    label: "25% of taxable income"
+    correct: true
+  choice2:
+    label: "30% of taxable income"
+    why-wrong-choice: "30% was the old rate before CREATE Law; the new rate is 25%"
+  choice3:
+    label: "25% of gross income"
+    why-wrong-choice: "The 25% rate applies to TAXABLE income (after deductions), not gross income"
+  choice4:
+    label: "20% of taxable income"
+    why-wrong-choice: "20% rate applies only to domestic corporations with net taxable income ≤ PHP 5M and total assets ≤ PHP 100M"
+explanation:
+  short: "Non-resident foreign corporations engaged in business in the Philippines: 25% of taxable income (same as domestic corporations under CREATE)."
+  long: |
+    CORPORATE INCOME TAX RATES UNDER CREATE LAW
+
+    DOMESTIC CORPORATIONS:
+    - Regular rate: 25% of taxable income
+    - Small corporations: 20% (net taxable income ≤ PHP 5M AND total assets ≤ PHP 100M, excluding land)
+
+    RESIDENT FOREIGN CORPORATIONS:
+    - Same as domestic: 25% of taxable income
+
+    NON-RESIDENT FOREIGN CORPORATIONS:
+
+    1. ENGAGED IN TRADE/BUSINESS IN THE PHILIPPINES:
+       - 25% of taxable income from Philippine sources
+       - Same rate as domestic corporations
+
+    2. NOT ENGAGED IN TRADE/BUSINESS:
+       - 25% of GROSS INCOME from Philippine sources
+       - No deductions allowed (final tax)
+
+    KEY DISTINCTION:
+    - "Engaged in business" = subject to tax on NET income (after deductions)
+    - "Not engaged in business" = subject to tax on GROSS income (no deductions)
+
+    WHEN IS FOREIGN CORP "ENGAGED IN BUSINESS"?
+    - Systematic, continuous, and regular business activities
+    - Having a branch, office, or agent in the Philippines
+    - Isolated or sporadic transactions do not constitute "engaged in business"
+tip: "Foreign corp engaged in PH business = 25% on taxable income. Not engaged = 25% on GROSS."
+reference: "NIRC Section 28(A), as amended by CREATE Law"

@@ -1,0 +1,50 @@
+code: AUD-HARD-003
+active: true
+difficulty: HARD
+text: "Under PSA 700, when the auditor concludes that the financial statements are prepared in all material respects in accordance with the applicable financial reporting framework, which type of opinion should be issued?"
+access-level: FREE
+topic: 76
+choices:
+  choice1:
+    label: "Unmodified opinion"
+    correct: true
+  choice2:
+    label: "Qualified opinion"
+    why-wrong-choice: "Qualified opinion is issued when there are material but not pervasive misstatements or scope limitations"
+  choice3:
+    label: "Adverse opinion"
+    why-wrong-choice: "Adverse opinion is issued when misstatements are material AND pervasive"
+  choice4:
+    label: "Disclaimer of opinion"
+    why-wrong-choice: "Disclaimer is issued when auditor cannot obtain sufficient appropriate audit evidence"
+explanation:
+  short: "Unmodified = 'Clean' opinion. Financial statements present fairly in all material respects."
+  long: |
+    TYPES OF AUDIT OPINIONS (PSA 700, 705)
+
+    1. UNMODIFIED OPINION (Clean Opinion)
+       - Financial statements are presented fairly in all material respects
+       - Prepared in accordance with applicable framework
+       - No material misstatements, no scope limitations
+
+    2. QUALIFIED OPINION ('Except for')
+       - Misstatements are MATERIAL but NOT PERVASIVE, or
+       - Unable to obtain sufficient evidence, but possible effects are material but not pervasive
+       - Opinion: "Except for the effects of..."
+
+    3. ADVERSE OPINION
+       - Misstatements are MATERIAL AND PERVASIVE
+       - Financial statements are misleading
+       - Opinion: "Do not present fairly..."
+
+    4. DISCLAIMER OF OPINION
+       - Unable to obtain sufficient appropriate audit evidence
+       - Possible effects are MATERIAL AND PERVASIVE
+       - Opinion: "We do not express an opinion..."
+
+    KEY DECISION FACTORS:
+    - Is there a misstatement or inability to obtain evidence?
+    - Is it MATERIAL? (affects users' decisions)
+    - Is it PERVASIVE? (affects many elements, substantial portion, fundamental)
+tip: "Unmodified = All good. Qualified = Material only. Adverse/Disclaimer = Material + Pervasive"
+reference: "PSA 700, Paragraphs 16-19; PSA 705"

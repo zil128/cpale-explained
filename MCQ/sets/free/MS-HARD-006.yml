@@ -1,0 +1,55 @@
+code: MS-HARD-006
+active: true
+difficulty: HARD
+text: "Batangas Inc. produces a component internally at a cost of: Direct materials PHP 25, Direct labor PHP 15, Variable overhead PHP 10, Fixed overhead (allocated) PHP 20. An outside supplier offers to provide the component for PHP 55 each. If Batangas accepts the offer, 60% of fixed overhead can be eliminated. Should Batangas make or buy if annual requirement is 10,000 units?"
+access-level: FREE
+topic: 128
+choices:
+  choice1:
+    label: "Make internally; saves PHP 10,000 annually"
+    correct: true
+  choice2:
+    label: "Buy externally; saves PHP 50,000 annually"
+    why-wrong-choice: "This incorrectly compared full absorption cost (PHP 70) to buy price, ignoring that 40% of fixed OH (PHP 8) is unavoidable and continues regardless"
+  choice3:
+    label: "Make internally; saves PHP 200,000 annually"
+    why-wrong-choice: "This incorrectly treated all fixed overhead (PHP 20) as avoidable; only 60% (PHP 12) is eliminable, not the full amount"
+  choice4:
+    label: "Buy externally; saves PHP 70,000 annually"
+    why-wrong-choice: "This likely used variable costs only (PHP 50) for make vs PHP 55 buy, ignoring avoidable fixed costs of PHP 12/unit"
+explanation:
+  short: "Relevant make cost = PHP 50 variable + PHP 12 avoidable FC = PHP 62/unit. Buy cost = PHP 55 but PHP 8 FC continues. Net: Make saves PHP 1/unit x 10,000 = PHP 10,000."
+  long: |
+    MAKE OR BUY DECISION - RELEVANT COST ANALYSIS:
+
+    STEP 1: Identify Relevant Costs (costs that differ between alternatives)
+
+    MAKE INTERNALLY - Relevant Costs:
+    Direct materials: PHP 25
+    Direct labor: PHP 15
+    Variable overhead: PHP 10
+    Avoidable fixed overhead: PHP 20 x 60% = PHP 12
+    Total relevant cost to MAKE: PHP 62 per unit
+
+    BUY EXTERNALLY - Relevant Costs:
+    Purchase price: PHP 55 per unit
+    (Unavoidable fixed overhead PHP 8 continues but is irrelevant - same under both options)
+
+    STEP 2: Compare Per-Unit Costs
+    Make: PHP 62 per unit
+    Buy: PHP 55 per unit
+
+    Appears buy is cheaper by PHP 7, BUT we must consider the unavoidable fixed cost!
+
+    CORRECT ANALYSIS - Total Relevant Costs:
+    MAKE: (PHP 62 x 10,000) = PHP 620,000
+    BUY: (PHP 55 x 10,000) + (PHP 8 x 10,000 unavoidable FC) = PHP 550,000 + PHP 80,000 = PHP 630,000
+
+    STEP 3: Decision
+    Make: PHP 620,000
+    Buy: PHP 630,000
+    Savings from making: PHP 10,000
+
+    DECISION: MAKE INTERNALLY - saves PHP 10,000 annually
+tip: "Make or Buy: Only AVOIDABLE costs are relevant. Unavoidable fixed costs continue regardless of decision."
+reference: "Garrison, Noreen, Brewer - Managerial Accounting, Relevant Costs for Decision Making"

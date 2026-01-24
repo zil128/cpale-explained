@@ -1,0 +1,50 @@
+code: AFAR-HARD-002
+active: true
+difficulty: HARD
+text: "Under PFRS 3, which of the following is NOT measured at fair value on the acquisition date in a business combination?"
+access-level: FREE
+topic: 48
+choices:
+  choice1:
+    label: "Deferred tax assets arising from the acquisition"
+    correct: true
+  choice2:
+    label: "Identifiable intangible assets acquired"
+    why-wrong-choice: "PFRS 3.18 requires identifiable intangible assets to be measured at fair value"
+  choice3:
+    label: "Contingent liabilities assumed"
+    why-wrong-choice: "PFRS 3.23 requires contingent liabilities to be recognized at fair value if present obligation"
+  choice4:
+    label: "Non-controlling interest (full goodwill method)"
+    why-wrong-choice: "Under full goodwill method, NCI is measured at fair value (PFRS 3.19)"
+explanation:
+  short: "Deferred taxes follow PAS 12, not fair value measurement. They're calculated based on temporary differences arising from fair value adjustments."
+  long: |
+    Under PFRS 3 'Business Combinations', most identifiable assets and liabilities are measured at FAIR VALUE on the acquisition date. However, there are EXCEPTIONS:
+
+    EXCEPTIONS TO FAIR VALUE MEASUREMENT:
+
+    1. DEFERRED TAX ASSETS/LIABILITIES (PAS 12)
+       - Measured under PAS 12 based on temporary differences
+       - Arise from difference between tax base and fair value of assets/liabilities
+       - NOT discounted
+
+    2. EMPLOYEE BENEFITS (PAS 19)
+       - Measured under PAS 19 for defined benefit obligations
+
+    3. SHARE-BASED PAYMENT (PFRS 2)
+       - Replacement awards measured under PFRS 2
+
+    4. ASSETS HELD FOR SALE (PFRS 5)
+       - Measured at fair value less costs to sell under PFRS 5
+
+    5. INDEMNIFICATION ASSETS
+       - Measured consistently with indemnified item
+
+    EXAMPLE: Acquiree's building has:
+    - Carrying amount: PHP 10M (also tax base)
+    - Fair value: PHP 15M
+    - Temporary difference: PHP 5M
+    - Deferred tax liability: PHP 5M × 25% = PHP 1.25M (not at fair value)
+tip: "Deferred taxes = PAS 12 measurement, NOT fair value. Calculate from temporary differences."
+reference: "PFRS 3, Paragraphs 24-26"

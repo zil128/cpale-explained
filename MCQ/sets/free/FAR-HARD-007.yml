@@ -1,0 +1,45 @@
+code: FAR-HARD-007
+active: true
+difficulty: HARD
+text: "Company Z has a defined benefit pension plan. The net defined benefit liability at year-end is PHP 5,000,000 (Present value of DBO: PHP 20M, Fair value of plan assets: PHP 15M). During the year, the service cost was PHP 800,000 and net interest on the net defined benefit liability was PHP 500,000. What is the total expense recognized in profit or loss?"
+access-level: FREE
+topic: 4
+choices:
+  choice1:
+    label: "PHP 1,300,000"
+    correct: true
+  choice2:
+    label: "PHP 800,000"
+    why-wrong-choice: "This includes only service cost; net interest cost must also be recognized in P&L"
+  choice3:
+    label: "PHP 5,000,000"
+    why-wrong-choice: "This is the net defined benefit liability (balance sheet item), not the expense"
+  choice4:
+    label: "PHP 500,000"
+    why-wrong-choice: "This includes only net interest; service cost must also be recognized in P&L"
+explanation:
+  short: "Defined benefit expense in P&L = Service Cost + Net Interest. Remeasurements go to OCI."
+  long: |
+    Under PAS 19 'Employee Benefits', the defined benefit cost is split into THREE COMPONENTS:
+
+    PROFIT OR LOSS (recognized in P&L):
+    1. SERVICE COST
+       - Current service cost (benefits earned this period)
+       - Past service cost (plan amendments/curtailments)
+       - Gain/loss on settlement
+    2. NET INTEREST on net defined benefit liability/asset
+       - = Net DB liability × Discount rate at start of period
+
+    OTHER COMPREHENSIVE INCOME (OCI):
+    3. REMEASUREMENTS
+       - Actuarial gains and losses (experience adjustments, assumption changes)
+       - Return on plan assets (excluding interest income already in P&L)
+
+    IN THIS CASE:
+    - Service cost: PHP 800,000 → P&L
+    - Net interest: PHP 500,000 → P&L
+    - Total P&L expense: PHP 800,000 + PHP 500,000 = PHP 1,300,000
+
+    Note: Remeasurements are recognized in OCI and are NOT reclassified to P&L in subsequent periods.
+tip: "Pension P&L = Service Cost + Net Interest. Remeasurements = OCI only (never recycled)"
+reference: "PAS 19, Paragraphs 120-130"

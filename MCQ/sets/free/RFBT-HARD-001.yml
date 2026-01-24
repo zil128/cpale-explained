@@ -1,0 +1,46 @@
+code: RFBT-HARD-001
+active: true
+difficulty: HARD
+text: "X delivered goods to Y under a contract of sale with reservation of ownership until full payment. Y sold the goods to Z, an innocent purchaser for value, before completing payment. What is the status of Z's ownership?"
+access-level: FREE
+topic: 136
+choices:
+  choice1:
+    label: "Z acquires valid ownership under the doctrine of seller in possession"
+    correct: true
+  choice2:
+    label: "Z acquires no ownership because Y had no title to transfer"
+    why-wrong-choice: "While Y technically lacked full ownership, the Civil Code protects innocent purchasers when the seller is in possession with owner's consent"
+  choice3:
+    label: "Z acquires voidable ownership subject to X's right of rescission"
+    why-wrong-choice: "Z's ownership is not voidable; as innocent purchaser for value from seller in possession, Z acquires absolute ownership"
+  choice4:
+    label: "Z acquires ownership only upon X receiving full payment from Y"
+    why-wrong-choice: "Z's ownership is independent of Y's payment to X; Z's protection as innocent purchaser is immediate and unconditional"
+explanation:
+  short: "Under Article 1506 of the Civil Code, when a buyer (Y) is in possession with seller's consent and sells to an innocent purchaser for value (Z), Z acquires good title."
+  long: |
+    DOCTRINE OF SELLER IN POSSESSION (Article 1506, Civil Code):
+
+    When goods are sold by a person who is not the owner thereof but who is:
+    (1) In possession of the goods, and
+    (2) Selling with the consent of the owner (as in conditional sale)
+
+    The buyer receives valid title IF the buyer:
+    (1) Acted in good faith (innocent purchaser)
+    (2) Paid value for the goods
+    (3) Had no notice of the seller's lack of authority
+
+    APPLICATION TO THE CASE:
+    - X delivered goods to Y (Y is in possession with X's consent)
+    - Y sold to Z before full payment (Y acting as seller in possession)
+    - Z is an innocent purchaser for value
+    - Z acquires VALID and ABSOLUTE ownership
+
+    X's remedy is limited to pursuing Y for the unpaid balance. X cannot recover the goods from Z.
+
+    This doctrine protects commercial transactions and the reliability of possession as evidence of ownership.
+
+    RELATED PRINCIPLE: Nemo dat quod non habet (no one can give what they don't have) is EXCEPTED when the seller is in possession with the owner's consent.
+tip: "Innocent purchaser + Seller in possession with owner's consent = VALID title passes (Art. 1506)"
+reference: "Civil Code of the Philippines, Article 1506; Norkis Distributors vs. CA, G.R. No. 91029"

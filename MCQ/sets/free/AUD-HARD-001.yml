@@ -1,0 +1,52 @@
+code: AUD-HARD-001
+active: true
+difficulty: HARD
+text: "Under PSA 315, which component of internal control is MOST directly concerned with the entity's process for identifying business risks and deciding how to address them?"
+access-level: FREE
+topic: 68
+choices:
+  choice1:
+    label: "Risk assessment process"
+    correct: true
+  choice2:
+    label: "Control activities"
+    why-wrong-choice: "Control activities are the policies and procedures that help ensure management directives are carried out, not risk identification"
+  choice3:
+    label: "Information and communication"
+    why-wrong-choice: "This component deals with identifying, capturing, and exchanging information, not assessing risks"
+  choice4:
+    label: "Monitoring of controls"
+    why-wrong-choice: "Monitoring assesses the quality of internal control performance over time, not initial risk identification"
+explanation:
+  short: "Risk Assessment = Entity's process for identifying and analyzing risks relevant to financial reporting objectives."
+  long: |
+    FIVE COMPONENTS OF INTERNAL CONTROL (PSA 315/COSO)
+
+    1. CONTROL ENVIRONMENT
+       - Foundation of all other components
+       - Integrity, ethical values, governance, management philosophy
+
+    2. RISK ASSESSMENT PROCESS ← ANSWER
+       - Entity's process for identifying, analyzing, and managing risks
+       - Relevant to preparation of financial statements in accordance with GAAP
+       - Includes: Risk identification, risk analysis, risk response
+
+    3. INFORMATION SYSTEM (including related business processes)
+       - Capture and exchange of information
+       - Includes IT systems, journals, ledgers
+
+    4. CONTROL ACTIVITIES
+       - Policies and procedures ensuring management directives are executed
+       - Examples: Authorizations, reconciliations, segregation of duties
+
+    5. MONITORING OF CONTROLS
+       - Ongoing and separate evaluations
+       - Assessing quality of internal control performance over time
+
+    AUDITOR'S FOCUS:
+    Understanding the entity's risk assessment process helps auditors:
+    - Identify risks of material misstatement
+    - Design appropriate audit responses
+    - Evaluate if management has identified relevant risks
+tip: "Risk Assessment = How does management identify and address business risks?"
+reference: "PSA 315, Paragraphs 15-17"

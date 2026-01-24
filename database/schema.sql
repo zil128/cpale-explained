@@ -126,19 +126,20 @@ CREATE TABLE questions (
 
 -- ============================================================================
 -- QUESTION CHOICES (Multiple Choice Options)
+-- Note: choice_label (A/B/C/D) is generated dynamically at runtime
+--       to allow random shuffling and prevent answer memorization
 -- ============================================================================
 CREATE TABLE question_choices (
     choice_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     question_id INT UNSIGNED NOT NULL,
-    choice_label CHAR(1) NOT NULL,
     choice_text TEXT NOT NULL,
     is_correct BOOLEAN DEFAULT FALSE,
+    why_wrong TEXT NULL,
     display_order INT UNSIGNED DEFAULT 0,
     is_active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (question_id) REFERENCES questions(question_id) ON DELETE CASCADE,
-    INDEX idx_question_id (question_id),
-    UNIQUE KEY unique_question_choice (question_id, choice_label)
+    INDEX idx_question_id (question_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- ============================================================================

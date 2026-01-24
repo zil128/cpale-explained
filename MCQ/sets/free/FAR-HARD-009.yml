@@ -1,0 +1,44 @@
+code: FAR-HARD-009
+active: true
+difficulty: HARD
+text: "Under PFRS 16, a lessee enters a 5-year lease with annual payments of PHP 1,000,000. The interest rate implicit in the lease is not readily determinable. The lessee's incremental borrowing rate is 8%. What is the initial measurement of the lease liability?"
+access-level: FREE
+topic: 4
+choices:
+  choice1:
+    label: "Present value of PHP 1,000,000 for 5 years at 8% discount rate"
+    correct: true
+  choice2:
+    label: "PHP 5,000,000 (total undiscounted payments)"
+    why-wrong-choice: "PFRS 16 requires present value measurement, not nominal/undiscounted amount"
+  choice3:
+    label: "Fair value of the underlying asset"
+    why-wrong-choice: "Fair value is used to determine if rate implicit exists; lease liability uses PV of payments"
+  choice4:
+    label: "Present value using risk-free rate"
+    why-wrong-choice: "If implicit rate is not determinable, use incremental borrowing rate, not risk-free rate"
+explanation:
+  short: "Lease liability = PV of lease payments. Use implicit rate if determinable, otherwise use lessee's incremental borrowing rate."
+  long: |
+    Under PFRS 16 'Leases', the LEASE LIABILITY is measured at the PRESENT VALUE of lease payments not yet paid.
+
+    DISCOUNT RATE TO USE:
+    1. FIRST CHOICE: Interest rate implicit in the lease
+       - Rate that causes PV of lease payments + unguaranteed residual = Fair value of asset + Initial direct costs of lessor
+    2. IF NOT READILY DETERMINABLE: Lessee's incremental borrowing rate
+       - Rate the lessee would pay to borrow funds to obtain an asset of similar value in a similar economic environment
+
+    LEASE PAYMENTS INCLUDE:
+    - Fixed payments (less any lease incentives receivable)
+    - Variable payments based on an index or rate
+    - Residual value guarantees (amounts expected to be payable)
+    - Exercise price of purchase option (if reasonably certain)
+    - Termination penalties (if lease term reflects termination)
+
+    CALCULATION:
+    - Annual payment: PHP 1,000,000
+    - Discount rate: 8% (incremental borrowing rate since implicit rate not determinable)
+    - Lease liability = PHP 1,000,000 × PV annuity factor (5 years, 8%)
+    - = PHP 1,000,000 × 3.9927 = PHP 3,992,700
+tip: "Lease liability discount rate: Implicit rate first → If not, use incremental borrowing rate"
+reference: "PFRS 16, Paragraphs 26-27"

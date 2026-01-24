@@ -1,0 +1,52 @@
+code: TAX-HARD-003
+active: true
+difficulty: HARD
+text: "A deceased Filipino citizen left a gross estate of PHP 15,000,000 in the Philippines and PHP 5,000,000 abroad. Deductible expenses and losses amount to PHP 3,000,000. What is the net taxable estate under the TRAIN Law?"
+access-level: FREE
+topic: 101
+choices:
+  choice1:
+    label: "PHP 12,000,000"
+    correct: true
+  choice2:
+    label: "PHP 17,000,000"
+    why-wrong-choice: "This deducts only the standard deduction; actual expenses are also deductible"
+  choice3:
+    label: "PHP 7,000,000"
+    why-wrong-choice: "This incorrectly includes a personal exemption that was removed under TRAIN Law"
+  choice4:
+    label: "PHP 15,000,000"
+    why-wrong-choice: "This ignores foreign properties; resident/citizen estates include worldwide assets"
+explanation:
+  short: "Net Estate = Gross Estate (worldwide) - Deductions - Standard Deduction (PHP 5M under TRAIN)."
+  long: |
+    ESTATE TAX UNDER TRAIN LAW
+
+    For RESIDENT CITIZENS and RESIDENT ALIENS:
+    - Gross estate includes WORLDWIDE properties (Phil + foreign)
+
+    CALCULATION:
+
+    Gross Estate:
+    - Philippine properties:    PHP 15,000,000
+    - Foreign properties:       PHP  5,000,000
+    - Total Gross Estate:       PHP 20,000,000
+
+    Less: Deductions
+    - Expenses, losses, debts:  PHP  3,000,000
+    - Standard deduction:       PHP  5,000,000
+    - Total deductions:         PHP  8,000,000
+
+    NET TAXABLE ESTATE:         PHP 12,000,000
+
+    ESTATE TAX RATE (TRAIN Law):
+    - Single rate: 6% of net estate in excess of PHP 5,000,000 standard deduction
+    - Estate tax = (PHP 12,000,000) × 6% = PHP 720,000
+
+    KEY CHANGES UNDER TRAIN LAW:
+    1. Flat 6% rate (replaced graduated 5-20% rates)
+    2. PHP 5,000,000 standard deduction (not itemized)
+    3. Removed family home deduction, medical expenses, funeral expenses as separate items
+    4. Share of surviving spouse in conjugal/community property still excluded
+tip: "Estate Tax = 6% of (Gross Estate - Deductions - PHP 5M Standard Deduction)"
+reference: "NIRC Section 84-86, as amended by TRAIN Law"

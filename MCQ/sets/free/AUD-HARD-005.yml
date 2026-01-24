@@ -1,0 +1,48 @@
+code: AUD-HARD-005
+active: true
+difficulty: HARD
+text: "According to PSA 240, which of the following is the auditor's responsibility regarding fraud?"
+access-level: FREE
+topic: 64
+choices:
+  choice1:
+    label: "Obtain reasonable assurance that financial statements are free from material misstatement due to fraud or error"
+    correct: true
+  choice2:
+    label: "Detect all instances of fraud regardless of materiality"
+    why-wrong-choice: "Auditors provide reasonable, not absolute assurance; focus is on MATERIAL misstatement"
+  choice3:
+    label: "Prevent and detect fraud through implementation of internal controls"
+    why-wrong-choice: "Prevention and detection of fraud is management's responsibility, not the auditor's"
+  choice4:
+    label: "Guarantee that no fraud exists in the entity's financial statements"
+    why-wrong-choice: "An audit provides reasonable assurance, not a guarantee; inherent limitations exist"
+explanation:
+  short: "Auditors obtain REASONABLE ASSURANCE about material misstatement from fraud. Not absolute assurance, not all fraud."
+  long: |
+    AUDITOR'S RESPONSIBILITIES REGARDING FRAUD (PSA 240)
+
+    AUDITOR'S RESPONSIBILITY:
+    - Obtain REASONABLE ASSURANCE that financial statements are free from MATERIAL misstatement, whether due to fraud or error
+    - Maintain professional skepticism
+    - Assess risks of material misstatement due to fraud
+    - Design and perform procedures responsive to assessed risks
+
+    MANAGEMENT'S RESPONSIBILITY:
+    - Prevention and detection of fraud
+    - Design, implementation, and maintenance of internal control
+    - Fostering a culture of honesty and ethical behavior
+
+    LIMITATIONS OF AN AUDIT:
+    - Fraud often involves concealment, collusion, forgery
+    - Management is in a position to override controls
+    - Auditors cannot obtain ABSOLUTE assurance
+    - Risk of not detecting material misstatement due to fraud is HIGHER than for error
+
+    AUDITOR'S RESPONSE TO SUSPECTED FRAUD:
+    1. Obtain additional audit evidence
+    2. Consider implications for other aspects of audit
+    3. Communicate to management and those charged with governance
+    4. Consider reporting to regulatory authorities if required
+tip: "Auditor = Reasonable assurance on MATERIAL fraud. Management = Prevent and detect ALL fraud."
+reference: "PSA 240, Paragraphs 4-6"

@@ -1,0 +1,52 @@
+code: AFAR-HARD-001
+active: true
+difficulty: HARD
+text: "Partners A and B share profits 60:40. Partner C is admitted for a 25% interest by contributing PHP 500,000 when the partnership capital is PHP 1,200,000. If the bonus method is used, what is Partner C's capital credit?"
+access-level: FREE
+topic: 36
+choices:
+  choice1:
+    label: "PHP 425,000"
+    correct: true
+  choice2:
+    label: "PHP 500,000"
+    why-wrong-choice: "This equals the contribution; bonus method adjusts capital based on agreed interest percentage"
+  choice3:
+    label: "PHP 300,000"
+    why-wrong-choice: "This is 25% of old capital (1,200,000), ignoring C's contribution in total capital calculation"
+  choice4:
+    label: "PHP 325,000"
+    why-wrong-choice: "Incorrect calculation; must compute 25% of total agreed capital after C's admission"
+explanation:
+  short: "Bonus method: C's capital = 25% × Total Capital. Difference from contribution is bonus from old partners."
+  long: |
+    BONUS METHOD - ADMISSION OF A PARTNER
+
+    Step 1: Compute Total Agreed Capital
+    - Old capital: PHP 1,200,000
+    - C's contribution: PHP 500,000
+    - Total capital: PHP 1,700,000
+
+    Step 2: Compute C's Capital Credit (25% interest)
+    - C's capital credit = 25% × PHP 1,700,000 = PHP 425,000
+
+    Step 3: Compute Bonus
+    - C's contribution: PHP 500,000
+    - C's capital credit: PHP 425,000
+    - Bonus TO old partners: PHP 75,000
+
+    Step 4: Allocate Bonus to Old Partners (60:40)
+    - A's share: PHP 75,000 × 60% = PHP 45,000
+    - B's share: PHP 75,000 × 40% = PHP 30,000
+
+    JOURNAL ENTRY:
+    Dr. Cash                        500,000
+        Cr. A, Capital                          45,000
+        Cr. B, Capital                          30,000
+        Cr. C, Capital                         425,000
+
+    KEY: C contributes MORE than credited → Bonus to OLD partners
+    (If C contributed LESS than credited → Bonus FROM old partners to C)
+tip: "Bonus Method: Total Capital × Interest % = New Partner Capital. Difference = Bonus"
+reference: "Partnership Accounting - Admission of a Partner"
+

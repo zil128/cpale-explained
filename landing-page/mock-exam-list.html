@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Exams - CPALE Explained</title>
+    <meta name="description" content="Practice with CPALE mock preboard exams">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#10B981',
+                        accent: '#F472B6',
+                        lavender: '#FDF4FF',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .exam-card { transition: all 0.3s ease; }
+        .exam-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fadeInUp { animation: fadeInUp 0.5s ease forwards; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-lavender via-white to-green-50 min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="glass sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="/landing-page/dashboard.html" class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">C</span>
+                    </div>
+                    <span class="font-heading font-bold text-xl text-gray-800">CPALE Explained</span>
+                </a>
+
+                <div class="flex items-center gap-6">
+                    <a href="/landing-page/quiz.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Practice</a>
+                    <a href="/landing-page/analytics.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Analytics</a>
+                    <a href="/landing-page/mock-exam-list.html" class="text-primary font-medium">Mock Exams</a>
+                    <a href="/landing-page/dashboard.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-10">
+
+        <!-- Header -->
+        <div class="mb-8 animate-fadeInUp">
+            <h1 class="text-3xl font-heading font-bold text-gray-800">Mock Preboard Exams</h1>
+            <p class="text-gray-600 mt-2">Simulate the real CPALE exam experience with timed, comprehensive tests</p>
+        </div>
+
+        <!-- In-Progress Banner -->
+        <div id="inProgressBanner" class="hidden mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-xl animate-fadeInUp">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center">
+                        <svg class="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-yellow-800">You have an exam in progress</p>
+                        <p id="inProgressDetails" class="text-sm text-yellow-600"></p>
+                    </div>
+                </div>
+                <button onclick="resumeExam()" class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors">
+                    Resume Exam
+                </button>
+            </div>
+        </div>
+
+        <!-- Comprehensive Exams Section -->
+        <div class="mb-10">
+            <h2 class="text-xl font-heading font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Comprehensive Mock Exams
+                <span class="text-sm font-normal text-gray-500 ml-2">All 6 subjects combined</span>
+            </h2>
+            <div id="comprehensiveExams" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+        <!-- Subject-Specific Exams Section -->
+        <div>
+            <h2 class="text-xl font-heading font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                Subject-Specific Mock Exams
+                <span class="text-sm font-normal text-gray-500 ml-2">Focus on individual subjects</span>
+            </h2>
+            <div id="subjectExams" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Start Exam Modal -->
+    <div id="startModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 animate-fadeInUp">
+            <h3 id="modalTitle" class="text-xl font-heading font-bold text-gray-800 mb-4"></h3>
+            <div class="space-y-3 mb-6">
+                <p class="flex items-center gap-2 text-gray-600">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                    </svg>
+                    <span id="modalQuestions">100 Questions</span>
+                </p>
+                <p class="flex items-center gap-2 text-gray-600">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span id="modalTime">3 hours time limit</span>
+                </p>
+                <p class="flex items-center gap-2 text-gray-600">
+                    <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span id="modalPassing">75% passing score</span>
+                </p>
+            </div>
+            <div class="bg-yellow-50 rounded-lg p-4 mb-6">
+                <p class="text-sm text-yellow-800">
+                    <strong>Important:</strong> Once started, the timer cannot be paused. Make sure you have enough time to complete the exam.
+                </p>
+            </div>
+            <div class="flex gap-3">
+                <button onclick="closeModal()" class="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors">
+                    Cancel
+                </button>
+                <button onclick="confirmStartExam()" class="flex-1 px-4 py-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors">
+                    Start Exam
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        let selectedExamId = null;
+        let inProgressAttemptId = null;
+
+        // Check auth
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/landing-page/login.html';
+                return null;
+            }
+            return token;
+        }
+
+        // Load exam list
+        async function loadExams() {
+            const token = checkAuth();
+            if (!token) return;
+
+            try {
+                // Check for in-progress exam
+                const inProgressRes = await fetch(`${API_BASE}/mock-exam/in-progress`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const inProgressData = await inProgressRes.json();
+                
+                if (inProgressData.hasInProgress) {
+                    inProgressAttemptId = inProgressData.exam.attemptId;
+                    const mins = Math.floor(inProgressData.exam.timeRemainingSeconds / 60);
+                    document.getElementById('inProgressDetails').textContent = 
+                        `${inProgressData.exam.examName} - ${mins} minutes remaining`;
+                    document.getElementById('inProgressBanner').classList.remove('hidden');
+                }
+
+                // Get exam list
+                const res = await fetch(`${API_BASE}/mock-exam/list`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await res.json();
+
+                const comprehensive = data.exams.filter(e => e.exam_type === 'COMPREHENSIVE');
+                const subject = data.exams.filter(e => e.exam_type === 'SUBJECT');
+
+                renderExams(comprehensive, 'comprehensiveExams');
+                renderExams(subject, 'subjectExams');
+
+            } catch (error) {
+                console.error('Load exams error:', error);
+            }
+        }
+
+        function renderExams(exams, containerId) {
+            const container = document.getElementById(containerId);
+            
+            container.innerHTML = exams.map(exam => `
+                <div class="exam-card glass rounded-2xl p-6 animate-fadeInUp">
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="font-heading font-semibold text-gray-800">${exam.exam_name}</h3>
+                            <p class="text-sm text-gray-500">${exam.exam_type === 'COMPREHENSIVE' ? 'All Subjects' : exam.subject_name}</p>
+                        </div>
+                        ${exam.userAttempts.hasPassed ? 
+                            '<span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-medium rounded-full">Passed</span>' : 
+                            (exam.userAttempts.attemptCount > 0 ? 
+                                '<span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-medium rounded-full">Attempted</span>' : '')}
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 mb-4 text-center">
+                        <div class="bg-gray-50 rounded-lg p-2">
+                            <p class="text-lg font-bold text-gray-800">${exam.total_questions}</p>
+                            <p class="text-xs text-gray-500">Questions</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-2">
+                            <p class="text-lg font-bold text-gray-800">${exam.time_limit_minutes}m</p>
+                            <p class="text-xs text-gray-500">Time Limit</p>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-2">
+                            <p class="text-lg font-bold text-gray-800">${exam.passing_score_percent}%</p>
+                            <p class="text-xs text-gray-500">Passing</p>
+                        </div>
+                    </div>
+
+                    ${exam.userAttempts.attemptCount > 0 ? `
+                        <div class="mb-4 p-3 bg-gray-50 rounded-lg">
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Best Score:</span>
+                                <span class="font-semibold ${exam.userAttempts.bestScore >= 75 ? 'text-green-600' : 'text-yellow-600'}">
+                                    ${exam.userAttempts.bestScore}%
+                                </span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="text-gray-600">Attempts:</span>
+                                <span class="font-semibold text-gray-800">${exam.userAttempts.attemptCount}</span>
+                            </div>
+                        </div>
+                    ` : ''}
+
+                    <button onclick="openStartModal(${exam.exam_id}, '${exam.exam_name}', ${exam.total_questions}, ${exam.time_limit_minutes}, ${exam.passing_score_percent})"
+                            class="w-full py-3 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors font-medium">
+                        ${exam.userAttempts.attemptCount > 0 ? 'Retake Exam' : 'Start Exam'}
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function openStartModal(examId, name, questions, time, passing) {
+            selectedExamId = examId;
+            document.getElementById('modalTitle').textContent = name;
+            document.getElementById('modalQuestions').textContent = `${questions} Questions`;
+            document.getElementById('modalTime').textContent = `${time} minutes time limit`;
+            document.getElementById('modalPassing').textContent = `${passing}% passing score`;
+            document.getElementById('startModal').classList.remove('hidden');
+            document.getElementById('startModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('startModal').classList.add('hidden');
+            document.getElementById('startModal').classList.remove('flex');
+            selectedExamId = null;
+        }
+
+        async function confirmStartExam() {
+            if (!selectedExamId) return;
+            
+            const token = checkAuth();
+            if (!token) return;
+
+            try {
+                const res = await fetch(`${API_BASE}/mock-exam/${selectedExamId}/start`, {
+                    method: 'POST',
+                    headers: { 
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                const data = await res.json();
+
+                if (!res.ok) {
+                    if (data.attemptId) {
+                        // Has in-progress exam
+                        window.location.href = `/landing-page/mock-exam.html?attemptId=${data.attemptId}`;
+                        return;
+                    }
+                    throw new Error(data.error);
+                }
+
+                window.location.href = `/landing-page/mock-exam.html?attemptId=${data.attemptId}`;
+
+            } catch (error) {
+                alert(error.message || 'Failed to start exam');
+                closeModal();
+            }
+        }
+
+        function resumeExam() {
+            if (inProgressAttemptId) {
+                window.location.href = `/landing-page/mock-exam.html?attemptId=${inProgressAttemptId}`;
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', loadExams);
+    </script>
+</body>
+</html>

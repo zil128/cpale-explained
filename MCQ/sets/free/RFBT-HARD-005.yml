@@ -1,0 +1,61 @@
+code: RFBT-HARD-005
+active: true
+difficulty: HARD
+text: "A draws a check payable to B. B indorses it specially to C. C indorses it in blank. D finds the check and transfers it to E for value. E deposits it in his bank which collects from the drawee bank. Who may be held liable to B if B's indorsement was forged?"
+access-level: FREE
+topic: 144
+choices:
+  choice1:
+    label: "All parties after the forged indorsement: C, D, E, and both banks"
+    correct: true
+  choice2:
+    label: "Only the forger and the drawee bank that paid"
+    why-wrong-choice: "All parties who took after a forged indorsement are liable; the drawee bank can pass liability upstream to collecting bank and prior transferees"
+  choice3:
+    label: "Only A (drawer) and the drawee bank"
+    why-wrong-choice: "A drawer is not liable on forged indorsement; the loss falls on parties who took after the forgery, not the drawer"
+  choice4:
+    label: "Only E and the collecting bank as the last innocent parties"
+    why-wrong-choice: "All parties in the chain after the forged indorsement are liable in the order of their indorsements under warranty liability"
+explanation:
+  short: "A forged indorsement breaks the chain of title. All subsequent parties (C, D, E, collecting bank) are liable. Drawee bank can recover from collecting bank."
+  long: |
+    FORGED INDORSEMENT - LIABILITY CHAIN (NIL):
+
+    RULE: A forged indorsement is wholly inoperative. No right to enforce the instrument can be acquired through a forged indorsement.
+
+    CHAIN OF EVENTS:
+    1. A draws check to B
+    2. B indorses to C (FORGED - B's signature is forged)
+    3. C indorses in blank
+    4. D finds check, transfers to E
+    5. E deposits in collecting bank
+    6. Collecting bank collects from drawee bank
+
+    ANALYSIS:
+
+    Since B's indorsement was forged:
+    - C acquired no title (took under forged indorsement)
+    - D acquired no title
+    - E acquired no title
+    - Collecting bank acquired no title
+    - Drawee bank paid on invalid instrument
+
+    LIABILITY:
+    1. DRAWEE BANK: Liable to drawer A for paying without proper indorsement
+       (but can recover from collecting bank)
+
+    2. COLLECTING BANK: Liable to drawee bank on warranty that all prior
+       indorsements are genuine
+
+    3. E: Liable to collecting bank on same warranty
+
+    4. D: Liable to E on warranty
+
+    5. C: Liable to D on warranty
+
+    The loss ultimately falls on the party who dealt with the forger or earliest party after forgery who cannot pass liability further up.
+
+    B (true owner) can recover from any party in the chain.
+tip: "Forged INDORSEMENT = all parties after forgery liable. Contrast: Forged DRAWER signature = drawee bank bears loss."
+reference: "Negotiable Instruments Law, Sections 23, 65, 66; Associated Bank vs. CA, G.R. No. 107382"

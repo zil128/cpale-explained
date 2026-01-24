@@ -1,0 +1,59 @@
+code: RFBT-HARD-008
+active: true
+difficulty: HARD
+text: "X Corp declared cash dividends of PHP 1,000,000 on December 1, 2025, payable on January 15, 2026, to stockholders of record as of December 15, 2025. On December 10, A sold all his shares to B. Who is entitled to the dividend and when does the liability arise?"
+access-level: FREE
+topic: 148
+choices:
+  choice1:
+    label: "B is entitled; liability arose on declaration date (December 1)"
+    correct: true
+  choice2:
+    label: "A is entitled because he owned shares on declaration date"
+    why-wrong-choice: "Dividend entitlement is determined by record date (December 15), not declaration date; B was stockholder of record"
+  choice3:
+    label: "B is entitled; liability arose on record date (December 15)"
+    why-wrong-choice: "While B is entitled (correct), the dividend liability arose on declaration date when the board declared it, not on record date"
+  choice4:
+    label: "A and B split the dividend based on holding period"
+    why-wrong-choice: "Dividends are not prorated; the stockholder of record on record date receives the entire dividend"
+explanation:
+  short: "Stockholder of record on record date (December 15) receives dividend. B owned shares on that date. Liability arose on declaration date."
+  long: |
+    CASH DIVIDEND - KEY DATES AND CONCEPTS:
+
+    THREE IMPORTANT DATES:
+
+    1. DECLARATION DATE (December 1, 2025):
+       - Board of Directors declares dividend
+       - DIVIDEND LIABILITY ARISES
+       - Retained Earnings is debited, Dividends Payable is credited
+       - This is when corporation becomes legally obligated
+
+    2. RECORD DATE (December 15, 2025):
+       - Determines WHO receives the dividend
+       - Stockholders on this date are entitled to dividend
+       - Stock transfers after this date don't transfer dividend rights
+
+    3. PAYMENT DATE (January 15, 2026):
+       - Actual distribution of cash to stockholders
+       - Dividends Payable is debited, Cash is credited
+
+    APPLICATION TO THE CASE:
+
+    Timeline:
+    - Dec 1: Declaration (liability arises)
+    - Dec 10: A sells to B
+    - Dec 15: Record date (B is stockholder of record)
+    - Jan 15: Payment date
+
+    ANALYSIS:
+    - When were shares sold? December 10 (BEFORE record date)
+    - Who owned shares on record date? B
+    - Who receives dividend? B
+
+    The sale on December 10 transferred ALL rights attached to the shares, including the right to receive the declared dividend, because the sale occurred BEFORE the record date.
+
+    When did liability arise? December 1 (declaration date) - this is when the corporation's obligation became fixed.
+tip: "Dividend rights follow the RECORD DATE holder. Liability arises on DECLARATION DATE."
+reference: "Revised Corporation Code, Section 42; SEC Rules on Dividends"

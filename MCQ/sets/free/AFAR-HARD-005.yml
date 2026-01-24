@@ -1,0 +1,48 @@
+code: AFAR-HARD-005
+active: true
+difficulty: HARD
+text: "Home Office ships merchandise to Branch at 125% of cost. Branch reports ending inventory of PHP 250,000 at billed price. What is the unrealized profit in the Branch inventory to be eliminated?"
+access-level: FREE
+topic: 47
+choices:
+  choice1:
+    label: "PHP 50,000"
+    correct: true
+  choice2:
+    label: "PHP 62,500"
+    why-wrong-choice: "This applies 25% to billed price; the 25% markup is on COST, so GP rate on billed price is 20%"
+  choice3:
+    label: "PHP 200,000"
+    why-wrong-choice: "This is the cost portion (80% of billed price), not the unrealized profit"
+  choice4:
+    label: "PHP 37,500"
+    why-wrong-choice: "Incorrect calculation; the overvaluation equals the markup portion in ending inventory"
+explanation:
+  short: "Branch inventory at 125% of cost contains 25% markup. Unrealized profit = Inventory × (Markup ÷ Billed Price Rate)."
+  long: |
+    HOME OFFICE AND BRANCH - INTERCOMPANY PROFIT ELIMINATION
+
+    When Home Office bills Branch at more than cost, the Branch inventory is OVERSTATED by the unrealized markup.
+
+    CALCULATION:
+
+    Step 1: Understand the Billing Relationship
+    - Billed price = 125% of cost
+    - Therefore: Cost = 100%, Markup = 25%
+    - Gross Profit Rate on billed price = 25% ÷ 125% = 20%
+
+    Step 2: Calculate Unrealized Profit
+    - Branch ending inventory (at billed price): PHP 250,000
+    - Unrealized profit = PHP 250,000 × 20% = PHP 50,000
+
+    ALTERNATIVE CALCULATION:
+    - Cost = PHP 250,000 ÷ 1.25 = PHP 200,000
+    - Unrealized profit = PHP 250,000 - PHP 200,000 = PHP 50,000
+
+    ELIMINATION ENTRY (Combined Financial Statements):
+    Dr. Shipments to Branch (or Allowance for Overvaluation)    50,000
+        Cr. Branch Inventory                                            50,000
+
+    The "Allowance for Overvaluation of Branch Inventory" is a contra-asset account used to reduce Branch inventory to cost.
+tip: "125% of cost = 20% GP rate on billed price (25/125). Unrealized profit = Inventory × GP rate"
+reference: "Home Office and Branch Accounting - Combined Statements"

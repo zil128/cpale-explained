@@ -1,0 +1,56 @@
+code: RFBT-HARD-004
+active: true
+difficulty: HARD
+text: "X Corp has authorized capital stock of 100,000 shares at PHP 100 par value. It issued 60,000 shares fully paid. The board declared stock dividends of 10% from unrestricted retained earnings of PHP 800,000. What is the effect on X Corp's capital structure?"
+access-level: FREE
+topic: 148
+choices:
+  choice1:
+    label: "Issued shares increase to 66,000; no change in total stockholders' equity"
+    correct: true
+  choice2:
+    label: "Issued shares increase to 66,000; total stockholders' equity increases by PHP 600,000"
+    why-wrong-choice: "Stock dividends do not increase total equity; they merely transfer from retained earnings to capital stock (equity reclassification)"
+  choice3:
+    label: "Authorized shares must first be increased before stock dividends can be declared"
+    why-wrong-choice: "There are 40,000 unissued shares available (100,000 - 60,000); 6,000 new shares needed for 10% dividend can be issued"
+  choice4:
+    label: "Issued shares increase to 70,000; retained earnings decrease by PHP 1,000,000"
+    why-wrong-choice: "10% of 60,000 shares = 6,000 new shares (not 10,000); RE decreases by 6,000 x PHP 100 = PHP 600,000"
+explanation:
+  short: "Stock dividends: 10% of 60,000 = 6,000 new shares. RE decreases PHP 600,000, capital stock increases PHP 600,000. Total equity unchanged."
+  long: |
+    STOCK DIVIDENDS UNDER CORPORATION CODE AND SEC RULES:
+
+    EFFECT OF STOCK DIVIDENDS:
+    Stock dividends are distributions of additional shares to existing stockholders. They result in:
+    1. Transfer from Retained Earnings to Capital Stock
+    2. NO change in Total Stockholders' Equity
+    3. NO distribution of corporate assets
+
+    CALCULATION:
+
+    Before Stock Dividend:
+    - Issued shares: 60,000
+    - Par value: PHP 100
+    - Capital Stock: PHP 6,000,000
+    - Unrestricted RE: PHP 800,000
+
+    Stock Dividend Declaration:
+    - Rate: 10%
+    - New shares: 60,000 x 10% = 6,000 shares
+    - Amount transferred: 6,000 x PHP 100 = PHP 600,000
+
+    After Stock Dividend:
+    - Issued shares: 66,000 (60,000 + 6,000)
+    - Capital Stock: PHP 6,600,000 (+PHP 600,000)
+    - Unrestricted RE: PHP 200,000 (-PHP 600,000)
+    - Total SE: UNCHANGED
+
+    LEGAL REQUIREMENTS (Sec. 42, RCC):
+    1. Approval by board of directors
+    2. Approval by 2/3 of outstanding capital stock
+    3. Sufficient unrestricted retained earnings (PHP 800,000 > PHP 600,000 ✓)
+    4. Sufficient unissued authorized shares (40,000 > 6,000 ✓)
+tip: "Stock dividends = equity RECLASSIFICATION only. Total SE stays same. Check: sufficient RE AND authorized but unissued shares."
+reference: "Revised Corporation Code, Section 42; SEC Memorandum Circular on Stock Dividends"

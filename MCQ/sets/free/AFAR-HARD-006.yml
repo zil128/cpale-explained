@@ -1,0 +1,47 @@
+code: AFAR-HARD-006
+active: true
+difficulty: HARD
+text: "In a partnership liquidation, Partner A has a capital balance of PHP 100,000 and a loan payable to the partnership of PHP 30,000. If A is insolvent and cannot contribute to the partnership, what is A's maximum loss absorption capacity?"
+access-level: FREE
+topic: 38
+choices:
+  choice1:
+    label: "PHP 70,000"
+    correct: true
+  choice2:
+    label: "PHP 100,000"
+    why-wrong-choice: "Must offset loan payable against capital; loan to partnership REDUCES loss absorption"
+  choice3:
+    label: "PHP 130,000"
+    why-wrong-choice: "Loan payable is a DEDUCTION not an addition; it represents amount A owes to partnership"
+  choice4:
+    label: "PHP 30,000"
+    why-wrong-choice: "This is only the loan payable; loss absorption = capital minus loan payable"
+explanation:
+  short: "Loss absorption = Capital balance - Loan payable TO partnership. Right of offset applies."
+  long: |
+    PARTNERSHIP LIQUIDATION - LOSS ABSORPTION CAPACITY
+
+    In determining a partner's ability to absorb losses (for cash distribution purposes), you must consider the RIGHT OF OFFSET:
+
+    RIGHT OF OFFSET:
+    - If partner has a LOAN PAYABLE to partnership → REDUCES capital available
+    - If partner has a LOAN RECEIVABLE from partnership → INCREASES capital available
+
+    PARTNER A's POSITION:
+    - Capital balance: PHP 100,000 (credit)
+    - Loan payable to partnership: PHP 30,000 (partner owes partnership)
+    - Net capital for loss absorption: PHP 100,000 - PHP 30,000 = PHP 70,000
+
+    WHY OFFSET APPLIES:
+    Under Article 1813 of the Civil Code and partnership law, when a partner owes the partnership:
+    1. The loan payable is offset against capital
+    2. Partner cannot receive distributions until loan is settled
+    3. For insolvent partners, the loan reduces their ability to absorb losses
+
+    PRACTICAL APPLICATION:
+    - Maximum loss A can absorb before capital deficit = PHP 70,000
+    - If losses exceed PHP 70,000, A will have a capital deficit
+    - Since A is insolvent, other partners must absorb A's deficit
+tip: "Loan PAYABLE to partnership = Deduct from capital. Loan RECEIVABLE = Add to capital."
+reference: "Civil Code of the Philippines, Article 1813-1814; Partnership Liquidation"

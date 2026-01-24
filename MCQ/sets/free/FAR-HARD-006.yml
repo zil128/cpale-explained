@@ -1,0 +1,48 @@
+code: FAR-HARD-006
+active: true
+difficulty: HARD
+text: "Under PFRS 15, when should revenue be recognized for a contract that contains a significant financing component?"
+access-level: FREE
+topic: 4
+choices:
+  choice1:
+    label: "At the transaction price adjusted for the time value of money, with interest expense or income recognized separately"
+    correct: true
+  choice2:
+    label: "At the cash selling price without any adjustment for financing"
+    why-wrong-choice: "PFRS 15.60-65 requires adjustment for significant financing component to reflect cash selling price"
+  choice3:
+    label: "At the total amount receivable including all financing charges"
+    why-wrong-choice: "This would overstate revenue; financing component must be separated and recognized as interest"
+  choice4:
+    label: "Defer all revenue recognition until cash is fully collected"
+    why-wrong-choice: "PFRS 15 requires revenue recognition when performance obligations are satisfied, adjusted for financing"
+explanation:
+  short: "Significant financing component = Adjust transaction price for time value of money. Interest is recognized separately."
+  long: |
+    Under PFRS 15 'Revenue from Contracts with Customers', when a contract contains a SIGNIFICANT FINANCING COMPONENT:
+
+    TREATMENT:
+    1. Adjust the transaction price for the TIME VALUE OF MONEY
+    2. Use a discount rate that would be reflected in a separate financing transaction
+    3. Recognize INTEREST separately from revenue over the financing period
+
+    PRACTICAL EXPEDIENT (PFRS 15.63):
+    Entity need NOT adjust for financing component if payment timing is ≤1 year from transfer of goods/services
+
+    EXAMPLE: 
+    - Customer pays PHP 1,210,000 in 2 years for goods delivered today
+    - Cash selling price: PHP 1,000,000
+    - Implicit interest rate: 10% per year
+    
+    Recognition:
+    - Day 1: Revenue = PHP 1,000,000
+    - Year 1: Interest income = PHP 100,000
+    - Year 2: Interest income = PHP 110,000
+
+    INDICATORS of significant financing:
+    - Significant difference between promised consideration and cash price
+    - Extended payment terms
+    - Interest rate in contract
+tip: "Financing component? Adjust to cash price + recognize interest separately"
+reference: "PFRS 15, Paragraphs 60-65"

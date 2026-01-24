@@ -1,0 +1,55 @@
+code: RFBT-HARD-003
+active: true
+difficulty: HARD
+text: "A, B, and C are solidary debtors owing D PHP 300,000. A paid D the entire amount. A now seeks reimbursement. If B is insolvent, how much can A recover from C?"
+access-level: FREE
+topic: 133
+choices:
+  choice1:
+    label: "PHP 150,000 (C's share plus half of B's share)"
+    correct: true
+  choice2:
+    label: "PHP 100,000 (C's share only)"
+    why-wrong-choice: "Under Article 1217, when a co-debtor is insolvent, the debtor paying must share the loss with the other solvent co-debtors proportionately"
+  choice3:
+    label: "PHP 200,000 (C's share plus entire B's share)"
+    why-wrong-choice: "The insolvent's share is divided among ALL solvent debtors (A and C equally), not charged entirely to C"
+  choice4:
+    label: "PHP 300,000 (total amount paid)"
+    why-wrong-choice: "A can only seek reimbursement for co-debtors' shares; A must bear his own share plus portion of insolvent's share"
+explanation:
+  short: "A can recover C's share (PHP 100,000) plus C's proportionate share of B's insolvency (PHP 50,000). A absorbs his own share plus half of B's."
+  long: |
+    SOLIDARY OBLIGATIONS - REIMBURSEMENT WITH INSOLVENCY (Article 1217, Civil Code):
+
+    RULE: When a solidary debtor pays the entire obligation, they may seek reimbursement from co-debtors for their respective shares. If a co-debtor is INSOLVENT, the share of the insolvent shall be borne by ALL those who are solvent, including the debtor who paid, in proportion to their shares.
+
+    GIVEN:
+    - Total obligation: PHP 300,000
+    - Solidary debtors: A, B, C (equal shares assumed)
+    - A paid entire PHP 300,000
+    - B is insolvent
+
+    CALCULATION:
+
+    Step 1: Determine individual shares
+    A's share: PHP 100,000
+    B's share: PHP 100,000 (insolvent)
+    C's share: PHP 100,000
+
+    Step 2: Allocate insolvent's share
+    B's PHP 100,000 is divided between A and C proportionately:
+    A absorbs: PHP 50,000
+    C absorbs: PHP 50,000
+
+    Step 3: Final amounts borne by each
+    A: PHP 100,000 (own share) + PHP 50,000 (half of B's) = PHP 150,000
+    C: PHP 100,000 (own share) + PHP 50,000 (half of B's) = PHP 150,000
+    Total: PHP 300,000 ✓
+
+    Step 4: Amount A can recover from C
+    A paid: PHP 300,000
+    A should bear: PHP 150,000
+    A can recover from C: PHP 150,000
+tip: "Insolvent co-debtor's share = split among ALL solvent debtors (including the one who paid) proportionately"
+reference: "Civil Code of the Philippines, Article 1217"

@@ -1,0 +1,43 @@
+code: FAR-HARD-004
+active: true
+difficulty: HARD
+text: "Under PAS 37, which of the following conditions must ALL be met for a provision to be recognized?"
+access-level: FREE
+topic: 4
+choices:
+  choice1:
+    label: "Present obligation from past event, probable outflow of resources, and reliable estimate of the amount"
+    correct: true
+  choice2:
+    label: "Future obligation, possible outflow of resources, and reasonable estimate"
+    why-wrong-choice: "The obligation must be PRESENT (not future), outflow must be PROBABLE (not possible), and estimate must be RELIABLE"
+  choice3:
+    label: "Present obligation, certain outflow of resources, and exact amount determinable"
+    why-wrong-choice: "Certainty is not required; 'probable' outflow and 'reliable estimate' (not exact) are the thresholds"
+  choice4:
+    label: "Legal obligation only, probable outflow, and best estimate available"
+    why-wrong-choice: "Constructive obligations also qualify; the obligation need not be legal only"
+explanation:
+  short: "Provision recognition requires: (1) Present obligation, (2) Probable outflow, (3) Reliable estimate. All three!"
+  long: |
+    Under PAS 37 'Provisions, Contingent Liabilities and Contingent Assets', a provision is recognized when ALL THREE conditions are met:
+
+    1. PRESENT OBLIGATION (legal or constructive) from a PAST EVENT
+       - Legal obligation: from contract, legislation, or other operation of law
+       - Constructive obligation: from entity's actions creating valid expectations
+
+    2. PROBABLE outflow of resources embodying economic benefits
+       - 'Probable' = more likely than not (>50%)
+       - If only 'possible' = disclose as contingent liability (no recognition)
+
+    3. RELIABLE ESTIMATE of the amount
+       - Best estimate of expenditure required to settle
+       - Can use expected value or most likely outcome
+       - Only in extremely rare cases is estimate not possible
+
+    IF ANY CONDITION IS NOT MET:
+    - If not probable → disclose as contingent liability
+    - If remote → no disclosure required
+    - If no reliable estimate → disclose as contingent liability
+tip: "Provision = Present + Probable + Estimable (all three required)"
+reference: "PAS 37, Paragraph 14"

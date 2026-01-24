@@ -1,0 +1,50 @@
+code: MS-HARD-002
+active: true
+difficulty: HARD
+text: "Manila Corp is evaluating an investment requiring PHP 2,000,000 initial outlay with expected annual cash inflows of PHP 600,000 for 5 years. The company's cost of capital is 12%. The present value factor for an ordinary annuity at 12% for 5 years is 3.6048. What is the profitability index and should the project be accepted?"
+access-level: FREE
+topic: 127
+choices:
+  choice1:
+    label: "Profitability Index of 1.08; Accept the project"
+    correct: true
+  choice2:
+    label: "Profitability Index of 0.92; Reject the project"
+    why-wrong-choice: "This incorrectly divides the initial investment by PV of inflows; PI = PV of inflows / Initial investment, not the inverse"
+  choice3:
+    label: "Profitability Index of 1.50; Accept the project"
+    why-wrong-choice: "This uses undiscounted cash flows (PHP 3,000,000 / PHP 2,000,000 = 1.50); PI must use present value of future cash flows"
+  choice4:
+    label: "Profitability Index of 0.80; Reject the project"
+    why-wrong-choice: "This calculation error likely used wrong PV factor or divided incorrectly; correct PI is 1.08"
+explanation:
+  short: "PI = PV of Cash Inflows / Initial Investment = (PHP 600,000 x 3.6048) / PHP 2,000,000 = 1.08. Since PI > 1, accept."
+  long: |
+    PROFITABILITY INDEX (PI) ANALYSIS:
+
+    The Profitability Index measures the present value of future cash flows per peso of initial investment.
+
+    FORMULA: PI = Present Value of Cash Inflows / Initial Investment
+
+    STEP 1: Calculate PV of Cash Inflows
+    Annual Cash Inflow x PV Annuity Factor
+    = PHP 600,000 x 3.6048
+    = PHP 2,162,880
+
+    STEP 2: Calculate Profitability Index
+    PI = PHP 2,162,880 / PHP 2,000,000
+    PI = 1.0814 or approximately 1.08
+
+    DECISION RULE:
+    - If PI > 1: Accept (PV of benefits exceeds cost)
+    - If PI < 1: Reject (Cost exceeds PV of benefits)
+    - If PI = 1: Indifferent (NPV = 0)
+
+    Since PI = 1.08 > 1, the project should be ACCEPTED.
+
+    VERIFICATION using NPV:
+    NPV = PV of Inflows - Initial Investment
+    NPV = PHP 2,162,880 - PHP 2,000,000 = PHP 162,880
+    Positive NPV confirms acceptance decision.
+tip: "PI > 1 means ACCEPT (every peso invested returns more than a peso in PV terms)"
+reference: "Brigham & Houston, Fundamentals of Financial Management - Capital Budgeting Chapter"

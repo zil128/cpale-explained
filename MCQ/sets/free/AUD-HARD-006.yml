@@ -1,0 +1,53 @@
+code: AUD-HARD-006
+active: true
+difficulty: HARD
+text: "An auditor discovered that the client's management has been manipulating revenue recognition by recording fictitious sales. Under PSA 260, to whom should the auditor communicate this finding FIRST?"
+access-level: FREE
+topic: 73
+choices:
+  choice1:
+    label: "Those charged with governance"
+    correct: true
+  choice2:
+    label: "The external regulatory authority"
+    why-wrong-choice: "External reporting may be required, but communication to TCWG should come first under PSA 260"
+  choice3:
+    label: "The company's shareholders at the annual meeting"
+    why-wrong-choice: "Auditor communicates to TCWG, not directly to shareholders"
+  choice4:
+    label: "Law enforcement agencies"
+    why-wrong-choice: "Legal reporting may be required, but professional standards require TCWG communication first"
+explanation:
+  short: "Fraud involving management must be communicated to those charged with governance (TCWG) on a timely basis."
+  long: |
+    COMMUNICATION WITH THOSE CHARGED WITH GOVERNANCE (PSA 260)
+
+    MATTERS TO COMMUNICATE:
+
+    1. FRAUD involving management (PSA 240)
+       - ANY fraud involving management must be communicated
+       - Regardless of amount/materiality
+       - On a TIMELY basis
+
+    2. SIGNIFICANT DEFICIENCIES in internal control (PSA 265)
+       - Deficiencies that merit attention of TCWG
+       - In writing, on a timely basis
+
+    3. OTHER MATTERS:
+       - Auditor's responsibilities
+       - Planned scope and timing of audit
+       - Significant findings from the audit
+       - Independence issues
+
+    WHY TCWG FIRST?
+    - TCWG have oversight responsibility
+    - They need to take corrective action
+    - They may need to investigate further
+    - Professional standards require this communication
+
+    WHEN FRAUD INVOLVES TCWG:
+    - Consider obtaining legal advice
+    - Communicate to next higher authority (shareholders, regulators)
+    - May need to withdraw from engagement
+tip: "Management fraud → Communicate to TCWG first, regardless of amount"
+reference: "PSA 260, Paragraph 16; PSA 240, Paragraph 41"

@@ -1,0 +1,48 @@
+code: AUD-HARD-004
+active: true
+difficulty: HARD
+text: "Which of the following statements about materiality in auditing is CORRECT under PSA 320?"
+access-level: FREE
+topic: 66
+choices:
+  choice1:
+    label: "Performance materiality is set lower than overall materiality to reduce the risk that aggregate uncorrected misstatements exceed materiality"
+    correct: true
+  choice2:
+    label: "Materiality is a fixed percentage of net income for all entities"
+    why-wrong-choice: "Materiality involves professional judgment and varies based on entity circumstances and user needs"
+  choice3:
+    label: "Once set at planning, materiality cannot be revised during the audit"
+    why-wrong-choice: "PSA 320.12 requires the auditor to revise materiality if information becomes available that would have caused a different amount"
+  choice4:
+    label: "Performance materiality is always set at 50% of overall materiality"
+    why-wrong-choice: "No fixed percentage exists; performance materiality is based on auditor judgment considering assessment of RMM"
+explanation:
+  short: "Performance materiality < Overall materiality. This provides a 'cushion' for undetected/uncorrected misstatements."
+  long: |
+    MATERIALITY CONCEPTS (PSA 320)
+
+    1. MATERIALITY FOR FINANCIAL STATEMENTS AS A WHOLE
+       - Amount below which misstatements would not be expected to influence users' decisions
+       - Benchmark + percentage (e.g., 5% of profit before tax, 1% of total revenue)
+
+    2. PERFORMANCE MATERIALITY
+       - Amount set LOWER than overall materiality
+       - Applied to particular transactions, account balances, disclosures
+       - Purpose: Reduce to appropriately low level the probability that aggregate of uncorrected/undetected misstatements exceeds overall materiality
+
+    3. THRESHOLD FOR MISSTATEMENTS TO ACCUMULATE
+       - Amount below which misstatements are clearly trivial
+       - Misstatements below this need not be accumulated
+
+    WHY PERFORMANCE MATERIALITY IS LOWER:
+    - Auditor may not detect all misstatements
+    - Provides a buffer/cushion for undetected misstatements
+    - Accounts for aggregation risk
+
+    TYPICAL RANGES:
+    - Performance materiality: 50-75% of overall materiality
+    - Trivial threshold: Usually 3-5% of overall materiality
+    - Higher % when lower RMM, fewer expected misstatements
+tip: "Performance Materiality = Buffer zone. Always less than overall materiality."
+reference: "PSA 320, Paragraphs 9-11"

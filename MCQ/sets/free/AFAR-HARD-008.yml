@@ -1,0 +1,53 @@
+code: AFAR-HARD-008
+active: true
+difficulty: HARD
+text: "Entity A acquired 30% of Entity B for PHP 5,000,000 when B's net assets had a fair value of PHP 15,000,000. During the year, B reported net income of PHP 2,000,000 and paid dividends of PHP 500,000. What is the carrying amount of the investment under the equity method?"
+access-level: FREE
+topic: 15
+choices:
+  choice1:
+    label: "PHP 5,450,000"
+    correct: true
+  choice2:
+    label: "PHP 5,600,000"
+    why-wrong-choice: "This adds share of net income but forgets to deduct share of dividends"
+  choice3:
+    label: "PHP 5,000,000"
+    why-wrong-choice: "This is initial cost only; equity method requires adjustment for investor's share of earnings"
+  choice4:
+    label: "PHP 5,350,000"
+    why-wrong-choice: "Incorrect calculation; must apply 30% to both net income and dividends separately"
+explanation:
+  short: "Equity method: Investment = Cost + Share of Income - Share of Dividends ± Other adjustments."
+  long: |
+    EQUITY METHOD ACCOUNTING (PAS 28)
+
+    INITIAL RECOGNITION:
+    - Investment recorded at COST: PHP 5,000,000
+    - Note: Cost (5M) = 30% of FV of net assets (4.5M) + Implied goodwill (0.5M)
+
+    SUBSEQUENT MEASUREMENT:
+    - Add: Share of associate's net income
+    - Deduct: Share of dividends received
+    - Add/Deduct: Share of OCI, amortization of excess FV allocations, impairment
+
+    CALCULATION:
+
+    Beginning investment:                    PHP 5,000,000
+    Add: Share of net income (30% × 2M):    PHP   600,000
+    Less: Share of dividends (30% × 500K): (PHP   150,000)
+    Ending investment:                       PHP 5,450,000
+
+    JOURNAL ENTRIES:
+    
+    Share of net income:
+    Dr. Investment in Associate      600,000
+        Cr. Investment Income                   600,000
+
+    Dividends received:
+    Dr. Cash                         150,000
+        Cr. Investment in Associate             150,000
+
+    KEY: Dividends REDUCE the investment (not income) because they represent return OF investment, not return ON investment.
+tip: "Equity method: + Share of Income, - Share of Dividends. Dividends reduce investment, not income!"
+reference: "PAS 28, Paragraphs 10-14"

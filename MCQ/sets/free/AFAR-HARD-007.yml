@@ -1,0 +1,51 @@
+code: AFAR-HARD-007
+active: true
+difficulty: HARD
+text: "Under PFRS 10, which of the following is NOT a factor in determining control over an investee?"
+access-level: FREE
+topic: 50
+choices:
+  choice1:
+    label: "Legal ownership of more than 50% of shares"
+    correct: true
+  choice2:
+    label: "Power over the investee through existing rights"
+    why-wrong-choice: "Power is the first element of control under PFRS 10.7"
+  choice3:
+    label: "Exposure or rights to variable returns from involvement"
+    why-wrong-choice: "Variable returns is the second element of control under PFRS 10.7"
+  choice4:
+    label: "Ability to use power to affect the amount of returns"
+    why-wrong-choice: "Link between power and returns is the third element of control under PFRS 10.7"
+explanation:
+  short: "Control requires POWER + VARIABLE RETURNS + LINK. Legal ownership alone is NOT determinative."
+  long: |
+    PFRS 10 DEFINITION OF CONTROL
+
+    An investor CONTROLS an investee when it has ALL THREE elements:
+
+    1. POWER over the investee
+       - Existing rights that give ability to direct RELEVANT ACTIVITIES
+       - Relevant activities = activities that significantly affect investee's returns
+       - Can have power through voting rights, contractual arrangements, etc.
+
+    2. EXPOSURE OR RIGHTS TO VARIABLE RETURNS
+       - Returns that vary based on investee's performance
+       - Can be positive (dividends, synergies) or negative (losses)
+
+    3. ABILITY TO USE POWER TO AFFECT RETURNS
+       - Link between power and returns
+       - Investor uses power to influence its returns
+
+    WHY LEGAL OWNERSHIP IS NOT A FACTOR:
+    - Control is based on SUBSTANCE over form
+    - An entity can control with less than 50% (e.g., dispersed ownership, contractual rights)
+    - An entity may NOT control even with more than 50% (e.g., substantive participation rights)
+    - Potential voting rights, options, and de facto control must be considered
+
+    EXAMPLES OF CONTROL WITHOUT MAJORITY:
+    - Largest shareholder in widely dispersed ownership
+    - Contractual control through board composition
+    - Power through options or convertible instruments
+tip: "Control = Power + Variable Returns + Link. Ownership % is evidence, not conclusive."
+reference: "PFRS 10, Paragraphs 5-9"

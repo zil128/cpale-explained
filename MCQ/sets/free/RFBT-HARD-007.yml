@@ -1,0 +1,71 @@
+code: RFBT-HARD-007
+active: true
+difficulty: HARD
+text: "ABC Partnership (A-40%, B-35%, C-25%) has assets of PHP 1,000,000 and liabilities of PHP 400,000. D is admitted as a new partner by contributing PHP 200,000 for a 20% interest. Using the bonus method, what is D's capital credit?"
+access-level: FREE
+topic: 138
+choices:
+  choice1:
+    label: "PHP 160,000 with PHP 40,000 bonus to old partners"
+    correct: true
+  choice2:
+    label: "PHP 200,000 equal to his contribution"
+    why-wrong-choice: "Under bonus method, capital credit is based on percentage interest in new total capital, not contribution amount"
+  choice3:
+    label: "PHP 180,000 with PHP 20,000 bonus to old partners"
+    why-wrong-choice: "D's 20% of new total capital (PHP 800,000) equals PHP 160,000, not PHP 180,000"
+  choice4:
+    label: "PHP 240,000 with PHP 40,000 bonus from old partners"
+    why-wrong-choice: "The bonus goes TO old partners, not FROM them, since D is paying more than his proportionate capital credit"
+explanation:
+  short: "New total capital = PHP 800,000. D's 20% = PHP 160,000. Bonus to old partners = PHP 200,000 - PHP 160,000 = PHP 40,000."
+  long: |
+    PARTNERSHIP ADMISSION - BONUS METHOD:
+
+    GIVEN DATA:
+    Old partnership:
+    - Assets: PHP 1,000,000
+    - Liabilities: PHP 400,000
+    - Partners' Capital: PHP 600,000 (A: 240,000, B: 210,000, C: 150,000)
+
+    Admission:
+    - D contributes: PHP 200,000 cash
+    - D's interest: 20%
+
+    BONUS METHOD CALCULATION:
+
+    Step 1: Calculate New Total Partnership Capital
+    Old capital: PHP 600,000
+    D's contribution: PHP 200,000
+    New total capital: PHP 800,000
+
+    Step 2: Calculate D's Capital Credit
+    D's interest: 20%
+    D's capital credit: PHP 800,000 x 20% = PHP 160,000
+
+    Step 3: Calculate Bonus
+    D contributed: PHP 200,000
+    D's capital credit: PHP 160,000
+    Bonus TO old partners: PHP 40,000
+
+    Step 4: Allocate Bonus to Old Partners (by profit ratio)
+    A (40%): PHP 40,000 x 40% = PHP 16,000
+    B (35%): PHP 40,000 x 35% = PHP 14,000
+    C (25%): PHP 40,000 x 25% = PHP 10,000
+    Total: PHP 40,000 ✓
+
+    FINAL CAPITAL BALANCES:
+    A: PHP 240,000 + PHP 16,000 = PHP 256,000
+    B: PHP 210,000 + PHP 14,000 = PHP 224,000
+    C: PHP 150,000 + PHP 10,000 = PHP 160,000
+    D: PHP 160,000
+    Total: PHP 800,000 ✓
+
+    JOURNAL ENTRY:
+    Cash                   200,000
+        D, Capital                     160,000
+        A, Capital                      16,000
+        B, Capital                      14,000
+        C, Capital                      10,000
+tip: "Bonus Method: Capital credit = % interest x NEW total capital. Compare to contribution to find bonus direction."
+reference: "Partnership Accounting; Civil Code Articles 1767-1867"

@@ -1,0 +1,49 @@
+code: AFAR-HARD-003
+active: true
+difficulty: HARD
+text: "Parent Company owns 80% of Subsidiary. In the current year, Subsidiary sold inventory to Parent for PHP 500,000 with a 25% markup on cost. At year-end, 40% of the inventory remains unsold. What is the unrealized profit to be eliminated in consolidation?"
+access-level: FREE
+topic: 50
+choices:
+  choice1:
+    label: "PHP 40,000"
+    correct: true
+  choice2:
+    label: "PHP 50,000"
+    why-wrong-choice: "This calculates 25% of ending inventory (500,000 × 40% × 25%), but markup is on COST not selling price"
+  choice3:
+    label: "PHP 100,000"
+    why-wrong-choice: "This is total profit on sale; must isolate only the UNREALIZED portion in ending inventory"
+  choice4:
+    label: "PHP 32,000"
+    why-wrong-choice: "This applies NCI percentage (80%); unrealized profit elimination is 100% regardless of NCI"
+explanation:
+  short: "Unrealized profit = Gross Profit Rate × Ending Inventory. Eliminate 100% regardless of ownership."
+  long: |
+    INTERCOMPANY INVENTORY PROFIT ELIMINATION
+
+    Step 1: Determine Gross Profit Rate
+    - Markup on cost: 25%
+    - If selling price = 125% of cost
+    - Gross Profit Rate = 25/125 = 20% of selling price
+
+    Step 2: Calculate Total Intercompany Sale
+    - Sales from Sub to Parent: PHP 500,000
+
+    Step 3: Calculate Ending Inventory from Intercompany
+    - 40% remains unsold
+    - Ending inventory (at transfer price): PHP 500,000 × 40% = PHP 200,000
+
+    Step 4: Calculate Unrealized Profit
+    - Unrealized profit = PHP 200,000 × 20% = PHP 40,000
+
+    CONSOLIDATION ENTRY:
+    Dr. Cost of Goods Sold      40,000
+        Cr. Inventory                       40,000
+
+    KEY POINTS:
+    - Eliminate 100% of unrealized profit (not just parent's share)
+    - For upstream sale (Sub → Parent), NCI bears their share of elimination
+    - This is an UPSTREAM sale, so NCI share = 20% × PHP 40,000 = PHP 8,000
+tip: "Markup on COST = Divide by (1 + markup rate) to get GP rate on selling price"
+reference: "PFRS 10, Intercompany Transactions Elimination"

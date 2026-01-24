@@ -1,0 +1,51 @@
+code: TAX-HARD-008
+active: true
+difficulty: HARD
+text: "Mr. Reyes, a resident citizen, donated a parcel of land to his son. The fair market value per BIR is PHP 5,000,000 and per Assessor is PHP 4,000,000. What is the tax base for donor's tax?"
+access-level: FREE
+topic: 102
+choices:
+  choice1:
+    label: "PHP 5,000,000 (higher of FMV per BIR or Assessor)"
+    correct: true
+  choice2:
+    label: "PHP 4,000,000 (Assessor's value)"
+    why-wrong-choice: "For donor's tax, the HIGHER of BIR zonal value or Assessor's value is used"
+  choice3:
+    label: "PHP 4,500,000 (average of both values)"
+    why-wrong-choice: "Tax rules require the HIGHER value, not an average"
+  choice4:
+    label: "PHP 4,750,000 (weighted average)"
+    why-wrong-choice: "No weighted average is used; the higher of the two values applies"
+explanation:
+  short: "Donor's tax base for real property = HIGHER of FMV per BIR zonal value OR Assessor's fair market value."
+  long: |
+    DONOR'S TAX UNDER TRAIN LAW
+
+    TAX BASE FOR REAL PROPERTY:
+    - HIGHER of:
+      a) Fair market value per BIR (zonal value), or
+      b) Fair market value per Provincial/City Assessor
+
+    CALCULATION:
+    - BIR zonal value: PHP 5,000,000
+    - Assessor's FMV: PHP 4,000,000
+    - Tax base: PHP 5,000,000 (higher value)
+
+    DONOR'S TAX RATE (TRAIN Law):
+    - Single rate: 6% of total gifts in excess of PHP 250,000
+    - PHP 250,000 exemption per donor per year
+
+    TAX COMPUTATION:
+    - Taxable gift: PHP 5,000,000
+    - Less: Exemption: (PHP 250,000)
+    - Tax base: PHP 4,750,000
+    - Donor's tax: PHP 4,750,000 × 6% = PHP 285,000
+
+    OTHER RULES:
+    - Donor's tax paid by DONOR (not donee)
+    - Strangers: 30% of excess over PHP 250,000 (before TRAIN)
+    - After TRAIN: Same 6% rate regardless of relationship
+    - Tax due within 30 days from date of donation
+tip: "Real property donation: Use HIGHER value (BIR vs Assessor). Rate = 6% of excess over PHP 250K."
+reference: "NIRC Section 99-102, as amended by TRAIN Law"

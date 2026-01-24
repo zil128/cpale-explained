@@ -1,0 +1,48 @@
+code: FAR-HARD-008
+active: true
+difficulty: HARD
+text: "Under PAS 36, when testing a cash-generating unit (CGU) for impairment, how should corporate assets that cannot be allocated on a reasonable basis be treated?"
+access-level: FREE
+topic: 4
+choices:
+  choice1:
+    label: "Allocate corporate assets to CGUs on a reasonable and consistent basis, or test impairment at the smallest group of CGUs to which corporate assets can be allocated"
+    correct: true
+  choice2:
+    label: "Exclude corporate assets entirely from impairment testing"
+    why-wrong-choice: "PAS 36.102 requires corporate assets to be included in impairment testing at some level"
+  choice3:
+    label: "Recognize impairment only if the entire entity shows indicators of impairment"
+    why-wrong-choice: "Impairment testing should be done at CGU or group of CGUs level, not only entity-wide"
+  choice4:
+    label: "Test corporate assets separately as individual assets"
+    why-wrong-choice: "Corporate assets generally do not generate independent cash flows and cannot be tested individually"
+explanation:
+  short: "Corporate assets: Allocate to CGUs if possible, otherwise test at the smallest group of CGUs to which they can be allocated."
+  long: |
+    Under PAS 36 'Impairment of Assets', CORPORATE ASSETS present a special challenge because they:
+    - Do not generate independent cash inflows
+    - Service multiple CGUs
+    - Cannot be tested for impairment individually
+
+    TREATMENT OF CORPORATE ASSETS:
+
+    STEP 1: Try to ALLOCATE on reasonable and consistent basis
+    - Allocate carrying amount to individual CGUs
+    - Include allocated amount in CGU impairment test
+    - Allocation basis must be reasonable (e.g., floor space, headcount)
+
+    STEP 2: If allocation is NOT POSSIBLE
+    - Identify the SMALLEST GROUP OF CGUs to which corporate assets can be allocated
+    - Test impairment at that group level
+    - Compare carrying amount (including corporate assets) to recoverable amount
+
+    EXAMPLE: Head office building serving all divisions
+    - Cannot allocate? Test impairment at entity level (all CGUs combined)
+    - Impairment loss allocated to CGUs, then to assets within CGUs
+
+    ALLOCATION OF IMPAIRMENT LOSS:
+    1. First to goodwill (if any)
+    2. Then to other assets pro-rata based on carrying amounts
+tip: "Corporate assets: Allocate if possible → If not, test at smallest group of CGUs"
+reference: "PAS 36, Paragraphs 100-103"

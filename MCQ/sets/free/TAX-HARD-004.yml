@@ -1,0 +1,51 @@
+code: TAX-HARD-004
+active: true
+difficulty: HARD
+text: "A VAT-registered taxpayer had the following for the quarter: Output VAT PHP 240,000, Input VAT from capital goods PHP 180,000, Input VAT from purchases PHP 100,000. What is the VAT payable?"
+access-level: FREE
+topic: 103
+choices:
+  choice1:
+    label: "PHP 0 with excess input VAT of PHP 40,000 to carry forward"
+    correct: true
+  choice2:
+    label: "PHP 60,000"
+    why-wrong-choice: "This treats capital goods input VAT as non-creditable; capital goods input VAT is fully creditable"
+  choice3:
+    label: "PHP 240,000"
+    why-wrong-choice: "This ignores all input VAT credits; input VAT reduces output VAT"
+  choice4:
+    label: "(PHP 40,000) refundable immediately"
+    why-wrong-choice: "Excess input VAT is generally carried forward, not immediately refundable"
+explanation:
+  short: "VAT Payable = Output VAT - Input VAT. Excess input VAT is carried forward to the next period."
+  long: |
+    VALUE-ADDED TAX COMPUTATION
+
+    FORMULA:
+    VAT Payable = Output VAT - Input VAT
+
+    GIVEN:
+    - Output VAT:                       PHP 240,000
+    - Input VAT (capital goods):        PHP 180,000
+    - Input VAT (purchases):            PHP 100,000
+    - Total Input VAT:                  PHP 280,000
+
+    COMPUTATION:
+    - Output VAT:                       PHP 240,000
+    - Less: Total Input VAT:           (PHP 280,000)
+    - EXCESS INPUT VAT:                (PHP  40,000)
+
+    TREATMENT OF EXCESS INPUT VAT:
+    - Generally: Carried forward to succeeding quarters
+    - May apply for refund/credit after 2 years from close of taxable quarter
+    - For zero-rated/effectively zero-rated sales: May claim refund within 2 years
+
+    INPUT VAT ON CAPITAL GOODS:
+    - Fully creditable against output VAT
+    - Capital goods = goods with useful life of more than one year
+    - Must be used in VAT-taxable business
+
+    NOTE: Unlike some jurisdictions, Philippine VAT allows immediate crediting of capital goods input VAT (no amortization requirement under current rules).
+tip: "VAT = Output - Input. Excess input VAT = Carry forward (not immediate refund)"
+reference: "NIRC Section 110-112; Revenue Regulations 16-2005"

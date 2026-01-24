@@ -1,0 +1,53 @@
+code: MS-HARD-007
+active: true
+difficulty: HARD
+text: "Quezon Manufacturing had the following results for 2025: Sales PHP 5,000,000, Variable costs PHP 3,000,000, Fixed costs PHP 1,500,000. If the company can increase sales by 20% with no change in the cost structure, what will be the percentage increase in operating income?"
+access-level: FREE
+topic: 114
+choices:
+  choice1:
+    label: "80% increase due to operating leverage of 4.0"
+    correct: true
+  choice2:
+    label: "20% increase proportional to sales increase"
+    why-wrong-choice: "Operating income does not increase proportionally with sales due to operating leverage; fixed costs remain constant, amplifying profit changes"
+  choice3:
+    label: "40% increase due to operating leverage of 2.0"
+    why-wrong-choice: "Operating leverage = CM/Operating Income = PHP 2,000,000/PHP 500,000 = 4.0, not 2.0"
+  choice4:
+    label: "60% increase due to operating leverage of 3.0"
+    why-wrong-choice: "The degree of operating leverage is CM (PHP 2,000,000) divided by Operating Income (PHP 500,000) = 4.0, not 3.0"
+explanation:
+  short: "DOL = Contribution Margin / Operating Income = PHP 2,000,000 / PHP 500,000 = 4.0. A 20% sales increase yields 20% x 4.0 = 80% profit increase."
+  long: |
+    OPERATING LEVERAGE ANALYSIS:
+
+    CURRENT SITUATION:
+    Sales: PHP 5,000,000
+    Variable Costs: PHP 3,000,000
+    Contribution Margin: PHP 5,000,000 - PHP 3,000,000 = PHP 2,000,000
+    Fixed Costs: PHP 1,500,000
+    Operating Income: PHP 2,000,000 - PHP 1,500,000 = PHP 500,000
+
+    DEGREE OF OPERATING LEVERAGE (DOL):
+    Formula: DOL = Contribution Margin / Operating Income
+    DOL = PHP 2,000,000 / PHP 500,000
+    DOL = 4.0
+
+    INTERPRETATION:
+    Operating leverage of 4.0 means that for every 1% change in sales, operating income changes by 4%.
+
+    PROJECTED INCREASE:
+    Sales increase: 20%
+    Operating income increase: 20% x 4.0 = 80%
+
+    VERIFICATION:
+    New Sales: PHP 5,000,000 x 1.20 = PHP 6,000,000
+    New Variable Costs: PHP 3,000,000 x 1.20 = PHP 3,600,000 (60% of sales)
+    New Contribution Margin: PHP 6,000,000 - PHP 3,600,000 = PHP 2,400,000
+    Fixed Costs (unchanged): PHP 1,500,000
+    New Operating Income: PHP 2,400,000 - PHP 1,500,000 = PHP 900,000
+
+    Percentage increase: (PHP 900,000 - PHP 500,000) / PHP 500,000 = 80% ✓
+tip: "Operating Leverage = CM/OI. High leverage = high risk/reward. Profit magnifies both ways!"
+reference: "Horngren's Cost Accounting - CVP Analysis and Operating Leverage"

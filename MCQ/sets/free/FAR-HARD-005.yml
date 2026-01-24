@@ -1,0 +1,44 @@
+code: FAR-HARD-005
+active: true
+difficulty: HARD
+text: "Entity A has a 12-month expected credit loss (ECL) of PHP 50,000 and a lifetime ECL of PHP 200,000 on a loan receivable. The credit risk has NOT significantly increased since initial recognition. Under PFRS 9, what loss allowance should be recognized?"
+access-level: FREE
+topic: 14
+choices:
+  choice1:
+    label: "PHP 50,000 (12-month ECL)"
+    correct: true
+  choice2:
+    label: "PHP 200,000 (Lifetime ECL)"
+    why-wrong-choice: "Lifetime ECL is recognized only when credit risk has SIGNIFICANTLY INCREASED since initial recognition"
+  choice3:
+    label: "PHP 125,000 (Average of 12-month and lifetime)"
+    why-wrong-choice: "PFRS 9 uses a staged approach, not averaging; Stage 1 uses 12-month ECL only"
+  choice4:
+    label: "No loss allowance until actual default occurs"
+    why-wrong-choice: "PFRS 9 requires forward-looking ECL recognition from Day 1, not incurred loss model"
+explanation:
+  short: "No significant increase in credit risk = Stage 1 = 12-month ECL only."
+  long: |
+    Under PFRS 9's Expected Credit Loss (ECL) impairment model, there are THREE STAGES:
+
+    STAGE 1: Credit risk has NOT significantly increased since initial recognition
+    - Recognize: 12-MONTH ECL
+    - Interest revenue: On gross carrying amount
+    - This is the default stage at initial recognition
+
+    STAGE 2: Credit risk has SIGNIFICANTLY INCREASED (but not credit-impaired)
+    - Recognize: LIFETIME ECL
+    - Interest revenue: On gross carrying amount
+
+    STAGE 3: Credit-impaired (objective evidence of impairment)
+    - Recognize: LIFETIME ECL
+    - Interest revenue: On NET carrying amount (after loss allowance)
+
+    IN THIS CASE:
+    - Credit risk has NOT significantly increased → STAGE 1
+    - Therefore: Recognize 12-month ECL of PHP 50,000
+
+    KEY CONCEPT: The shift from 12-month to lifetime ECL is triggered by SIGNIFICANT INCREASE in credit risk, not by the existence of higher lifetime ECL.
+tip: "Stage 1 (no significant increase) = 12-month ECL; Stage 2/3 (significant increase) = Lifetime ECL"
+reference: "PFRS 9, Paragraphs 5.5.3-5.5.5"

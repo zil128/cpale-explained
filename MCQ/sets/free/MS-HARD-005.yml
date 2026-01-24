@@ -1,0 +1,54 @@
+code: MS-HARD-005
+active: true
+difficulty: HARD
+text: "Iloilo Corp uses the high-low method to estimate costs. In 2025, the highest activity was 8,000 machine hours with costs of PHP 380,000, and the lowest was 3,000 machine hours with costs of PHP 230,000. If the company expects to operate at 6,000 machine hours next month, what is the estimated total cost?"
+access-level: FREE
+topic: 113
+choices:
+  choice1:
+    label: "PHP 320,000"
+    correct: true
+  choice2:
+    label: "PHP 300,000"
+    why-wrong-choice: "This uses an incorrect variable cost rate or fixed cost calculation; the correct rate is PHP 30/MH with fixed costs of PHP 140,000"
+  choice3:
+    label: "PHP 305,000"
+    why-wrong-choice: "This likely used average cost per unit (PHP 305,000/6,000) instead of separating fixed and variable components using high-low method"
+  choice4:
+    label: "PHP 340,000"
+    why-wrong-choice: "This calculation error may have used wrong activity levels or cost figures in the high-low formula"
+explanation:
+  short: "Variable cost = (PHP 380,000 - PHP 230,000)/(8,000 - 3,000) = PHP 30/MH. Fixed = PHP 140,000. At 6,000 MH: PHP 140,000 + (6,000 x PHP 30) = PHP 320,000."
+  long: |
+    HIGH-LOW METHOD FOR COST ESTIMATION:
+
+    The high-low method uses the highest and lowest activity levels to separate mixed costs into fixed and variable components.
+
+    GIVEN DATA:
+    High point: 8,000 MH, PHP 380,000
+    Low point: 3,000 MH, PHP 230,000
+
+    STEP 1: Calculate Variable Cost per Machine Hour
+    Variable Cost Rate = (High Cost - Low Cost) / (High Activity - Low Activity)
+    = (PHP 380,000 - PHP 230,000) / (8,000 - 3,000)
+    = PHP 150,000 / 5,000 MH
+    = PHP 30 per machine hour
+
+    STEP 2: Calculate Fixed Cost
+    Using the high point (or low point - same result):
+    Total Cost = Fixed Cost + (Variable Rate x Activity)
+    PHP 380,000 = Fixed Cost + (PHP 30 x 8,000)
+    PHP 380,000 = Fixed Cost + PHP 240,000
+    Fixed Cost = PHP 140,000
+
+    Verification with low point:
+    PHP 230,000 = PHP 140,000 + (PHP 30 x 3,000)
+    PHP 230,000 = PHP 140,000 + PHP 90,000 ✓
+
+    STEP 3: Estimate Cost at 6,000 Machine Hours
+    Total Cost = Fixed Cost + (Variable Rate x Activity)
+    = PHP 140,000 + (PHP 30 x 6,000)
+    = PHP 140,000 + PHP 180,000
+    = PHP 320,000
+tip: "High-Low: Variable rate = Rise/Run (cost change ÷ activity change), then solve for fixed cost"
+reference: "Hilton - Managerial Accounting, Cost Behavior and Estimation Chapter"

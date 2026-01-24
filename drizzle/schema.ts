@@ -1,4 +1,4 @@
-import { mysqlTable, mysqlSchema, AnyMySqlColumn, index, foreignKey, primaryKey, unique, bigint, int, tinyint, mysqlEnum, timestamp, varchar, text, decimal, datetime, json, date, char, longtext, mysqlView } from "drizzle-orm/mysql-core"
+import { mysqlTable, mysqlSchema, AnyMySqlColumn, index, foreignKey, primaryKey, unique, bigint, int, mysqlEnum, timestamp, varchar, text, decimal, datetime, json, date, longtext, mysqlView } from "drizzle-orm/mysql-core"
 import { sql } from "drizzle-orm"
 
 export const attemptAnswers = mysqlTable("attempt_answers", {
@@ -16,9 +16,9 @@ export const attemptAnswers = mysqlTable("attempt_answers", {
 	questionStartedAt: timestamp("question_started_at", { mode: 'string' }),
 },
 (table) => [
+	index("idx_confidence").on(table.confidenceLevel),
 	index("idx_marked_review").on(table.attemptId, table.isMarkedForReview),
 	index("idx_time_spent").on(table.timeSpentSeconds),
-	index("idx_confidence").on(table.confidenceLevel),
 	primaryKey({ columns: [table.attemptAnswerId], name: "attempt_answers_attempt_answer_id"}),
 	unique("uq_attempt_question").on(table.attemptId, table.questionId),
 ]);
@@ -38,10 +38,10 @@ export const emailCampaignSends = mysqlTable("email_campaign_sends", {
 	clickCount: int("click_count").default(0),
 },
 (table) => [
-	index("subscriber_id").on(table.subscriberId),
 	index("idx_campaign_subscriber").on(table.campaignId, table.subscriberId),
-	index("idx_sent_date").on(table.sentAt),
 	index("idx_engagement").on(table.openedAt, table.clickedAt),
+	index("idx_sent_date").on(table.sentAt),
+	index("subscriber_id").on(table.subscriberId),
 	primaryKey({ columns: [table.sendId], name: "email_campaign_sends_send_id"}),
 ]);
 
@@ -71,8 +71,8 @@ export const emailCampaigns = mysqlTable("email_campaigns", {
 },
 (table) => [
 	index("idx_campaign_status").on(table.isDraft, table.isActive),
-	index("idx_scheduled").on(table.scheduledAt),
 	index("idx_campaign_type").on(table.campaignType),
+	index("idx_scheduled").on(table.scheduledAt),
 	primaryKey({ columns: [table.campaignId], name: "email_campaigns_campaign_id"}),
 ]);
 
@@ -92,10 +92,10 @@ export const emailSubscribers = mysqlTable("email_subscribers", {
 	unsubscribeReason: text("unsubscribe_reason"),
 },
 (table) => [
-	index("user_id").on(table.userId),
 	index("idx_email_verified").on(table.isVerified, table.unsubscribedAt),
 	index("idx_source").on(table.source),
 	index("idx_subscribed_date").on(table.subscribedAt),
+	index("user_id").on(table.userId),
 	primaryKey({ columns: [table.subscriberId], name: "email_subscribers_subscriber_id"}),
 	unique("email").on(table.email),
 ]);
@@ -150,9 +150,9 @@ export const examAttempts = mysqlTable("exam_attempts", {
 	ipAddress: varchar("ip_address", { length: 45 }),
 },
 (table) => [
-	index("idx_exam_attempts_user_id").on(table.userId),
-	index("idx_attempts_user_subject").on(table.userId, table.subjectId),
 	index("idx_attempts_submitted").on(table.submittedAt),
+	index("idx_attempts_user_subject").on(table.userId, table.subjectId),
+	index("idx_exam_attempts_user_id").on(table.userId),
 	primaryKey({ columns: [table.attemptId], name: "exam_attempts_attempt_id"}),
 	unique("uq_final_once_per_subject_version").on(table.userId, table.subjectId, table.examVersionId, table.isValid),
 	unique("uq_final_once_per_version").on(table.userId, table.subjectId, table.examVersionId, table.isValid),
@@ -187,9 +187,9 @@ export const examAttemptsArchive = mysqlTable("exam_attempts_archive", {
 	archivedBy: varchar("archived_by", { length: 50 }).default('SYSTEM'),
 },
 (table) => [
-	index("idx_archive_user").on(table.userId),
 	index("idx_archive_date").on(table.archivedAt),
 	index("idx_archive_reason").on(table.archivedReason),
+	index("idx_archive_user").on(table.userId),
 	primaryKey({ columns: [table.archiveId], name: "exam_attempts_archive_archive_id"}),
 ]);
 
@@ -358,10 +358,10 @@ export const paymentTransactions = mysqlTable("payment_transactions", {
 	createdAt: datetime("created_at", { mode: 'string'}).default(sql`(CURRENT_TIMESTAMP)`),
 },
 (table) => [
-	index("user_id").on(table.userId),
-	index("idx_subscription").on(table.subscriptionId),
-	index("idx_provider_ref").on(table.paymentProviderRef),
 	index("idx_payment_date").on(table.paidAt),
+	index("idx_provider_ref").on(table.paymentProviderRef),
+	index("idx_subscription").on(table.subscriptionId),
+	index("user_id").on(table.userId),
 	primaryKey({ columns: [table.paymentId], name: "payment_transactions_payment_id"}),
 ]);
 
@@ -387,10 +387,10 @@ export const paymentTransactionsNew = mysqlTable("payment_transactions_new", {
 	completedAt: timestamp("completed_at", { mode: 'string' }),
 },
 (table) => [
-	index("idx_user_transactions").on(table.userId),
-	index("idx_status").on(table.status),
 	index("idx_provider").on(table.paymentProvider),
 	index("idx_reference").on(table.internalReference),
+	index("idx_status").on(table.status),
+	index("idx_user_transactions").on(table.userId),
 	index("plan_id").on(table.planId),
 	primaryKey({ columns: [table.transactionId], name: "payment_transactions_new_transaction_id"}),
 	unique("internal_reference").on(table.internalReference),
@@ -439,16 +439,16 @@ export const promoCodes = mysqlTable("promo_codes", {
 export const questionChoices = mysqlTable("question_choices", {
 	choiceId: bigint("choice_id", { mode: "number" }).autoincrement().notNull(),
 	questionId: bigint("question_id", { mode: "number" }).notNull().references(() => questions.questionId, { onDelete: "cascade" } ),
-	choiceLabel: char("choice_label", { length: 1 }).notNull(),
 	choiceText: longtext("choice_text").notNull(),
 	isCorrect: tinyint("is_correct").default(0),
+	whyWrong: text("why_wrong"),
 	isActive: tinyint("is_active").default(1),
 	displayOrder: int("display_order"),
 	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
+	index("idx_question_id").on(table.questionId),
 	primaryKey({ columns: [table.choiceId], name: "question_choices_choice_id"}),
-	unique("uq_question_choice").on(table.questionId, table.choiceLabel),
 ]);
 
 export const questionExplanations = mysqlTable("question_explanations", {
@@ -594,9 +594,9 @@ export const topicContent = mysqlTable("topic_content", {
 	updatedAt: timestamp("updated_at", { mode: 'string' }).defaultNow().onUpdateNow(),
 },
 (table) => [
-	index("idx_topic_content").on(table.topicId, table.isActive),
 	index("idx_content_type").on(table.contentType),
 	index("idx_featured").on(table.isFeatured, table.isActive),
+	index("idx_topic_content").on(table.topicId, table.isActive),
 	primaryKey({ columns: [table.contentId], name: "topic_content_content_id"}),
 ]);
 
@@ -637,9 +637,9 @@ export const userActivityLog = mysqlTable("user_activity_log", {
 	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
-	index("idx_user_activity").on(table.userId, table.activityType),
 	index("idx_activity_date").on(table.createdAt),
 	index("idx_activity_type").on(table.activityType),
+	index("idx_user_activity").on(table.userId, table.activityType),
 	primaryKey({ columns: [table.activityId], name: "user_activity_log_activity_id"}),
 ]);
 
@@ -703,8 +703,8 @@ export const userMockAttempts = mysqlTable("user_mock_attempts", {
 	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
-	index("user_id").on(table.userId),
 	index("exam_id").on(table.examId),
+	index("user_id").on(table.userId),
 	primaryKey({ columns: [table.attemptId], name: "user_mock_attempts_attempt_id"}),
 ]);
 
@@ -727,10 +727,10 @@ export const userReferrals = mysqlTable("user_referrals", {
 	createdAt: timestamp("created_at", { mode: 'string' }).defaultNow(),
 },
 (table) => [
-	index("referred_user_id").on(table.referredUserId),
-	index("idx_referrer").on(table.referrerUserId),
 	index("idx_referral_code").on(table.referralCode),
+	index("idx_referrer").on(table.referrerUserId),
 	index("idx_status").on(table.status),
+	index("referred_user_id").on(table.referredUserId),
 	primaryKey({ columns: [table.referralId], name: "user_referrals_referral_id"}),
 	unique("referral_code").on(table.referralCode),
 ]);
@@ -796,9 +796,9 @@ export const userSubscriptions = mysqlTable("user_subscriptions", {
 	paymentProvider: mysqlEnum("payment_provider", ['GCASH','PAYMAYA','BANK_TRANSFER','PAYPAL','STRIPE','MANUAL']),
 },
 (table) => [
+	index("idx_next_billing").on(table.nextBillingDate),
 	index("idx_subscription_status").on(table.subscriptionStatus),
 	index("idx_trial_ends").on(table.trialEndsAt),
-	index("idx_next_billing").on(table.nextBillingDate),
 	primaryKey({ columns: [table.subscriptionId], name: "user_subscriptions_subscription_id"}),
 	unique("uq_user_active_subscription").on(table.userId, table.isActive),
 ]);
@@ -814,8 +814,8 @@ export const userTopicWeakness = mysqlTable("user_topic_weakness", {
 	lastUpdated: datetime("last_updated", { mode: 'string'}).default(sql`(CURRENT_TIMESTAMP)`),
 },
 (table) => [
-	index("topic_id").on(table.topicId),
 	index("idx_weakness_user").on(table.userId),
+	index("topic_id").on(table.topicId),
 	primaryKey({ columns: [table.weaknessId], name: "user_topic_weakness_weakness_id"}),
 	unique("uq_user_topic").on(table.userId, table.topicId),
 ]);

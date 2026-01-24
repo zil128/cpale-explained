@@ -123,6 +123,8 @@
 
                 <div class="flex items-center gap-6">
                     <a href="/landing-page/quiz.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Practice</a>
+                    <a href="/landing-page/mock-exam-list.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Mock Exams</a>
+                    <a href="/landing-page/analytics.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Analytics</a>
                     <a href="/landing-page/pricing.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Pricing</a>
                     <a href="/landing-page/dashboard.html" class="text-primary font-medium">Dashboard</a>
                     <div class="relative group">
@@ -171,6 +173,60 @@
             <div class="glass rounded-2xl p-5 animate-scaleIn stagger-4">
                 <p class="text-gray-500 text-sm mb-1" id="questionsLeftLabel">Questions Left</p>
                 <p class="font-heading text-3xl font-bold text-accent" id="questionsLeft">50</p>
+            </div>
+        </div>
+
+        <!-- Subscription Status Widget -->
+        <div id="subscriptionWidget" class="glass rounded-3xl p-6 mb-10 border-2 border-primary/20 animate-fadeInUp" style="animation-delay: 0.5s; opacity: 0;">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-2">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                        </svg>
+                        <h3 class="font-heading text-xl font-bold text-gray-900">
+                            <span id="subscriptionPlanName">Free Plan</span>
+                        </h3>
+                        <span id="subscriptionBadge" class="px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase">Free</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3" id="subscriptionDescription">50 MCQs available</p>
+                    
+                    <!-- Usage Bar (for FREE users only) -->
+                    <div id="usageBar" class="mb-2">
+                        <div class="flex justify-between text-xs text-gray-600 mb-1">
+                            <span>MCQs Used</span>
+                            <span id="usageText">0 / 50</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div id="usageProgress" class="bg-gradient-to-r from-primary to-accent h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Days Remaining (for PAID users only) -->
+                    <div id="daysRemaining" class="hidden text-sm mb-2">
+                        <span class="text-gray-600">Days remaining: </span>
+                        <span class="font-bold text-primary" id="daysRemainingValue">0</span>
+                    </div>
+
+                    <!-- Manage Link -->
+                    <a href="subscription.html" class="text-sm text-primary hover:underline inline-flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        Manage Subscription
+                    </a>
+                </div>
+                
+                <!-- Upgrade Button (for FREE users) -->
+                <div id="upgradeButton">
+                    <a href="pricing.html" class="btn-glow bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl font-bold whitespace-nowrap inline-flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+                        </svg>
+                        Upgrade to Paid
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -239,28 +295,6 @@
             <p class="text-gray-600 mb-6">Simulate the actual CPALE exam with <strong>100 MCQs</strong> and a <strong>3-hour time limit</strong>.</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="mockPreboardGrid">
                 <!-- Mock preboard exams will be loaded here -->
-            </div>
-        </div>
-
-        <!-- Account Status -->
-        <div id="accountStatus" class="glass rounded-2xl p-6 border-2 border-dashed border-primary/30 mt-10">
-            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                <div class="flex items-start md:items-center gap-4">
-                    <div id="planIcon" class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <span class="text-2xl">🆓</span>
-                    </div>
-                    <div>
-                        <div class="flex items-center gap-2 mb-1">
-                            <h3 id="planName" class="font-heading font-bold text-gray-900">FREE Account</h3>
-                            <span id="planBadge" class="bg-accent/10 text-accent text-xs font-bold px-2 py-0.5 rounded-full">50 left</span>
-                        </div>
-                        <p id="planDescription" class="text-gray-600 text-sm">You have access to 50 FREE questions. Upgrade for more features!</p>
-                        <div id="subscriptionEnd" class="text-xs text-gray-500 mt-1 hidden"></div>
-                    </div>
-                </div>
-                <a href="/landing-page/pricing.html" id="upgradeBtn" class="btn-glow bg-gradient-to-r from-secondary to-emerald-400 text-white px-6 py-3 rounded-xl font-bold whitespace-nowrap">
-                    Upgrade Now
-                </a>
             </div>
         </div>
 
@@ -344,76 +378,85 @@
 
                 if (response.ok) {
                     const data = await response.json();
-                    subscription = data.subscription;
-                    updateAccountStatusUI(subscription);
+                    subscription = data;
+                    updateSubscriptionWidget(data);
 
                     // Show tabs for paid users
-                    if (subscription.planType !== 'FREE') {
+                    if (data.subscription_type === 'PAID') {
                         document.getElementById('dashboardTabs').classList.remove('hidden');
                         renderPracticeSets();
-
-                        // Show mock preboard tab for Advance users
-                        if (subscription.planType === 'ADVANCE') {
-                            document.getElementById('mockPreboardTab').classList.remove('hidden');
-                            renderMockPreboard();
-                        }
                     }
                 }
             } catch (error) {
                 console.error('Failed to load subscription:', error);
+                // Set defaults for FREE plan
+                updateSubscriptionWidget({
+                    subscription_type: 'FREE',
+                    plan_name: 'Free Plan',
+                    mcq_limit: 50,
+                    mcqs_used: 0
+                });
             }
         }
 
-        // Update account status UI
-        function updateAccountStatusUI(sub) {
-            const planIcon = document.getElementById('planIcon');
-            const planName = document.getElementById('planName');
-            const planDescription = document.getElementById('planDescription');
-            const planBadge = document.getElementById('planBadge');
-            const upgradeBtn = document.getElementById('upgradeBtn');
-            const subscriptionEnd = document.getElementById('subscriptionEnd');
-            const questionsLeftLabel = document.getElementById('questionsLeftLabel');
+        // Update subscription widget
+        function updateSubscriptionWidget(data) {
+            const planNameEl = document.getElementById('subscriptionPlanName');
+            const badgeEl = document.getElementById('subscriptionBadge');
+            const descriptionEl = document.getElementById('subscriptionDescription');
+            const usageBarEl = document.getElementById('usageBar');
+            const usageTextEl = document.getElementById('usageText');
+            const usageProgressEl = document.getElementById('usageProgress');
+            const daysRemainingEl = document.getElementById('daysRemaining');
+            const daysRemainingValueEl = document.getElementById('daysRemainingValue');
+            const upgradeButtonEl = document.getElementById('upgradeButton');
 
-            if (sub.planType === 'FREE') {
-                planIcon.innerHTML = '<span class="text-2xl">🆓</span>';
-                planIcon.className = 'w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0';
-                planName.textContent = 'FREE Account';
-                planDescription.textContent = 'You have access to 50 FREE questions. Upgrade for more features!';
-                planBadge.textContent = `${sub.mcqLimit - (50 - sub.mcqLimit)} left`;
-                planBadge.className = 'bg-accent/10 text-accent text-xs font-bold px-2 py-0.5 rounded-full';
-                upgradeBtn.classList.remove('hidden');
-                questionsLeftLabel.textContent = 'Questions Left';
-            } else if (sub.planType === 'BASIC') {
-                planIcon.innerHTML = '<span class="text-2xl">⭐</span>';
-                planIcon.className = 'w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center flex-shrink-0';
-                planName.textContent = 'BASIC Plan';
-                planDescription.textContent = `Access to 500 MCQs with Practice Sets (75 MCQs each).`;
-                planBadge.textContent = 'BASIC';
-                planBadge.className = 'bg-secondary/10 text-secondary text-xs font-bold px-2 py-0.5 rounded-full';
-                upgradeBtn.textContent = 'Upgrade to Advance';
-                upgradeBtn.classList.remove('hidden');
-                questionsLeftLabel.textContent = 'MCQ Limit';
-                document.getElementById('questionsLeft').textContent = sub.mcqLimit.toLocaleString();
-
-                if (sub.endDate) {
-                    subscriptionEnd.textContent = `Subscription ends: ${new Date(sub.endDate).toLocaleDateString()}`;
-                    subscriptionEnd.classList.remove('hidden');
+            if (data.subscription_type === 'FREE') {
+                // FREE Plan
+                planNameEl.textContent = 'Free Plan';
+                badgeEl.textContent = 'FREE';
+                badgeEl.className = 'px-3 py-1 bg-gray-100 text-gray-600 text-xs font-bold rounded-full uppercase';
+                descriptionEl.textContent = `${data.mcq_limit || 50} MCQs available`;
+                
+                // Show usage bar
+                usageBarEl.classList.remove('hidden');
+                const used = data.mcqs_used || 0;
+                const limit = data.mcq_limit || 50;
+                const percentage = (used / limit) * 100;
+                usageTextEl.textContent = `${used} / ${limit}`;
+                usageProgressEl.style.width = `${Math.min(percentage, 100)}%`;
+                
+                // Hide days remaining
+                daysRemainingEl.classList.add('hidden');
+                
+                // Show upgrade button
+                upgradeButtonEl.classList.remove('hidden');
+                
+                // Update quick stats
+                document.getElementById('questionsLeftLabel').textContent = 'Questions Left';
+                document.getElementById('questionsLeft').textContent = limit - used;
+            } else {
+                // PAID Plan
+                planNameEl.textContent = data.plan_name || 'Paid Plan';
+                badgeEl.textContent = 'PAID';
+                badgeEl.className = 'px-3 py-1 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold rounded-full uppercase';
+                descriptionEl.textContent = 'Unlimited MCQs + Practice Sets';
+                
+                // Hide usage bar
+                usageBarEl.classList.add('hidden');
+                
+                // Show days remaining
+                if (data.days_remaining !== null && data.days_remaining !== undefined) {
+                    daysRemainingEl.classList.remove('hidden');
+                    daysRemainingValueEl.textContent = data.days_remaining;
                 }
-            } else if (sub.planType === 'ADVANCE') {
-                planIcon.innerHTML = '<span class="text-2xl">🚀</span>';
-                planIcon.className = 'w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0 text-white';
-                planName.textContent = 'ADVANCE Plan';
-                planDescription.textContent = 'Full access to 10,000+ MCQs, Mock Preboard, and AI Analytics.';
-                planBadge.textContent = 'ADVANCE';
-                planBadge.className = 'bg-gradient-to-r from-primary to-accent text-white text-xs font-bold px-2 py-0.5 rounded-full';
-                upgradeBtn.classList.add('hidden');
-                questionsLeftLabel.textContent = 'MCQ Access';
-                document.getElementById('questionsLeft').textContent = '10,000+';
-
-                if (sub.endDate) {
-                    subscriptionEnd.textContent = `Subscription ends: ${new Date(sub.endDate).toLocaleDateString()}`;
-                    subscriptionEnd.classList.remove('hidden');
-                }
+                
+                // Hide upgrade button
+                upgradeButtonEl.classList.add('hidden');
+                
+                // Update quick stats
+                document.getElementById('questionsLeftLabel').textContent = 'Unlimited';
+                document.getElementById('questionsLeft').textContent = '∞';
             }
         }
 

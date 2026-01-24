@@ -1,0 +1,55 @@
+code: MS-HARD-004
+active: true
+difficulty: HARD
+text: "Davao Manufacturing allocates overhead using activity-based costing. Setup costs total PHP 240,000 with 80 setups. Product X requires 30 setups for 1,000 units while Product Y requires 50 setups for 5,000 units. Under traditional costing using direct labor hours (X: 2,000 DLH, Y: 8,000 DLH), how much LESS overhead would Product X receive compared to ABC?"
+access-level: FREE
+topic: 118
+choices:
+  choice1:
+    label: "PHP 42,000 less under traditional costing"
+    correct: true
+  choice2:
+    label: "PHP 42,000 more under traditional costing"
+    why-wrong-choice: "Traditional costing assigns Product X only PHP 48,000 (20% of overhead) while ABC assigns PHP 90,000 (37.5%); X receives LESS, not more, under traditional"
+  choice3:
+    label: "PHP 90,000 less under traditional costing"
+    why-wrong-choice: "PHP 90,000 is the total ABC allocation to Product X, not the difference between the two methods"
+  choice4:
+    label: "PHP 48,000 less under traditional costing"
+    why-wrong-choice: "PHP 48,000 is the traditional costing allocation to Product X, not the difference; the difference is PHP 90,000 - PHP 48,000 = PHP 42,000"
+explanation:
+  short: "ABC allocates PHP 90,000 to X (30/80 setups). Traditional allocates PHP 48,000 to X (2,000/10,000 DLH). Difference = PHP 42,000 less under traditional."
+  long: |
+    COMPARISON OF ABC VS. TRADITIONAL COSTING:
+
+    ACTIVITY-BASED COSTING (ABC):
+    Cost Driver: Number of Setups
+    Setup Cost Rate = PHP 240,000 / 80 setups = PHP 3,000 per setup
+
+    Product X allocation:
+    30 setups x PHP 3,000 = PHP 90,000
+
+    Product Y allocation:
+    50 setups x PHP 3,000 = PHP 150,000
+
+    TRADITIONAL COSTING:
+    Cost Driver: Direct Labor Hours
+    Total DLH = 2,000 + 8,000 = 10,000 DLH
+    OH Rate = PHP 240,000 / 10,000 DLH = PHP 24 per DLH
+
+    Product X allocation:
+    2,000 DLH x PHP 24 = PHP 48,000
+
+    Product Y allocation:
+    8,000 DLH x PHP 24 = PHP 192,000
+
+    DIFFERENCE FOR PRODUCT X:
+    ABC allocation: PHP 90,000
+    Traditional allocation: PHP 48,000
+    Difference: PHP 90,000 - PHP 48,000 = PHP 42,000
+
+    Product X receives PHP 42,000 LESS under traditional costing.
+
+    INSIGHT: Product X is a low-volume product requiring proportionally more setups (30/80 = 37.5%) relative to its DLH usage (2,000/10,000 = 20%). ABC correctly captures this complexity; traditional costing under-costs Product X and over-costs Product Y.
+tip: "ABC reveals TRUE cost of complexity. Low-volume products with high setup needs are UNDER-costed by traditional methods."
+reference: "Kaplan & Cooper - Cost and Effect: Using Integrated Cost Systems"

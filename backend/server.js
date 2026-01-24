@@ -7,8 +7,41 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 
+// MVP Phase 1: Subscription management
+const subscriptionRoutes = require('./routes/subscription');
+const subscriptionMiddleware = require('./middleware/subscriptionCheck');
+const SubscriptionChecker = require('./services/subscriptionChecker');
+
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// ============================================================================
+// UTILITY FUNCTIONS
+// ============================================================================
+
+/**
+ * Shuffle array randomly using Fisher-Yates algorithm
+ * Used to randomize choice order on each quiz attempt to prevent memorization
+ */
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
+/**
+ * Assign dynamic labels (A, B, C, D) to shuffled choices
+ */
+function assignChoiceLabels(choices) {
+  const shuffled = shuffleArray(choices);
+  return shuffled.map((choice, index) => ({
+    ...choice,
+    choice_label: String.fromCharCode(65 + index) // A=65, B=66, C=67, D=68
+  }));
+}
 
 // Middleware
 app.use(cors({
@@ -40,6 +73,17 @@ async function setupDatabase() {
     const connection = await pool.getConnection();
     console.log('Database connected successfully!');
     connection.release();
+    
+    // Initialize subscription middleware with database pool
+    subscriptionMiddleware.setPool(pool);
+    subscriptionRoutes.setPool(pool);
+    console.log('Subscription middleware initialized');
+    
+    // Initialize subscription checker service
+    const subscriptionChecker = new SubscriptionChecker(pool);
+    subscriptionChecker.startPeriodicChecks(6); // Check every 6 hours
+    console.log('Subscription checker service started');
+    
     return true;
   } catch (error) {
     console.error('Database connection failed:', error.message);
@@ -119,6 +163,73 @@ app.post('/api/subscribe', async (req, res) => {
   }
 });
 
+// ============================================================================
+// SUBSCRIPTION ROUTES (MVP Phase 1)
+// ============================================================================
+const { attachSubscription } = subscriptionMiddleware;
+// Public endpoint for viewing subscription plans
+const { getAllPlans } = require('./config/plans');
+app.get('/api/subscription/plans', (req, res) => {
+  try {
+    const plans = getAllPlans();
+    res.json({
+      plans: plans.map(plan => ({
+        code: plan.code,
+        name: plan.name,
+        description: plan.description,
+        price: plan.price,
+        duration_days: plan.duration_days,
+        mcq_limit: plan.mcq_limit,
+        features: plan.features
+      }))
+    });
+  } catch (error) {
+    console.error('Get plans error:', error);
+    res.status(500).json({ error: 'Failed to get subscription plans' });
+  }
+});
+// Protected subscription routes
+app.use('/api/subscription', authenticateToken, subscriptionRoutes);
+
+// PAYMENT ROUTES
+// ============================================================================
+const paymentRoutes = require('./routes/payment');
+paymentRoutes.setPool(pool);
+// Public route for payment methods (must be before protected routes)
+app.get('/api/payment/methods', async (req, res) => {
+  try {
+    const [methods] = await pool.execute(
+      `SELECT payment_method, is_active, account_name, account_number, 
+              bank_name, qr_code_url, instructions
+       FROM payment_methods_config
+       WHERE is_active = TRUE
+       ORDER BY FIELD(payment_method, 'GCASH', 'PAYMAYA', 'BANK_TRANSFER')`
+    );
+    res.json({ methods });
+  } catch (error) {
+    console.error('Get payment methods error:', error);
+    res.status(500).json({ error: 'Failed to get payment methods' });
+  }
+});
+// Protected payment routes
+app.use('/api/payment', authenticateToken, paymentRoutes);
+
+// ANALYTICS ROUTES (Admin only)
+// ============================================================================
+const analyticsRoutes = require('./routes/analytics');
+analyticsRoutes.setPool(pool);
+app.use('/api/analytics/admin', authenticateToken, analyticsRoutes);
+
+// USER ANALYTICS ROUTES (AI-powered performance analysis)
+// ============================================================================
+const userAnalyticsRoutes = require('./routes/userAnalytics');
+app.use('/api/analytics/user', authenticateToken, userAnalyticsRoutes);
+
+// MOCK EXAM ROUTES (PAID users only)
+// ============================================================================
+const mockExamRoutes = require('./routes/mockExam');
+app.use('/api/mock-exam', authenticateToken, mockExamRoutes);
+
 // Register new user
 app.post('/api/auth/register', async (req, res) => {
   try {
@@ -151,12 +262,26 @@ app.post('/api/auth/register', async (req, res) => {
 
     const userId = result.insertId;
 
-    // Create subscription record
-    await pool.query(
-      `INSERT INTO user_subscriptions (user_id, plan_type, subscription_status, start_date, is_active)
-       VALUES (?, 'FREE', 'ACTIVE', CURDATE(), TRUE)`,
-      [userId]
+    // Create FREE subscription in new v2 table (MVP Phase 1)
+    const [freePlan] = await pool.query(
+      `SELECT plan_id FROM subscription_plans_v2 WHERE plan_code = 'FREE'`
     );
+
+    if (freePlan.length > 0) {
+      await pool.query(
+        `INSERT INTO user_subscriptions_v2 
+        (user_id, plan_id, subscription_type, start_date, end_date, is_active)
+        VALUES (?, ?, 'FREE', CURDATE(), NULL, TRUE)`,
+        [userId, freePlan[0].plan_id]
+      );
+      
+      // Initialize MCQ usage tracking
+      await pool.query(
+        `INSERT INTO user_mcq_usage (user_id, mcqs_attempted, last_reset_date)
+        VALUES (?, 0, CURDATE())`,
+        [userId]
+      );
+    }
 
     // Generate JWT token
     const token = jwt.sign(
@@ -251,7 +376,7 @@ app.get('/api/questions/free', async (req, res) => {
       FROM questions q
       JOIN topics t ON q.topic_id = t.topic_id
       JOIN subjects s ON t.subject_id = s.subject_id
-      WHERE q.access_level = 'FREE'
+      WHERE q.access_type = 'FREE'
         AND q.is_active = TRUE
     `;
 
@@ -265,16 +390,16 @@ app.get('/api/questions/free', async (req, res) => {
 
     const [questions] = await pool.query(query, params);
 
-    // Get choices for each question
+    // Get choices for each question (shuffled with dynamic labels)
     for (let question of questions) {
       const [choices] = await pool.query(
-        `SELECT choice_id, choice_label, choice_text, is_correct
+        `SELECT choice_id, choice_text, is_correct, why_wrong
          FROM question_choices
-         WHERE question_id = ? AND is_active = TRUE
-         ORDER BY display_order`,
+         WHERE question_id = ? AND is_active = TRUE`,
         [question.question_id]
       );
-      question.choices = choices;
+      // Shuffle choices and assign dynamic labels (A, B, C, D)
+      question.choices = assignChoiceLabels(choices);
     }
 
     res.json({
@@ -292,13 +417,14 @@ app.get('/api/questions/:questionId/explanation', authenticateToken, async (req,
   try {
     const { questionId } = req.params;
 
+    // Get explanation from question_explanations table
+    // Note: why_wrong_choices now stores the legal_reference (PAS/PFRS/Law citations)
     const [explanations] = await pool.query(
       `SELECT
         e.short_explanation,
         e.exam_explanation,
-        e.why_wrong_choices,
         e.memory_tip,
-        c.choice_label as correct_answer,
+        e.why_wrong_choices as legal_reference,
         c.choice_text as correct_answer_text
       FROM question_explanations e
       JOIN questions q ON e.question_id = q.question_id
@@ -312,7 +438,6 @@ app.get('/api/questions/:questionId/explanation', authenticateToken, async (req,
         explanation: {
           short_explanation: 'No detailed explanation available for this question.',
           exam_explanation: '',
-          why_wrong_choices: '',
           memory_tip: 'Review the concept and practice more questions.'
         }
       });
@@ -330,9 +455,10 @@ app.get('/api/questions/:questionId/explanation', authenticateToken, async (req,
 // ============================================================================
 
 // Get all practice sets for a subject
-app.get('/api/practice-sets', async (req, res) => {
+app.get('/api/practice-sets', authenticateToken, attachSubscription, async (req, res) => {
   try {
     const { subject } = req.query;
+    const userPlan = req.user.subscription.subscription_type;
 
     let query = `
       SELECT
@@ -340,9 +466,8 @@ app.get('/api/practice-sets', async (req, res) => {
         ps.set_code,
         ps.set_name,
         ps.set_type,
-        ps.access_level,
+        ps.access_type,
         ps.questions_per_set,
-        ps.is_paid,
         t.topic_name,
         s.subject_code,
         s.subject_name,
@@ -352,6 +477,12 @@ app.get('/api/practice-sets', async (req, res) => {
       JOIN subjects s ON t.subject_id = s.subject_id
       WHERE ps.is_active = TRUE
     `;
+
+    // FREE users only see FREE practice sets (MVP Phase 1)
+    if (userPlan === 'FREE') {
+      query += " AND ps.access_type = 'FREE'";
+    }
+    // PAID users see all practice sets
 
     const params = [];
     if (subject) {
@@ -365,7 +496,8 @@ app.get('/api/practice-sets', async (req, res) => {
 
     res.json({
       practice_sets: practiceSets,
-      total: practiceSets.length
+      total: practiceSets.length,
+      userPlan: userPlan
     });
   } catch (error) {
     console.error('Get practice sets error:', error);
@@ -395,31 +527,20 @@ app.get('/api/practice-sets/:setId/questions', authenticateToken, async (req, re
 
     const set = practiceSet[0];
 
-    // Check access level
-    if (set.access_level !== 'FREE') {
-      // Check user subscription
+    // Check access type (PAID vs FREE)
+    if (set.access_type === 'PAID') {
+      // Check user subscription in user_subscriptions_v2
       const [subscription] = await pool.query(
-        `SELECT plan_name, status FROM user_subscriptions
-         WHERE user_id = ? AND status = 'ACTIVE' AND end_date > NOW()`,
+        `SELECT subscription_type, is_active, end_date FROM user_subscriptions_v2
+         WHERE user_id = ? AND is_active = TRUE AND (end_date IS NULL OR end_date > CURDATE())`,
         [userId]
       );
 
-      if (subscription.length === 0) {
+      if (subscription.length === 0 || subscription[0].subscription_type !== 'PAID') {
         return res.status(403).json({
           error: 'Subscription required',
-          required_plan: set.access_level,
-          message: `This practice set requires ${set.access_level} subscription`
-        });
-      }
-
-      // Check if plan matches
-      const userPlan = subscription[0].plan_name;
-      if (set.access_level === 'ADVANCE' && userPlan === 'BASIC') {
-        return res.status(403).json({
-          error: 'Upgrade required',
-          required_plan: 'ADVANCE',
-          current_plan: userPlan,
-          message: 'Upgrade to ADVANCE plan for this practice set'
+          required_plan: 'PAID',
+          message: 'This practice set requires a PAID subscription. Upgrade to access all 225+ premium questions.'
         });
       }
     }
@@ -439,16 +560,16 @@ app.get('/api/practice-sets/:setId/questions', authenticateToken, async (req, re
       [setId]
     );
 
-    // Get choices for each question (without showing correct answer)
+    // Get choices for each question (shuffled with dynamic labels, without showing correct answer)
     for (let question of questions) {
       const [choices] = await pool.query(
-        `SELECT choice_id, choice_label, choice_text
+        `SELECT choice_id, choice_text
          FROM question_choices
-         WHERE question_id = ? AND is_active = TRUE
-         ORDER BY display_order`,
+         WHERE question_id = ? AND is_active = TRUE`,
         [question.question_id]
       );
-      question.choices = choices;
+      // Shuffle choices and assign dynamic labels (A, B, C, D)
+      question.choices = assignChoiceLabels(choices);
     }
 
     res.json({
@@ -472,19 +593,22 @@ app.get('/api/practice-sets/:setId/questions', authenticateToken, async (req, re
 app.post('/api/practice-sets/:setId/submit', authenticateToken, async (req, res) => {
   try {
     const { setId } = req.params;
-    const { answers } = req.body; // Array of { questionId, selectedChoiceId }
+    const { answers } = req.body; // Array of { questionId, selectedChoiceId, timeSpent }
     const userId = req.user.userId;
 
     if (!answers || !Array.isArray(answers)) {
       return res.status(400).json({ error: 'Answers array required' });
     }
 
+    // Import AI analytics service for recording answers
+    const aiAnalytics = require('./services/aiAnalytics');
+
     let correct = 0;
     let total = answers.length;
     const results = [];
 
     for (const answer of answers) {
-      const { questionId, selectedChoiceId } = answer;
+      const { questionId, selectedChoiceId, timeSpent } = answer;
 
       // Check if selected choice is correct
       const [choice] = await pool.query(
@@ -495,9 +619,9 @@ app.post('/api/practice-sets/:setId/submit', authenticateToken, async (req, res)
       const isCorrect = choice.length > 0 && choice[0].is_correct === 1;
       if (isCorrect) correct++;
 
-      // Get correct answer for feedback
+      // Get correct answer for feedback (label not stored, only choice_id and text)
       const [correctChoice] = await pool.query(
-        `SELECT choice_id, choice_label, choice_text
+        `SELECT choice_id, choice_text
          FROM question_choices
          WHERE question_id = ? AND is_correct = TRUE`,
         [questionId]
@@ -510,7 +634,7 @@ app.post('/api/practice-sets/:setId/submit', authenticateToken, async (req, res)
         correctAnswer: correctChoice[0]
       });
 
-      // Save progress to user_topic_weakness
+      // Save progress to user_topic_weakness (legacy)
       const [question] = await pool.query(
         'SELECT topic_id FROM questions WHERE question_id = ?',
         [questionId]
@@ -542,6 +666,20 @@ app.post('/api/practice-sets/:setId/submit', authenticateToken, async (req, res)
             [userId, subjectId, topicId, isCorrect ? 0 : 1]
           );
         }
+      }
+
+      // Record answer for AI Analytics
+      try {
+        await aiAnalytics.recordAnswer(
+          userId,
+          questionId,
+          selectedChoiceId,
+          isCorrect,
+          timeSpent || 60, // Default to 60 seconds if not provided
+          'PRACTICE'
+        );
+      } catch (analyticsError) {
+        console.error('Analytics recording error (non-fatal):', analyticsError.message);
       }
     }
 
@@ -649,16 +787,16 @@ app.post('/api/mock-preboard/:examId/start', authenticateToken, async (req, res)
       [examInfo.subject_code, examInfo.questions_count]
     );
 
-    // Get choices for each question
+    // Get choices for each question (shuffled with dynamic labels)
     for (let question of questions) {
       const [choices] = await pool.query(
-        `SELECT choice_id, choice_label, choice_text
+        `SELECT choice_id, choice_text
          FROM question_choices
-         WHERE question_id = ? AND is_active = TRUE
-         ORDER BY display_order`,
+         WHERE question_id = ? AND is_active = TRUE`,
         [question.question_id]
       );
-      question.choices = choices;
+      // Shuffle choices and assign dynamic labels (A, B, C, D)
+      question.choices = assignChoiceLabels(choices);
     }
 
     // Create attempt record

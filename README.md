@@ -4,7 +4,7 @@
 
 ## Overview
 
-CPALE Explained helps CPA exam candidates study smarter with AI-powered analytics that track every answer, analyze weak spots, and provide guidance on what to study next.
+CPALE Explained will serve as practice buddy that helps CPA exam candidates practice and study smarter with AI-powered analytics that track every answer, analyze weak spots, and provide guidance on what to study next.
 
 ## Subjects Covered
 

@@ -1,0 +1,52 @@
+code: AUD-HARD-008
+active: true
+difficulty: HARD
+text: "According to PSA 570, when there is substantial doubt about an entity's ability to continue as a going concern, but management's disclosures are adequate, how should the auditor's report be modified?"
+access-level: FREE
+topic: 74
+choices:
+  choice1:
+    label: "Include an Emphasis of Matter paragraph without modifying the opinion"
+    correct: true
+  choice2:
+    label: "Issue a qualified opinion with explanatory paragraph"
+    why-wrong-choice: "Qualified opinion is for material misstatement or scope limitation, not going concern with adequate disclosure"
+  choice3:
+    label: "Issue an adverse opinion due to the going concern uncertainty"
+    why-wrong-choice: "Adverse opinion is for material and pervasive misstatement, not for properly disclosed going concern"
+  choice4:
+    label: "Issue a disclaimer of opinion due to uncertainty"
+    why-wrong-choice: "Disclaimer is for scope limitations, not for properly disclosed going concern uncertainty"
+explanation:
+  short: "Going concern doubt + adequate disclosure = Unmodified opinion + Emphasis of Matter paragraph."
+  long: |
+    GOING CONCERN REPORTING (PSA 570)
+
+    SCENARIO MATRIX:
+
+    1. MATERIAL UNCERTAINTY EXISTS, ADEQUATE DISCLOSURE
+       - Opinion: UNMODIFIED
+       - Add: EMPHASIS OF MATTER paragraph
+       - Heading: "Material Uncertainty Related to Going Concern"
+       - Draw attention to disclosure in notes
+
+    2. MATERIAL UNCERTAINTY EXISTS, INADEQUATE DISCLOSURE
+       - Opinion: QUALIFIED or ADVERSE (depending on severity)
+       - Reason: Inadequate disclosure is a departure from framework
+
+    3. USE OF GOING CONCERN BASIS NOT APPROPRIATE
+       - Opinion: ADVERSE
+       - Management preparing going concern FS when liquidation is certain
+
+    4. MANAGEMENT UNWILLING TO MAKE ASSESSMENT
+       - Consider: Qualified or disclaimer for scope limitation
+
+    EMPHASIS OF MATTER REQUIREMENTS:
+    - Placed immediately after the Opinion section
+    - Heading: "Material Uncertainty Related to Going Concern"
+    - Reference to the note disclosure
+    - Statement that "our opinion is not modified in respect of this matter"
+
+    KEY: Emphasis of Matter draws attention but does NOT modify the opinion. It is for significant matters that are properly disclosed.
+tip: "Going concern + Adequate disclosure = Emphasis of Matter (opinion NOT modified)"
+reference: "PSA 570, Paragraphs 22-23"

@@ -1,0 +1,54 @@
+code: TAX-HARD-005
+active: true
+difficulty: HARD
+text: "Under the Tax Code, which of the following fringe benefits is EXEMPT from fringe benefits tax?"
+access-level: FREE
+topic: 95
+choices:
+  choice1:
+    label: "De minimis benefits not exceeding the ceiling amounts"
+    correct: true
+  choice2:
+    label: "Company car used for personal purposes"
+    why-wrong-choice: "Personal use of company car is a taxable fringe benefit"
+  choice3:
+    label: "Housing allowance for managerial employees"
+    why-wrong-choice: "Housing benefits for managerial employees are generally taxable"
+  choice4:
+    label: "Expense account for personal expenses"
+    why-wrong-choice: "Personal expense accounts are taxable fringe benefits"
+explanation:
+  short: "De minimis benefits within prescribed limits are exempt from fringe benefits tax."
+  long: |
+    FRINGE BENEFITS TAX (FBT)
+
+    FBT BASICS:
+    - Tax on benefits given to MANAGERIAL and SUPERVISORY employees
+    - Rate: 35% of grossed-up monetary value
+    - Paid by EMPLOYER (final tax on employee)
+    - Rank-and-file benefits are taxable as compensation income
+
+    EXEMPT FROM FBT:
+
+    1. DE MINIMIS BENEFITS (within limits):
+       - Monetized unused vacation leave: 10 days/year
+       - Rice subsidy: PHP 2,000/month
+       - Uniform allowance: PHP 6,000/year
+       - Medical cash allowance: PHP 1,500/quarter
+       - Laundry allowance: PHP 300/month
+       - Achievement awards: PHP 10,000/year
+       - Christmas gift: PHP 5,000
+       - Daily meal allowance not exceeding 25% of basic minimum wage
+
+    2. Benefits required by law (SSS, PhilHealth, Pag-IBIG)
+
+    3. Benefits given for employer's convenience
+
+    4. Benefits to rank-and-file (taxed as compensation instead)
+
+    DE MINIMIS EXCESS:
+    - Excess over limits is taxable
+    - First PHP 90,000 of excess: included in 13th month/bonus exemption
+    - Further excess: taxable compensation
+tip: "De minimis = Tax-free if within limits. Excess goes to 13th month exemption pool."
+reference: "NIRC Section 33; Revenue Regulations 03-98, 05-2011"

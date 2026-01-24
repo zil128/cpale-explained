@@ -1,0 +1,57 @@
+code: AUD-HARD-007
+active: true
+difficulty: HARD
+text: "When assessing inherent risk under PSA 315, which of the following factors would INCREASE the auditor's assessment of inherent risk for inventory?"
+access-level: FREE
+topic: 69
+choices:
+  choice1:
+    label: "The inventory includes items requiring subjective valuation estimates"
+    correct: true
+  choice2:
+    label: "The entity has a simple, stable inventory system with few product lines"
+    why-wrong-choice: "Simple, stable systems with few products suggest LOWER inherent risk"
+  choice3:
+    label: "Inventory turnover is consistent with industry norms"
+    why-wrong-choice: "Consistent turnover suggests normal operations and lower inherent risk"
+  choice4:
+    label: "Physical inventory counts are conducted frequently"
+    why-wrong-choice: "Frequent counts are a CONTROL that reduces detection risk, not an inherent risk factor"
+explanation:
+  short: "Subjective estimates, complexity, and susceptibility to manipulation increase inherent risk."
+  long: |
+    INHERENT RISK FACTORS (PSA 315)
+
+    Inherent risk is the susceptibility of an assertion to a misstatement that could be material, BEFORE considering related controls.
+
+    FACTORS THAT INCREASE INHERENT RISK:
+
+    1. COMPLEXITY
+       - Complex calculations, transactions, valuations
+       - Multiple locations, products, systems
+
+    2. SUBJECTIVITY/ESTIMATION
+       - Accounting estimates requiring significant judgment
+       - Fair value measurements with unobservable inputs
+       - Provisions, allowances, impairments
+
+    3. SUSCEPTIBILITY TO THEFT/MANIPULATION
+       - High-value, easily concealed items
+       - Items subject to obsolescence
+       - Management incentives to misstate
+
+    4. CHANGE
+       - New products, systems, or processes
+       - Regulatory changes, new standards
+
+    5. RELATED PARTY TRANSACTIONS
+       - Complex structures, unusual terms
+
+    FOR INVENTORY SPECIFICALLY:
+    - Obsolescence risk
+    - Valuation at lower of cost and NRV
+    - Complex costing methods (standard cost, ABC)
+    - Multiple warehouse locations
+    - Consignment arrangements
+tip: "Inherent Risk UP: Complexity, subjectivity, change, susceptibility to manipulation"
+reference: "PSA 315, Paragraphs A106-A115"

@@ -1,0 +1,51 @@
+code: TAX-HARD-001
+active: true
+difficulty: HARD
+text: "A resident citizen received PHP 2,000,000 dividend income from a domestic corporation. Under the Tax Code as amended by TRAIN Law, what is the correct tax treatment?"
+access-level: FREE
+topic: 95
+choices:
+  choice1:
+    label: "Subject to 10% final withholding tax"
+    correct: true
+  choice2:
+    label: "Subject to regular graduated income tax rates"
+    why-wrong-choice: "Dividend income from domestic corporations is subject to final tax, not regular rates"
+  choice3:
+    label: "Exempt from income tax"
+    why-wrong-choice: "Only inter-corporate dividends (domestic corp to domestic corp) are exempt"
+  choice4:
+    label: "Subject to 15% final withholding tax"
+    why-wrong-choice: "15% rate applied before TRAIN Law; current rate is 10% for cash dividends"
+explanation:
+  short: "Cash dividends from domestic corporations to individual taxpayers are subject to 10% final withholding tax."
+  long: |
+    DIVIDEND TAXATION UNDER THE TAX CODE (as amended by TRAIN Law)
+
+    CASH DIVIDENDS TO INDIVIDUALS:
+    - Rate: 10% FINAL WITHHOLDING TAX
+    - Applies to: Resident citizens, non-resident citizens, resident aliens
+    - Non-resident aliens: 20% or treaty rate (if applicable)
+
+    PROPERTY DIVIDENDS:
+    - Fair market value of property at declaration date
+    - Same 10% final tax applies
+
+    STOCK DIVIDENDS:
+    - Generally NOT taxable (represents capitalization of retained earnings)
+    - Exception: Redemption shortly after issuance may be treated as cash dividend
+
+    INTER-CORPORATE DIVIDENDS:
+    - Exempt from tax if received by a domestic corporation
+    - Purpose: Prevent multiple taxation of same income
+
+    NON-RESIDENT FOREIGN CORPORATION:
+    - 25% final tax on dividends
+    - May be reduced under tax treaties
+
+    FINAL TAX EFFECT:
+    - Tax is final; income not included in gross income
+    - No deductions allowed against this income
+    - Payee has no further tax liability
+tip: "Individual receives cash dividend from domestic corp = 10% FINAL tax (not graduated rates)"
+reference: "NIRC Section 24(B)(2), as amended by TRAIN Law"

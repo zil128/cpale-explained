@@ -551,17 +551,20 @@ class MCQGenerator {
                     sql += `INSERT INTO questions (question_code, topic_id, question_text, difficulty_level, access_level) VALUES\n`;
                     sql += `('${question.question_code}', '${question.topic_id || 1}', '${question.question_text.replace(/'/g, "\\'")}', '${question.difficulty_level}', '${question.access_level}');\n\n`;
                     
-                    // Insert choices
+                    // Insert choices (choice_label removed - labels are generated dynamically at runtime)
+                    // why_wrong is now stored per-choice instead of in question_explanations
                     sql += `SET @last_question_id = LAST_INSERT_ID();\n`;
-                    for (const choice of question.choices) {
-                        sql += `INSERT INTO question_choices (question_id, choice_label, choice_text, is_correct, display_order) VALUES\n`;
-                        sql += `(@last_question_id, '${choice.label}', '${choice.text.replace(/'/g, "\\'")}', ${choice.is_correct}, ${choice.label.charCodeAt(0) - 64});\n`;
+                    for (let i = 0; i < question.choices.length; i++) {
+                        const choice = question.choices[i];
+                        const whyWrong = choice.why_wrong ? `'${choice.why_wrong.replace(/'/g, "\\'")}'` : 'NULL';
+                        sql += `INSERT INTO question_choices (question_id, choice_text, is_correct, why_wrong, display_order) VALUES\n`;
+                        sql += `(@last_question_id, '${choice.text.replace(/'/g, "\\'")}', ${choice.is_correct}, ${whyWrong}, ${i + 1});\n`;
                     }
                     sql += '\n';
                     
-                    // Insert explanation
-                    sql += `INSERT INTO question_explanations (question_id, short_explanation, exam_explanation, why_wrong_choices, memory_tip, legal_reference) VALUES\n`;
-                    sql += `(@last_question_id, '${question.short_explanation.replace(/'/g, "\\'")}', '${question.detailed_explanation.replace(/'/g, "\\'")}', '${JSON.stringify(question.why_wrong_choices).replace(/'/g, "\\'")}', '${question.memory_tip.replace(/'/g, "\\'")}', '${question.legal_reference}');\n\n`;
+                    // Insert explanation (why_wrong_choices deprecated - now stored per-choice)
+                    sql += `INSERT INTO question_explanations (question_id, short_explanation, exam_explanation, memory_tip, legal_reference) VALUES\n`;
+                    sql += `(@last_question_id, '${question.short_explanation.replace(/'/g, "\\'")}', '${question.detailed_explanation.replace(/'/g, "\\'")}', '${question.memory_tip.replace(/'/g, "\\'")}', '${question.legal_reference}');\n\n`;
                 }
             }
         }

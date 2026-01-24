@@ -1,0 +1,50 @@
+code: AUD-HARD-002
+active: true
+difficulty: HARD
+text: "An auditor suspects that accounts receivable may be overstated. Which audit procedure provides the MOST reliable evidence regarding the existence assertion?"
+access-level: FREE
+topic: 71
+choices:
+  choice1:
+    label: "Send positive confirmation requests directly to customers"
+    correct: true
+  choice2:
+    label: "Vouch sales invoices to shipping documents"
+    why-wrong-choice: "This tests occurrence of sales, not existence of receivables at year-end"
+  choice3:
+    label: "Review subsequent cash receipts in the client's records"
+    why-wrong-choice: "Internal documents are less reliable than external confirmations for existence"
+  choice4:
+    label: "Perform analytical procedures on accounts receivable aging"
+    why-wrong-choice: "Analytical procedures provide circumstantial evidence, not direct evidence of existence"
+explanation:
+  short: "Existence assertion for receivables: External confirmation from debtors provides the most reliable evidence."
+  long: |
+    AUDIT EVIDENCE - RECEIVABLES EXISTENCE
+
+    CONFIRMATION is presumptively required for accounts receivable (PSA 505) because:
+    - It provides EXTERNAL evidence (more reliable than internal)
+    - It provides DIRECT evidence of existence (debtor acknowledges owing the amount)
+    - It is INDEPENDENT of the client
+
+    TYPES OF CONFIRMATIONS:
+
+    POSITIVE CONFIRMATION:
+    - Requests debtor to respond whether they agree or disagree
+    - More reliable but lower response rate
+    - Used when: Individual balances are large, risk is high, negative may be ignored
+
+    NEGATIVE CONFIRMATION:
+    - Requests response ONLY if debtor disagrees
+    - Less reliable (no response could mean debtor ignored it)
+    - Used when: Many small balances, low RMM, positive responses expected
+
+    HIERARCHY OF EVIDENCE FOR EXISTENCE:
+    1. External confirmation (BEST)
+    2. Subsequent cash receipts (good, but internal)
+    3. Review of invoices/shipping documents (tests occurrence, not existence)
+    4. Analytical procedures (least direct)
+
+    NOTE: For overstatement risk, auditors focus on EXISTENCE (items recorded may not exist)
+tip: "Existence of receivables? Confirmation is the gold standard - external and direct."
+reference: "PSA 505, Paragraph 5-7; PSA 500, Paragraph A31"

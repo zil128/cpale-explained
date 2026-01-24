@@ -1,0 +1,54 @@
+code: MS-HARD-003
+active: true
+difficulty: HARD
+text: "Cebu Products has two products with the following data: Product A - selling price PHP 100, variable cost PHP 65, units sold 3,000; Product B - selling price PHP 150, variable cost PHP 90, units sold 2,000. Total fixed costs are PHP 180,000. What is the break-even point in total units using the weighted-average contribution margin approach?"
+access-level: FREE
+topic: 114
+choices:
+  choice1:
+    label: "4,000 units (2,400 units of A and 1,600 units of B)"
+    correct: true
+  choice2:
+    label: "3,600 units (2,160 units of A and 1,440 units of B)"
+    why-wrong-choice: "This used simple average CM of PHP 47.50 instead of weighted-average CM of PHP 45 based on 60:40 sales mix"
+  choice3:
+    label: "5,143 units (3,086 units of A and 2,057 units of B)"
+    why-wrong-choice: "This used only Product A's lower CM of PHP 35 for entire calculation instead of weighted-average"
+  choice4:
+    label: "3,000 units (1,800 units of A and 1,200 units of B)"
+    why-wrong-choice: "This used only Product B's higher CM of PHP 60 for entire calculation instead of weighted-average"
+explanation:
+  short: "Weighted-average CM = (PHP 35 x 60%) + (PHP 60 x 40%) = PHP 45. BEP = PHP 180,000 / PHP 45 = 4,000 units in 60:40 ratio."
+  long: |
+    MULTI-PRODUCT BREAK-EVEN ANALYSIS:
+
+    STEP 1: Calculate Contribution Margin per unit
+    Product A: PHP 100 - PHP 65 = PHP 35 CM
+    Product B: PHP 150 - PHP 90 = PHP 60 CM
+
+    STEP 2: Determine Sales Mix
+    Total units = 3,000 + 2,000 = 5,000 units
+    Product A: 3,000 / 5,000 = 60%
+    Product B: 2,000 / 5,000 = 40%
+
+    STEP 3: Calculate Weighted-Average Contribution Margin
+    WACM = (CM_A x Mix_A) + (CM_B x Mix_B)
+    WACM = (PHP 35 x 0.60) + (PHP 60 x 0.40)
+    WACM = PHP 21 + PHP 24
+    WACM = PHP 45 per unit
+
+    STEP 4: Calculate Break-Even Point in Total Units
+    BEP (units) = Fixed Costs / WACM
+    BEP = PHP 180,000 / PHP 45
+    BEP = 4,000 units
+
+    STEP 5: Allocate to Individual Products (using sales mix)
+    Product A: 4,000 x 60% = 2,400 units
+    Product B: 4,000 x 40% = 1,600 units
+
+    VERIFICATION:
+    CM from A: 2,400 x PHP 35 = PHP 84,000
+    CM from B: 1,600 x PHP 60 = PHP 96,000
+    Total CM = PHP 180,000 = Fixed Costs ✓ (Break-even confirmed)
+tip: "Multi-product BEP: Weight the CM by each product's SALES MIX percentage, not simple average"
+reference: "Garrison, Noreen, Brewer - Managerial Accounting, CVP Analysis Chapter"

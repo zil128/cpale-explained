@@ -1,0 +1,57 @@
+code: TAX-HARD-006
+active: true
+difficulty: HARD
+text: "Corporation XYZ had gross income of PHP 10,000,000 and allowable deductions of PHP 7,000,000 in its first year of operations. It opted for Optional Standard Deduction (OSD). Under CREATE Law, what is the taxable income?"
+access-level: FREE
+topic: 97
+choices:
+  choice1:
+    label: "PHP 6,000,000"
+    correct: true
+  choice2:
+    label: "PHP 3,000,000"
+    why-wrong-choice: "This uses itemized deductions (10M - 7M); OSD replaces itemized deductions"
+  choice3:
+    label: "PHP 5,500,000"
+    why-wrong-choice: "Incorrect OSD rate; OSD for corporations is 40% of gross income"
+  choice4:
+    label: "PHP 10,000,000"
+    why-wrong-choice: "This ignores OSD entirely; OSD is 40% of gross income"
+explanation:
+  short: "OSD for corporations = 40% of gross income. Taxable income = Gross income - OSD."
+  long: |
+    OPTIONAL STANDARD DEDUCTION (OSD)
+
+    FOR CORPORATIONS:
+    - OSD = 40% of GROSS INCOME
+    - Available to both domestic and resident foreign corporations
+    - In lieu of itemized deductions
+    - Irrevocable election for the taxable year
+
+    CALCULATION:
+
+    Gross income:                    PHP 10,000,000
+    Less: OSD (40% × 10M):          (PHP  4,000,000)
+    Taxable income:                  PHP  6,000,000
+
+    COMPARE WITH ITEMIZED:
+    Gross income:                    PHP 10,000,000
+    Less: Itemized deductions:      (PHP  7,000,000)
+    Taxable income:                  PHP  3,000,000
+
+    ANALYSIS:
+    - Itemized results in lower taxable income (PHP 3M vs PHP 6M)
+    - Corporation should have chosen ITEMIZED deductions
+    - BUT once OSD is elected, it is IRREVOCABLE for that year
+
+    FOR INDIVIDUALS:
+    - OSD = 40% of GROSS SALES/RECEIPTS
+    - Available to self-employed and professionals
+    - Not available to compensation income earners
+
+    WHY CHOOSE OSD?
+    - Simpler compliance (no need to track expenses)
+    - Fewer documentation requirements
+    - Beneficial when actual deductions < 40%
+tip: "Corporate OSD = 40% of Gross Income. Individual OSD = 40% of Gross Sales/Receipts."
+reference: "NIRC Section 34(L), as amended by CREATE Law"

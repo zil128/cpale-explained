@@ -5,7 +5,7 @@
 
 
 
-## SKILSS
+## SKILLS
 
 1. Typoghraphy - do not use generic fonts. Pick something interesting for Gen-Z
 

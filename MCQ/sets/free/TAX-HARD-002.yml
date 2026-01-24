@@ -1,0 +1,50 @@
+code: TAX-HARD-002
+active: true
+difficulty: HARD
+text: "Mr. Santos, a resident citizen, sold shares of stock of a domestic corporation through the Philippine Stock Exchange. The gross selling price was PHP 5,000,000. What is the stock transaction tax due?"
+access-level: FREE
+topic: 95
+choices:
+  choice1:
+    label: "PHP 30,000 (0.6% of gross selling price)"
+    correct: true
+  choice2:
+    label: "PHP 75,000 (15% of capital gains)"
+    why-wrong-choice: "15% capital gains tax applies to unlisted shares; PSE transactions use stock transaction tax"
+  choice3:
+    label: "PHP 250,000 (5% of gross selling price)"
+    why-wrong-choice: "5% applies to real property capital gains tax, not stock transactions"
+  choice4:
+    label: "PHP 50,000 (1% of gross selling price)"
+    why-wrong-choice: "Incorrect rate; stock transaction tax is 0.6% of gross selling price under current law"
+explanation:
+  short: "Shares sold through PSE: 0.6% stock transaction tax (STT) on gross selling price. No other income tax."
+  long: |
+    STOCK TRANSACTION TAX (Section 127, NIRC)
+
+    FOR SHARES SOLD THROUGH PSE (LOCAL STOCK EXCHANGE):
+
+    TAX RATE: 0.6% of GROSS SELLING PRICE
+    - This is the ONLY tax on the transaction
+    - No income tax or capital gains tax applies
+    - Collected by the stock broker
+
+    CALCULATION:
+    - Gross selling price: PHP 5,000,000
+    - Stock transaction tax: PHP 5,000,000 × 0.6% = PHP 30,000
+
+    COMPARE WITH UNLISTED SHARES:
+    
+    For shares NOT traded through PSE:
+    - 15% CAPITAL GAINS TAX
+    - Based on NET CAPITAL GAIN (selling price - cost - expenses)
+    - First PHP 100,000 of gain: 5% (optional)
+    - Excess over PHP 100,000: 10%
+    - (Note: Rates under Section 24(C) before CREATE amendments)
+
+    WHY DIFFERENT TREATMENT?
+    - PSE trading is encouraged for market liquidity
+    - Stock transaction tax is simpler to administer
+    - Tax is on gross sales, not gains (even if at a loss, STT applies)
+tip: "PSE transaction = 0.6% STT on gross selling price. Not through PSE = 15% CGT on net gain."
+reference: "NIRC Section 127(A); Revenue Regulations 06-2008"

@@ -1,0 +1,49 @@
+code: MS-HARD-001
+active: true
+difficulty: HARD
+text: "Sunrise Manufacturing uses standard costing. The following data relates to direct materials for June 2025: Standard price PHP 50 per kg, Actual price PHP 48 per kg, Standard quantity for actual output 10,000 kg, Actual quantity purchased and used 10,500 kg. What is the total direct materials variance and its breakdown?"
+access-level: FREE
+topic: 115
+choices:
+  choice1:
+    label: "PHP 4,000 Unfavorable total: PHP 21,000 F price variance and PHP 25,000 U quantity variance"
+    correct: true
+  choice2:
+    label: "PHP 4,000 Favorable total: PHP 21,000 F price variance and PHP 25,000 F quantity variance"
+    why-wrong-choice: "The quantity variance is unfavorable because actual quantity (10,500 kg) exceeded standard quantity (10,000 kg); using 500 kg more than standard at PHP 50 = PHP 25,000 U"
+  choice3:
+    label: "PHP 4,000 Unfavorable total: PHP 20,000 F price variance and PHP 24,000 U quantity variance"
+    why-wrong-choice: "Price variance uses actual quantity purchased: (PHP 50 - PHP 48) x 10,500 = PHP 21,000 F, not PHP 20,000"
+  choice4:
+    label: "PHP 46,000 Unfavorable total: PHP 21,000 U price variance and PHP 25,000 U quantity variance"
+    why-wrong-choice: "The price variance is favorable because actual price (PHP 48) was less than standard price (PHP 50), not unfavorable"
+explanation:
+  short: "Materials price variance = (SP - AP) x AQ = PHP 21,000 F. Materials quantity variance = (SQ - AQ) x SP = PHP 25,000 U. Net = PHP 4,000 U."
+  long: |
+    DIRECT MATERIALS VARIANCE ANALYSIS:
+
+    1. MATERIALS PRICE VARIANCE (MPV):
+       Formula: (Standard Price - Actual Price) x Actual Quantity
+       = (PHP 50 - PHP 48) x 10,500 kg
+       = PHP 2 x 10,500
+       = PHP 21,000 FAVORABLE
+       (Favorable because we paid less than standard)
+
+    2. MATERIALS QUANTITY VARIANCE (MQV):
+       Formula: (Standard Quantity - Actual Quantity) x Standard Price
+       = (10,000 - 10,500) x PHP 50
+       = (500) x PHP 50
+       = PHP 25,000 UNFAVORABLE
+       (Unfavorable because we used more than standard)
+
+    3. TOTAL MATERIALS VARIANCE:
+       = MPV + MQV
+       = PHP 21,000 F + PHP 25,000 U
+       = PHP 4,000 UNFAVORABLE
+
+    VERIFICATION (Alternative calculation):
+    Total Actual Cost = 10,500 x PHP 48 = PHP 504,000
+    Total Standard Cost = 10,000 x PHP 50 = PHP 500,000
+    Total Variance = PHP 504,000 - PHP 500,000 = PHP 4,000 U
+tip: "Price variance uses ACTUAL quantity; Quantity variance uses STANDARD price. F if saved, U if exceeded."
+reference: "Horngren's Cost Accounting, Chapter on Standard Costing and Variance Analysis"

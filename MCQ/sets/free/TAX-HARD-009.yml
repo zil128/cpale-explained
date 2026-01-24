@@ -1,0 +1,37 @@
+code: TAX-HARD-009
+active: true
+difficulty: HARD
+text: "A resident citizen received a cash dividend of PHP 500,000 from a domestic corporation in March 2025. The corporation has accumulated earnings and profits of PHP 2,000,000 and paid-up capital of PHP 5,000,000. What is the tax treatment of this dividend?"
+access-level: FREE
+topic: 94
+choices:
+  choice1:
+    label: "Subject to 10% final withholding tax of PHP 50,000"
+    correct: true
+  choice2:
+    label: "Exempt from income tax as intercorporate dividend"
+    why-wrong-choice: "Intercorporate dividend exemption under Sec. 27(D)(4) applies only to domestic corporations receiving dividends from another domestic corporation, not to individual taxpayers"
+  choice3:
+    label: "Subject to graduated income tax rates as part of gross income"
+    why-wrong-choice: "Cash dividends from domestic corporations to resident citizens are subject to final tax under Sec. 24(B)(2), not regular income tax"
+  choice4:
+    label: "Subject to 15% final withholding tax if from a publicly-listed company"
+    why-wrong-choice: "The 15% rate was eliminated by CREATE Law; dividends from domestic corporations are now uniformly taxed at 10% final tax regardless of listing status"
+explanation:
+  short: "Cash dividends from domestic corporations to individual resident citizens are subject to 10% final withholding tax under the NIRC as amended by CREATE Law."
+  long: |
+    Under Section 24(B)(2) of the NIRC as amended by RA 11534 (CREATE Law):
+
+    1. Cash and property dividends received by resident citizens from domestic corporations are subject to a FINAL TAX of 10%
+    2. This applies regardless of whether the corporation is publicly listed or closely held
+    3. The tax is withheld at source by the payor corporation
+    4. The CREATE Law unified the dividend tax rate at 10% (previously, listed companies had a 10% rate while others had varying rates)
+
+    COMPUTATION:
+    Cash dividend received: PHP 500,000
+    Final tax rate: 10%
+    Tax due: PHP 500,000 x 10% = PHP 50,000
+
+    Note: The accumulated earnings and paid-up capital figures are provided as distractors. For tax purposes on individual recipients, only the amount of dividend and the source (domestic corporation) matter.
+tip: "Individual + Dividend from Domestic Corp = 10% FINAL TAX (CREATE unified rate)"
+reference: "NIRC Section 24(B)(2) as amended by RA 11534 (CREATE Law)"

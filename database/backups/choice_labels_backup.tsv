@@ -1,0 +1,121 @@
+choice_id	question_id	choice_label	choice_text	is_correct	display_order
+229	55	A	To provide information useful for making decisions about providing resources to the entity	1	NULL
+230	55	B	To determine the taxable income of the entity	0	NULL
+231	55	C	To assess management performance for bonus purposes	0	NULL
+232	55	D	To comply with regulatory requirements	0	NULL
+233	56	A	Faithful representation	0	NULL
+234	56	B	Relevance	1	NULL
+235	56	C	Comparability	0	NULL
+236	56	D	Verifiability	0	NULL
+237	57	A	A present economic resource controlled by the entity as a result of past events	1	NULL
+238	57	B	Something the entity owns legally	0	NULL
+239	57	C	Cash or items convertible to cash within one year	0	NULL
+240	57	D	Resources that will definitely generate future cash flows	0	NULL
+241	58	A	Comparability	0	NULL
+242	58	B	Verifiability	0	NULL
+243	58	C	Relevance	1	NULL
+244	58	D	Understandability	0	NULL
+245	59	A	Revenue only	0	NULL
+246	59	B	Revenue and gains	1	NULL
+247	59	C	Revenue, gains, and owner contributions	0	NULL
+248	59	D	All increases in assets	0	NULL
+249	60	A	At the original cost to the contributing partner	0	NULL
+250	60	B	At the agreed value by the partners	1	NULL
+251	60	C	At the book value in the partner's records	0	NULL
+252	60	D	At the lower of cost or market value	0	NULL
+253	61	A	Charged to the new partner	0	NULL
+254	61	B	Credited to Goodwill account	0	NULL
+255	61	C	Charged to the old partners' capital accounts	1	NULL
+256	61	D	Recorded as partnership expense	0	NULL
+257	62	A	Partners' capitals, then partners' loans, then outside creditors	0	NULL
+258	62	B	Outside creditors, then partners' capitals, then partners' loans	0	NULL
+259	62	C	Outside creditors, then partners' loans, then partners' capitals	1	NULL
+260	62	D	Partners' loans, then outside creditors, then partners' capitals	0	NULL
+261	63	A	Both asset accounts	0	NULL
+262	63	B	Both liability accounts	0	NULL
+263	63	C	Reciprocal accounts that should be equal	1	NULL
+264	63	D	Expense accounts	0	NULL
+265	64	A	Book value	0	NULL
+266	64	B	Fair value at the acquisition date	1	NULL
+267	64	C	Historical cost	0	NULL
+268	64	D	Replacement cost	0	NULL
+269	65	A	To detect all fraud in the financial statements	0	NULL
+270	65	B	To express an opinion on whether the financial statements are fairly presented	1	NULL
+271	65	C	To guarantee the accuracy of the financial statements	0	NULL
+272	65	D	To prepare the financial statements for the client	0	NULL
+273	66	A	Oral representations from management	0	NULL
+274	66	B	Internally generated documents	0	NULL
+275	66	C	Documentary evidence obtained directly from external third parties	1	NULL
+276	66	D	Computations made by the client	0	NULL
+277	67	A	Cause the auditor to modify the opinion	0	NULL
+278	67	B	Influence the economic decisions of users	1	NULL
+279	67	C	Result in criminal prosecution	0	NULL
+280	67	D	Exceed 10% of net income	0	NULL
+281	68	A	Six months from the balance sheet date	0	NULL
+282	68	B	At least twelve months from the balance sheet date	1	NULL
+283	68	C	Three years from the balance sheet date	0	NULL
+284	68	D	Indefinitely into the future	0	NULL
+285	69	A	Risk assessment	0	NULL
+286	69	B	Control activities	0	NULL
+287	69	C	Control environment	1	NULL
+288	69	D	Monitoring	0	NULL
+289	70	A	Received in cash only	0	NULL
+290	70	B	Realized and recognized, whether in cash or in kind	1	NULL
+291	70	C	Deposited in a bank account	0	NULL
+292	70	D	Reported in financial statements	0	NULL
+293	71	A	Income from Philippine sources only	0	NULL
+294	71	B	Income from foreign sources only	0	NULL
+295	71	C	Income from sources within and without the Philippines	1	NULL
+296	71	D	Capital gains only	0	NULL
+297	72	A	Year-end bonus	0	NULL
+298	72	B	Proceeds of life insurance paid to beneficiaries upon death of insured	1	NULL
+299	72	C	Rental income	0	NULL
+300	72	D	Professional fees	0	NULL
+301	73	A	Rice subsidy of P2,500 per month	0	NULL
+302	73	B	Rice subsidy of P2,000 per month or one sack of 50kg rice per month	1	NULL
+303	73	C	Any amount of rice given by employer	0	NULL
+304	73	D	Rice subsidy given once a year	0	NULL
+305	74	A	Exempt from tax	0	NULL
+306	74	B	Subject to 20% final tax	1	NULL
+307	74	C	Subject to graduated rates	0	NULL
+308	74	D	Subject to 10% final tax	0	NULL
+309	75	A	Factory building depreciation	0	NULL
+310	75	B	Direct materials	1	NULL
+311	75	C	Factory supervisor salary	0	NULL
+312	75	D	Property insurance	0	NULL
+313	76	A	Total revenue exceeds total costs	0	NULL
+314	76	B	Total revenue equals total costs	1	NULL
+315	76	C	Variable costs equal fixed costs	0	NULL
+316	76	D	Contribution margin is zero	0	NULL
+317	77	A	Sales price minus fixed cost per unit	0	NULL
+318	77	B	Sales price minus variable cost per unit	1	NULL
+319	77	C	Sales price minus total cost per unit	0	NULL
+320	77	D	Variable cost minus fixed cost per unit	0	NULL
+321	78	A	Always relevant to future decisions	0	NULL
+322	78	B	A cost that has already been incurred and cannot be changed	1	NULL
+323	78	C	A cost that will change based on the decision made	0	NULL
+324	78	D	The same as opportunity cost	0	NULL
+325	79	A	More materials were used than standard	0	NULL
+326	79	B	Materials were purchased at a price lower than standard	1	NULL
+327	79	C	Materials were purchased at a price higher than standard	0	NULL
+328	79	D	Less materials were used than standard	0	NULL
+329	80	A	Written form	0	NULL
+330	80	B	Consent of the contracting parties	1	NULL
+331	80	C	Notarization	0	NULL
+332	80	D	Registration with government agency	0	NULL
+333	81	A	Valid and binding	0	NULL
+334	81	B	Void from the beginning	0	NULL
+335	81	C	Voidable at the option of the incapacitated person or guardian	1	NULL
+336	81	D	Unenforceable	0	NULL
+337	82	A	Perfection of the contract	0	NULL
+338	82	B	Full payment of the price	0	NULL
+339	82	C	Delivery of the thing sold	1	NULL
+340	82	D	Registration of the sale	0	NULL
+341	83	A	Accion reinvindicatoria	0	NULL
+342	83	B	Accion redhibitoria	1	NULL
+343	83	C	Accion publiciana	0	NULL
+344	83	D	Accion pauliana	0	NULL
+345	84	A	A fixed maturity date	0	NULL
+346	84	B	An unconditional promise or order to pay a sum certain in money	1	NULL
+347	84	C	The reason for the payment	0	NULL
+348	84	D	Collateral or security	0	NULL

@@ -1,0 +1,62 @@
+code: MS-HARD-008
+active: true
+difficulty: HARD
+text: "Pangasinan Corp is considering replacing old equipment (Book value PHP 100,000, Remaining life 5 years, Annual operating costs PHP 80,000) with new equipment (Cost PHP 300,000, Life 5 years, Annual operating costs PHP 30,000). The old equipment can be sold now for PHP 50,000 but has zero salvage value in 5 years. New equipment has PHP 50,000 salvage value. Ignoring time value of money, should the company replace?"
+access-level: FREE
+topic: 129
+choices:
+  choice1:
+    label: "Replace; net advantage of PHP 50,000 over 5 years"
+    correct: true
+  choice2:
+    label: "Keep old; replacing causes PHP 50,000 loss from book value write-off"
+    why-wrong-choice: "The PHP 50,000 loss on disposal (PHP 100,000 BV - PHP 50,000 sale) is a sunk cost; book value is irrelevant for future decisions"
+  choice3:
+    label: "Replace; net advantage of PHP 250,000 over 5 years"
+    why-wrong-choice: "This counted only operating savings (PHP 250,000) without deducting net equipment cost (PHP 200,000)"
+  choice4:
+    label: "Keep old; new equipment costs PHP 250,000 net"
+    why-wrong-choice: "Net equipment cost is PHP 200,000 (PHP 300,000 - PHP 50,000 trade - PHP 50,000 salvage), not PHP 250,000; and this ignores operating savings"
+explanation:
+  short: "Operating savings: PHP 250,000. Net equipment cost: PHP 200,000. Net advantage to replace: PHP 50,000. Book value is sunk and irrelevant."
+  long: |
+    EQUIPMENT REPLACEMENT DECISION - RELEVANT COST ANALYSIS:
+
+    IRRELEVANT COST (Sunk Cost):
+    Book value of old equipment: PHP 100,000 - This is SUNK and IRRELEVANT
+    The loss on disposal is an accounting loss, not a relevant cash flow.
+
+    RELEVANT CASH FLOWS:
+
+    COST OF REPLACEMENT:
+    Purchase price of new equipment: PHP 300,000
+    Less: Proceeds from selling old equipment: (PHP 50,000)
+    Less: Salvage value of new equipment (end of Year 5): (PHP 50,000)
+    Net cost of replacement: PHP 200,000
+
+    BENEFITS OF REPLACEMENT:
+    Annual operating cost savings: PHP 80,000 - PHP 30,000 = PHP 50,000/year
+    Total savings over 5 years: PHP 50,000 x 5 = PHP 250,000
+
+    NET ADVANTAGE TO REPLACE:
+    Benefits: PHP 250,000
+    Costs: PHP 200,000
+    Net advantage: PHP 50,000
+
+    ALTERNATIVE PRESENTATION:
+    Keep Old (5-year costs):
+    - Operating costs: PHP 80,000 x 5 = PHP 400,000
+    - Foregone sale proceeds: PHP 50,000
+    Total: PHP 450,000
+
+    Replace (5-year costs):
+    - New equipment: PHP 300,000
+    - Operating costs: PHP 30,000 x 5 = PHP 150,000
+    - Less salvage: (PHP 50,000)
+    Total: PHP 400,000
+
+    Savings from replacing: PHP 450,000 - PHP 400,000 = PHP 50,000
+
+    DECISION: REPLACE - saves PHP 50,000 over equipment life
+tip: "Book value is SUNK and irrelevant. Focus on: (1) operating savings, (2) net investment, (3) salvage values."
+reference: "Horngren's Cost Accounting - Relevant Costs for Decision Making"

@@ -1,0 +1,49 @@
+code: RFBT-HARD-006
+active: true
+difficulty: HARD
+text: "X leased a building to Y for 5 years at PHP 50,000 monthly rent. After 2 years, X sold the building to Z without notifying Y. Y continued paying rent to X. Z now demands that Y vacate or pay rent to Z. What are Y's rights?"
+access-level: FREE
+topic: 137
+choices:
+  choice1:
+    label: "Y may continue the lease until expiry but must pay rent to Z prospectively"
+    correct: true
+  choice2:
+    label: "Y must vacate immediately as sale terminates the lease"
+    why-wrong-choice: "Under Art. 1676, the purchaser of leased property must respect the lease if it is recorded or if the buyer knew of it"
+  choice3:
+    label: "Y may demand rescission of sale as it prejudices his rights"
+    why-wrong-choice: "Y has no right to rescind the sale; his protection is continuation of the lease, not preventing the sale"
+  choice4:
+    label: "Y may refuse to pay rent to Z until Z presents proof of ownership"
+    why-wrong-choice: "Once Z proves ownership, Y must pay Z; Y cannot indefinitely withhold rent as defense"
+explanation:
+  short: "Sale of leased property does not terminate the lease. The buyer steps into the lessor's shoes. Y continues the lease but pays Z going forward."
+  long: |
+    SALE OF LEASED PROPERTY (Articles 1676-1678, Civil Code):
+
+    GENERAL RULE: The purchaser of leased property must respect the lease if:
+    1. The lease is recorded in the Registry of Property, OR
+    2. The purchaser knew of the existence of the lease at the time of sale
+
+    Even if neither condition exists, the lessee has rights:
+    - If lease has a fixed period: Buyer must allow lessee to continue for the remainder of the term
+    - Buyer assumes all rights and obligations of the original lessor
+
+    APPLICATION:
+
+    1. Y's RIGHT TO CONTINUE LEASE:
+       Y has a valid lease contract for 5 years. Z as buyer must respect this lease.
+       Y can continue occupying the property until lease expiry (3 more years).
+
+    2. RENT PAYMENT:
+       - Payments made to X (old owner) BEFORE notice of sale: Valid, discharged Y's obligation
+       - Payments AFTER proper notice of sale: Must be made to Z
+       - Z should notify Y of the sale and demand future payments
+
+    3. Y's PROTECTION:
+       Y is not required to vacate. Z's remedy for unpaid rent (after notice) is to demand payment, not eviction (during lease term).
+
+    4. DOCTRINE: "Emptio non tollit locatum" - Sale does not extinguish lease.
+tip: "Buyer of leased property = new lessor. Lease continues. Rent goes to new owner AFTER notice."
+reference: "Civil Code of the Philippines, Articles 1676-1678"

@@ -69,8 +69,46 @@ You buy a refrigerator.
     • ❌ Not about defective goods 📜 Legal Basis Civil Code, Article 1567 “In the cases of Articles 1561 and 1566, the buyer may elect between withdrawing from the contract and demanding a proportionate reduction of the price…” 🎯 CPALE Memory Trigger 👉 Hidden defect + cancel the sale = ACCION REDHIBITORIA
 References: civil code section xxx / supreme court xxx
 
-## PRACTICE SETS
 
-For Basic and Advance plans, breakdown Practice Set MCQ into 75 per practice set with number of exam attempts:(label command button "Practice Set 01", 'Practice Set 01", until completion of a total 500 MCQs in Basic Plan, and completion of 10,000+ MCQs in Advance plan)
+## CONTEXT AND MCQ CONTEXT FROM OTHER REVIEW CENTER
 
-for MOCK PREBOARD - timed exam where MCQs is set to 100 per subject, pattern the time bound from CPALE exam like if it is a 3-hour timed-exam
+rewrite the questions in your own words
+redesign the facts
+change figures and context
+avoid copying sentence structure
+What is generally considered SAFE
+
+✅ Changing partner names
+✅ Changing locations
+✅ Changing years
+✅ Changing peso amounts
+✅ Rewriting the question sentence structure
+✅ Changing answer choices while testing the same concept
+✅ Creating new computations using the same logic
+
+Example (SAFE):
+
+Original idea:
+“How much cash will Partner A receive upon liquidation?”
+
+Rewritten:
+“After settling all liabilities, what amount should be distributed to Partner X?”
+
+Same concept, different expression.
+
+When creating MCQs:
+    Start from the concept, not the question
+    Change at least 3 of these:
+    numbers
+    number of partners
+    profit ratio
+    facts (solvent vs insolvent)
+    order of events
+    Rewrite the question from scratch
+    Recompute the answer independently
+
+If you see from the MCQs source has a given correct answer, validate if the given answer is correct, do not just follow it, but make an argument why the answer given should not be followed
+
+
+Do not repeat the questions to avoid memorization, you may repeat the concept with different approach or strategy to test the learnings
+

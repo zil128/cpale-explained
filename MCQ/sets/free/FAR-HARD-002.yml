@@ -1,0 +1,38 @@
+code: FAR-HARD-002
+active: true
+difficulty: HARD
+text: "Entity A holds a debt instrument classified at amortized cost. Due to a significant increase in credit risk, Entity A reclassifies the asset to FVOCI. Under PFRS 9, what is the correct treatment of the difference between amortized cost and fair value at reclassification date?"
+access-level: FREE
+topic: 14
+choices:
+  choice1:
+    label: "Recognize the difference in other comprehensive income"
+    correct: true
+  choice2:
+    label: "Recognize the difference immediately in profit or loss"
+    why-wrong-choice: "PFRS 9.5.6.5 specifically requires recognition in OCI for amortized cost to FVOCI reclassifications"
+  choice3:
+    label: "Adjust retained earnings as a prior period adjustment"
+    why-wrong-choice: "Reclassifications are applied prospectively from reclassification date, not as prior period adjustments"
+  choice4:
+    label: "No adjustment is required as both categories use the same measurement"
+    why-wrong-choice: "Amortized cost and FVOCI use different measurements; fair value adjustment is required upon reclassification"
+explanation:
+  short: "Amortized cost to FVOCI reclassification: measure at fair value, recognize difference in OCI."
+  long: |
+    Under PFRS 9 'Financial Instruments', when reclassifying from amortized cost to FVOCI (debt):
+
+    RECLASSIFICATION TREATMENT:
+    1. Measure the financial asset at FAIR VALUE at the reclassification date
+    2. Recognize the difference between amortized cost and fair value in OTHER COMPREHENSIVE INCOME
+    3. The effective interest rate is NOT adjusted - continue using the original EIR
+    4. Continue recognizing interest revenue in profit or loss
+
+    WHY OCI? The OCI treatment is consistent with the FVOCI business model where:
+    - Interest revenue goes to P&L (using EIR method)
+    - Fair value changes go to OCI
+    - Upon disposal, OCI is recycled to P&L
+
+    CONTRAST: If reclassifying TO amortized cost (from FVOCI), the cumulative OCI is removed and adjusts the carrying amount.
+tip: "Amortized Cost → FVOCI = Fair value difference to OCI (consistent with FVOCI model)"
+reference: "PFRS 9, Paragraph 5.6.5"

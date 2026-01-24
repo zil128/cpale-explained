@@ -1,0 +1,51 @@
+code: AFAR-HARD-004
+active: true
+difficulty: HARD
+text: "ABC Company enters into a construction contract for a building with total contract price of PHP 10,000,000 and estimated total costs of PHP 8,000,000. At year-end, actual costs incurred are PHP 3,200,000. Using the input method under PFRS 15, what is the revenue to be recognized?"
+access-level: FREE
+topic: 44
+choices:
+  choice1:
+    label: "PHP 4,000,000"
+    correct: true
+  choice2:
+    label: "PHP 3,200,000"
+    why-wrong-choice: "This equals costs incurred; revenue is based on percentage of completion × contract price"
+  choice3:
+    label: "PHP 10,000,000"
+    why-wrong-choice: "Full revenue is recognized only when 100% complete; must recognize based on progress"
+  choice4:
+    label: "PHP 2,000,000"
+    why-wrong-choice: "Incorrect percentage calculation; must use costs incurred ÷ total estimated costs"
+explanation:
+  short: "Input method: % Complete = Costs Incurred ÷ Total Estimated Costs. Revenue = % × Contract Price."
+  long: |
+    REVENUE RECOGNITION - OVER TIME (PFRS 15)
+
+    For performance obligations satisfied over time, revenue is recognized based on progress toward completion.
+
+    INPUT METHOD (Cost-to-Cost):
+
+    Step 1: Calculate Percentage of Completion
+    - Costs incurred to date: PHP 3,200,000
+    - Total estimated costs: PHP 8,000,000
+    - % Complete = PHP 3,200,000 ÷ PHP 8,000,000 = 40%
+
+    Step 2: Calculate Revenue to Recognize
+    - Contract price: PHP 10,000,000
+    - Revenue = 40% × PHP 10,000,000 = PHP 4,000,000
+
+    Step 3: Calculate Gross Profit
+    - Revenue: PHP 4,000,000
+    - Costs: PHP 3,200,000
+    - Gross Profit: PHP 800,000
+
+    VERIFICATION:
+    - Expected total profit = PHP 10M - PHP 8M = PHP 2M
+    - Profit recognized (40%) = PHP 800,000 ✓
+
+    METHODS TO MEASURE PROGRESS:
+    1. Input methods: Costs incurred, labor hours, machine hours
+    2. Output methods: Units produced, contract milestones
+tip: "Cost-to-Cost Method: Costs Incurred ÷ Total Costs = % Complete → Apply to Contract Price"
+reference: "PFRS 15, Paragraphs 39-45"

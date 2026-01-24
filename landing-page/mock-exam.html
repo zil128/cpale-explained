@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Exam - CPALE Explained</title>
+    <meta name="description" content="CPALE Mock Preboard Exam">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#7C3AED',
+                        secondary: '#10B981',
+                        accent: '#F472B6',
+                        lavender: '#FDF4FF',
+                        critical: '#EF4444',
+                        warning: '#F59E0B',
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+        
+        .q-btn { 
+            width: 36px; height: 36px; 
+            font-size: 12px; font-weight: 500;
+            border-radius: 8px; transition: all 0.2s ease;
+        }
+        .q-btn.unanswered { background: #f3f4f6; color: #6b7280; }
+        .q-btn.answered { background: #7C3AED; color: white; }
+        .q-btn.marked { background: #F59E0B; color: white; }
+        .q-btn.current { ring: 2px; ring-color: #7C3AED; ring-offset: 2px; }
+        .q-btn:hover { transform: scale(1.05); }
+
+        .choice-label {
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        .choice-label:hover {
+            background: #f3f4f6;
+        }
+        .choice-label.selected {
+            background: #EDE9FE;
+            border-color: #7C3AED;
+        }
+
+        .timer-warning { animation: pulse 1s infinite; }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+
+    <!-- Fixed Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                    <span class="text-white font-bold">C</span>
+                </div>
+                <div>
+                    <h1 id="examTitle" class="font-heading font-semibold text-gray-800">Mock Exam</h1>
+                    <p id="examProgress" class="text-xs text-gray-500">Question 1 of 100</p>
+                </div>
+            </div>
+            
+            <div id="timer" class="flex items-center gap-2 px-4 py-2 bg-gray-100 rounded-xl">
+                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span id="countdown" class="font-mono font-semibold text-gray-800">03:00:00</span>
+            </div>
+
+            <button onclick="openSubmitModal()" class="px-4 py-2 bg-secondary text-white rounded-xl hover:bg-secondary/90 transition-colors font-medium">
+                Submit Exam
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-10 flex">
+        
+        <!-- Question Navigator (Left Sidebar) -->
+        <aside class="fixed left-0 top-20 bottom-0 w-64 bg-white border-r border-gray-200 p-4 overflow-y-auto hidden lg:block">
+            <h3 class="font-semibold text-gray-800 mb-3">Question Navigator</h3>
+            <div id="questionNav" class="grid grid-cols-5 gap-2 mb-4">
+                <!-- Populated by JS -->
+            </div>
+            <div class="space-y-2 text-xs">
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 rounded bg-gray-200"></div>
+                    <span class="text-gray-600">Unanswered</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 rounded bg-primary"></div>
+                    <span class="text-gray-600">Answered</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <div class="w-4 h-4 rounded bg-warning"></div>
+                    <span class="text-gray-600">Marked for Review</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Question Content -->
+        <div class="flex-1 lg:ml-64 px-6">
+            <div class="max-w-3xl mx-auto">
+                
+                <!-- Question Card -->
+                <div class="bg-white rounded-2xl shadow-sm p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-3">
+                            <span id="questionNumber" class="text-sm font-medium text-gray-500">Question 1</span>
+                            <span id="questionSubject" class="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full">FAR</span>
+                            <span id="questionDifficulty" class="text-xs px-2 py-1 bg-gray-100 text-gray-600 rounded-full">MEDIUM</span>
+                        </div>
+                        <label class="flex items-center gap-2 cursor-pointer">
+                            <input type="checkbox" id="markReview" class="w-4 h-4 text-warning rounded">
+                            <span class="text-sm text-gray-600">Mark for Review</span>
+                        </label>
+                    </div>
+                    
+                    <div id="questionText" class="text-gray-800 leading-relaxed mb-6">
+                        <!-- Question text -->
+                    </div>
+
+                    <div id="choicesContainer" class="space-y-3">
+                        <!-- Choices populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="flex items-center justify-between">
+                    <button onclick="previousQuestion()" id="prevBtn" class="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Previous
+                    </button>
+                    
+                    <span id="navInfo" class="text-sm text-gray-500">1 of 100</span>
+                    
+                    <button onclick="nextQuestion()" id="nextBtn" class="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors">
+                        Next
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Submit Modal -->
+    <div id="submitModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-md w-full mx-4">
+            <h3 class="text-xl font-heading font-bold text-gray-800 mb-4">Submit Exam?</h3>
+            
+            <div class="space-y-3 mb-6">
+                <div class="flex justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">Answered</span>
+                    <span id="answeredCount" class="font-semibold text-primary">0</span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">Unanswered</span>
+                    <span id="unansweredCount" class="font-semibold text-critical">0</span>
+                </div>
+                <div class="flex justify-between p-3 bg-gray-50 rounded-lg">
+                    <span class="text-gray-600">Marked for Review</span>
+                    <span id="markedCount" class="font-semibold text-warning">0</span>
+                </div>
+            </div>
+
+            <div id="unansweredWarning" class="hidden bg-yellow-50 rounded-lg p-4 mb-6">
+                <p class="text-sm text-yellow-800">
+                    <strong>Warning:</strong> You have unanswered questions. Are you sure you want to submit?
+                </p>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeSubmitModal()" class="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-xl hover:bg-gray-50 transition-colors">
+                    Continue Exam
+                </button>
+                <button onclick="confirmSubmit()" class="flex-1 px-4 py-3 bg-secondary text-white rounded-xl hover:bg-secondary/90 transition-colors">
+                    Submit Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Time Warning Modal -->
+    <div id="timeWarningModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-2xl p-8 max-w-sm w-full mx-4 text-center">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-warning/20 flex items-center justify-center">
+                <svg class="w-8 h-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-gray-800 mb-2">Time Warning</h3>
+            <p id="timeWarningText" class="text-gray-600 mb-6">10 minutes remaining!</p>
+            <button onclick="closeTimeWarning()" class="px-6 py-2 bg-primary text-white rounded-xl hover:bg-primary/90 transition-colors">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000/api';
+        
+        let attemptId = null;
+        let examData = null;
+        let questions = [];
+        let currentIndex = 0;
+        let timerInterval = null;
+        let timeRemaining = 0;
+        let autoSaveInterval = null;
+        let warningsSent = { 10: false, 5: false, 1: false };
+
+        // Check auth
+        function checkAuth() {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = '/landing-page/login.html';
+                return null;
+            }
+            return token;
+        }
+
+        // Initialize exam
+        async function initExam() {
+            const token = checkAuth();
+            if (!token) return;
+
+            // Get attemptId from URL
+            const params = new URLSearchParams(window.location.search);
+            attemptId = params.get('attemptId');
+
+            if (!attemptId) {
+                alert('No exam attempt specified');
+                window.location.href = '/landing-page/mock-exam-list.html';
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE}/mock-exam/${attemptId}/questions`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.error);
+                }
+
+                examData = await res.json();
+                questions = examData.questions;
+                timeRemaining = examData.timeRemainingSeconds;
+
+                document.getElementById('examTitle').textContent = examData.examName;
+                
+                renderQuestionNav();
+                showQuestion(0);
+                startTimer();
+                startAutoSave();
+
+                // Save to localStorage for recovery
+                saveToLocalStorage();
+
+            } catch (error) {
+                console.error('Init exam error:', error);
+                alert(error.message || 'Failed to load exam');
+                window.location.href = '/landing-page/mock-exam-list.html';
+            }
+        }
+
+        // Render question navigator
+        function renderQuestionNav() {
+            const nav = document.getElementById('questionNav');
+            nav.innerHTML = questions.map((q, i) => {
+                let cls = 'unanswered';
+                if (q.selectedChoiceId) cls = 'answered';
+                if (q.isMarked) cls = 'marked';
+                
+                return `<button onclick="goToQuestion(${i})" class="q-btn ${cls}" data-index="${i}">${i + 1}</button>`;
+            }).join('');
+        }
+
+        // Update nav button state
+        function updateNavButton(index) {
+            const btn = document.querySelector(`[data-index="${index}"]`);
+            if (!btn) return;
+
+            btn.classList.remove('unanswered', 'answered', 'marked');
+            
+            const q = questions[index];
+            if (q.isMarked) {
+                btn.classList.add('marked');
+            } else if (q.selectedChoiceId) {
+                btn.classList.add('answered');
+            } else {
+                btn.classList.add('unanswered');
+            }
+        }
+
+        // Show question
+        function showQuestion(index) {
+            if (index < 0 || index >= questions.length) return;
+            
+            currentIndex = index;
+            const q = questions[index];
+
+            document.getElementById('questionNumber').textContent = `Question ${index + 1}`;
+            document.getElementById('questionSubject').textContent = q.subject;
+            document.getElementById('questionDifficulty').textContent = q.difficulty;
+            document.getElementById('questionText').textContent = q.questionText;
+            document.getElementById('markReview').checked = q.isMarked || false;
+            
+            document.getElementById('examProgress').textContent = `Question ${index + 1} of ${questions.length}`;
+            document.getElementById('navInfo').textContent = `${index + 1} of ${questions.length}`;
+
+            // Render choices
+            const container = document.getElementById('choicesContainer');
+            container.innerHTML = q.choices.map(c => `
+                <label class="choice-label flex items-start gap-3 p-4 border-2 rounded-xl ${c.choiceId === q.selectedChoiceId ? 'selected border-primary' : 'border-gray-200'}">
+                    <input type="radio" name="answer" value="${c.choiceId}" 
+                           ${c.choiceId === q.selectedChoiceId ? 'checked' : ''}
+                           onchange="selectChoice(${c.choiceId})"
+                           class="mt-1">
+                    <span class="font-medium text-primary mr-2">${c.label}.</span>
+                    <span class="text-gray-700">${c.choiceText}</span>
+                </label>
+            `).join('');
+
+            // Update button states
+            document.getElementById('prevBtn').disabled = index === 0;
+            document.getElementById('prevBtn').classList.toggle('opacity-50', index === 0);
+            
+            const isLast = index === questions.length - 1;
+            document.getElementById('nextBtn').textContent = isLast ? 'Review & Submit' : 'Next';
+
+            // Highlight current in nav
+            document.querySelectorAll('.q-btn').forEach((btn, i) => {
+                btn.classList.toggle('ring-2', i === index);
+                btn.classList.toggle('ring-primary', i === index);
+            });
+        }
+
+        // Select choice
+        function selectChoice(choiceId) {
+            questions[currentIndex].selectedChoiceId = choiceId;
+            updateNavButton(currentIndex);
+            
+            // Update choice styling
+            document.querySelectorAll('.choice-label').forEach(label => {
+                const input = label.querySelector('input');
+                label.classList.toggle('selected', input.value == choiceId);
+                label.classList.toggle('border-primary', input.value == choiceId);
+                label.classList.toggle('border-gray-200', input.value != choiceId);
+            });
+
+            // Auto-save
+            saveAnswer(questions[currentIndex]);
+        }
+
+        // Mark for review handler
+        document.getElementById('markReview').addEventListener('change', function() {
+            questions[currentIndex].isMarked = this.checked;
+            updateNavButton(currentIndex);
+            saveAnswer(questions[currentIndex]);
+        });
+
+        // Navigation
+        function previousQuestion() {
+            if (currentIndex > 0) showQuestion(currentIndex - 1);
+        }
+
+        function nextQuestion() {
+            if (currentIndex < questions.length - 1) {
+                showQuestion(currentIndex + 1);
+            } else {
+                openSubmitModal();
+            }
+        }
+
+        function goToQuestion(index) {
+            showQuestion(index);
+        }
+
+        // Timer
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                checkTimeWarnings();
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    autoSubmit();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const hours = Math.floor(timeRemaining / 3600);
+            const mins = Math.floor((timeRemaining % 3600) / 60);
+            const secs = timeRemaining % 60;
+            
+            const display = `${String(hours).padStart(2, '0')}:${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            document.getElementById('countdown').textContent = display;
+
+            // Warning styling
+            const timer = document.getElementById('timer');
+            if (timeRemaining <= 300) {
+                timer.classList.add('bg-red-100');
+                timer.classList.remove('bg-gray-100');
+                document.getElementById('countdown').classList.add('text-red-600', 'timer-warning');
+            } else if (timeRemaining <= 600) {
+                timer.classList.add('bg-yellow-100');
+                timer.classList.remove('bg-gray-100');
+                document.getElementById('countdown').classList.add('text-yellow-600');
+            }
+        }
+
+        function checkTimeWarnings() {
+            const minsLeft = Math.floor(timeRemaining / 60);
+            if ([10, 5, 1].includes(minsLeft) && !warningsSent[minsLeft]) {
+                warningsSent[minsLeft] = true;
+                showTimeWarning(minsLeft);
+            }
+        }
+
+        function showTimeWarning(mins) {
+            document.getElementById('timeWarningText').textContent = `${mins} minute${mins > 1 ? 's' : ''} remaining!`;
+            document.getElementById('timeWarningModal').classList.remove('hidden');
+            document.getElementById('timeWarningModal').classList.add('flex');
+        }
+
+        function closeTimeWarning() {
+            document.getElementById('timeWarningModal').classList.add('hidden');
+            document.getElementById('timeWarningModal').classList.remove('flex');
+        }
+
+        // Auto-save
+        function startAutoSave() {
+            autoSaveInterval = setInterval(() => {
+                bulkSaveAnswers();
+            }, 30000); // Every 30 seconds
+        }
+
+        async function saveAnswer(question) {
+            const token = localStorage.getItem('token');
+            try {
+                await fetch(`${API_BASE}/mock-exam/${attemptId}/save`, {
+                    method: 'PUT',
+                    headers: { 
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        questionId: question.questionId,
+                        selectedChoiceId: question.selectedChoiceId,
+                        timeSpent: 0,
+                        isMarked: question.isMarked
+                    })
+                });
+            } catch (e) {
+                console.error('Save error:', e);
+            }
+            saveToLocalStorage();
+        }
+
+        async function bulkSaveAnswers() {
+            const token = localStorage.getItem('token');
+            const answeredQuestions = questions.filter(q => q.selectedChoiceId || q.isMarked);
+            
+            if (answeredQuestions.length === 0) return;
+
+            try {
+                await fetch(`${API_BASE}/mock-exam/${attemptId}/save-bulk`, {
+                    method: 'PUT',
+                    headers: { 
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        answers: answeredQuestions.map(q => ({
+                            questionId: q.questionId,
+                            selectedChoiceId: q.selectedChoiceId,
+                            timeSpent: 0,
+                            isMarked: q.isMarked
+                        }))
+                    })
+                });
+            } catch (e) {
+                console.error('Bulk save error:', e);
+            }
+        }
+
+        // LocalStorage backup
+        function saveToLocalStorage() {
+            localStorage.setItem(`exam_${attemptId}`, JSON.stringify({
+                questions: questions.map(q => ({
+                    questionId: q.questionId,
+                    selectedChoiceId: q.selectedChoiceId,
+                    isMarked: q.isMarked
+                })),
+                timeRemaining,
+                currentIndex
+            }));
+        }
+
+        // Submit modal
+        function openSubmitModal() {
+            const answered = questions.filter(q => q.selectedChoiceId).length;
+            const unanswered = questions.length - answered;
+            const marked = questions.filter(q => q.isMarked).length;
+
+            document.getElementById('answeredCount').textContent = answered;
+            document.getElementById('unansweredCount').textContent = unanswered;
+            document.getElementById('markedCount').textContent = marked;
+
+            document.getElementById('unansweredWarning').classList.toggle('hidden', unanswered === 0);
+
+            document.getElementById('submitModal').classList.remove('hidden');
+            document.getElementById('submitModal').classList.add('flex');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+            document.getElementById('submitModal').classList.remove('flex');
+        }
+
+        async function confirmSubmit() {
+            await submitExam(false);
+        }
+
+        async function autoSubmit() {
+            alert('Time is up! Your exam will be submitted automatically.');
+            await submitExam(true);
+        }
+
+        async function submitExam(isTimeout) {
+            const token = localStorage.getItem('token');
+            
+            clearInterval(timerInterval);
+            clearInterval(autoSaveInterval);
+
+            try {
+                const res = await fetch(`${API_BASE}/mock-exam/${attemptId}/submit`, {
+                    method: 'POST',
+                    headers: { 
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        answers: questions.map(q => ({
+                            questionId: q.questionId,
+                            selectedChoiceId: q.selectedChoiceId,
+                            timeSpent: 0,
+                            isMarked: q.isMarked
+                        }))
+                    })
+                });
+
+                if (!res.ok) {
+                    const err = await res.json();
+                    throw new Error(err.error);
+                }
+
+                // Clear localStorage
+                localStorage.removeItem(`exam_${attemptId}`);
+
+                // Redirect to results
+                window.location.href = `/landing-page/mock-exam-results.html?attemptId=${attemptId}`;
+
+            } catch (error) {
+                console.error('Submit error:', error);
+                alert(error.message || 'Failed to submit exam');
+            }
+        }
+
+        // Prevent accidental navigation
+        window.onbeforeunload = function() {
+            return "Are you sure you want to leave? Your progress will be saved.";
+        };
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', initExam);
+    </script>
+</body>
+</html>

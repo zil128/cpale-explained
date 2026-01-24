@@ -1,0 +1,59 @@
+code: RFBT-HARD-002
+active: true
+difficulty: HARD
+text: "A promissory note states: 'I promise to pay P or bearer the sum of PHP 100,000.' The note was stolen from P by T, who negotiated it to H, a holder in due course. Can P recover from H?"
+access-level: FREE
+topic: 143
+choices:
+  choice1:
+    label: "No, H as holder in due course of a bearer instrument takes free of P's claim"
+    correct: true
+  choice2:
+    label: "Yes, because theft is a real defense available against all holders"
+    why-wrong-choice: "Theft is a personal defense, not a real defense; HDC takes free of personal defenses including theft from prior holder"
+  choice3:
+    label: "Yes, because a stolen instrument cannot be negotiated"
+    why-wrong-choice: "Bearer instruments can be negotiated by mere delivery; even a thief can negotiate to an HDC who takes good title"
+  choice4:
+    label: "No, but only if H can prove ignorance of the theft"
+    why-wrong-choice: "HDC status is determined at time of taking; once established, the burden is not ongoing proof of ignorance"
+explanation:
+  short: "Bearer instruments are negotiated by delivery alone. A holder in due course takes free of personal defenses, including theft from a prior holder."
+  long: |
+    NEGOTIABLE INSTRUMENTS LAW - HOLDER IN DUE COURSE AND BEARER INSTRUMENTS:
+
+    KEY PRINCIPLES:
+
+    1. BEARER INSTRUMENT (Sec. 9, NIL):
+       An instrument payable "to bearer" or "to P or bearer" is a bearer instrument.
+       Negotiation: By mere delivery (Sec. 30)
+
+    2. HOLDER IN DUE COURSE (Sec. 52, NIL):
+       Takes the instrument:
+       - Complete and regular on its face
+       - Before overdue
+       - In good faith and for value
+       - Without notice of defect
+
+    3. RIGHTS OF HDC (Sec. 57, NIL):
+       Holds the instrument FREE from:
+       - Defects of title of prior parties
+       - Personal defenses available to prior parties
+
+    4. REAL VS. PERSONAL DEFENSES:
+       REAL DEFENSES (available against HDC):
+       - Forgery, material alteration, minority, incapacity, illegality, fraud in factum
+
+       PERSONAL DEFENSES (NOT available against HDC):
+       - Theft, fraud in inducement, duress, breach of contract, lack/failure of consideration
+
+    APPLICATION:
+    - The note is a BEARER instrument ("to P or bearer")
+    - T negotiated by delivery to H
+    - H is an HDC
+    - Theft is a PERSONAL defense
+    - H takes FREE of P's claim
+
+    P cannot recover from H. P's remedy is against T.
+tip: "Bearer = delivery negotiates. HDC beats personal defenses (including THEFT). Only REAL defenses prevail against HDC."
+reference: "Negotiable Instruments Law (Act No. 2031), Sections 9, 30, 52, 57"
