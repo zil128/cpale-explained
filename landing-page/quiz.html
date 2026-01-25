@@ -93,7 +93,7 @@
             transition: max-height 0.5s ease;
         }
         .explanation-section.show {
-            max-height: 2000px;
+            max-height: 5000px;
         }
     </style>
 </head>
@@ -103,12 +103,12 @@
     <nav class="glass sticky top-0 z-50 border-b border-gray-200">
         <div class="max-w-4xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/landing-page/dashboard.html" class="flex items-center">
-                    <img src="/landing-page/logos/logo-concept-1.svg" alt="CPALE Explained" class="h-9">
+                <a href="/dashboard.html" class="flex items-center">
+                    <img src="/logos/logo-concept-1.svg" alt="CPALE Explained" class="h-9">
                 </a>
                 <div class="flex items-center gap-4">
                     <span class="text-sm text-gray-500">Question <span id="currentNum">1</span> of <span id="totalNum">10</span></span>
-                    <a href="/landing-page/dashboard.html" class="text-gray-500 hover:text-primary">
+                    <a href="/dashboard.html" class="text-gray-500 hover:text-primary">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
@@ -308,7 +308,7 @@
                     <button onclick="restartQuiz()" class="btn-glow bg-gradient-to-r from-primary to-purple-500 text-white px-8 py-4 rounded-xl font-bold">
                         Practice Again
                     </button>
-                    <a href="/landing-page/dashboard.html" class="btn-glow bg-gray-100 text-gray-700 px-8 py-4 rounded-xl font-bold hover:bg-gray-200">
+                    <a href="/dashboard.html" class="btn-glow bg-gray-100 text-gray-700 px-8 py-4 rounded-xl font-bold hover:bg-gray-200">
                         Back to Dashboard
                     </a>
                 </div>
@@ -319,12 +319,12 @@
 
     <script>
         // API Base URL - use backend server
-        const API_BASE = 'http://localhost:5000';
+        const API_BASE = '';
 
         // Check authentication
         const token = localStorage.getItem('token');
         if (!token) {
-            window.location.href = '/landing-page/login.html';
+            window.location.href = '/login.html';
         }
 
         // Quiz State
@@ -368,7 +368,7 @@
                                     <div class="text-5xl mb-4">🔒</div>
                                     <p class="text-gray-600 font-semibold mb-2">Subscription Required</p>
                                     <p class="text-gray-500 mb-4">This practice set requires a ${practiceSet.access_level} subscription.</p>
-                                    <a href="/landing-page/pricing.html" class="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90">View Plans</a>
+                                    <a href="/pricing.html" class="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90">View Plans</a>
                                 `;
                                 return;
                             }
@@ -397,7 +397,7 @@
                         <div class="text-5xl mb-4">🔒</div>
                         <p class="text-gray-600 font-semibold mb-2">${errorData.error || 'Access Denied'}</p>
                         <p class="text-gray-500 mb-4">${errorData.message || 'You need a subscription to access this content.'}</p>
-                        <a href="/landing-page/pricing.html" class="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90">Upgrade Now</a>
+                        <a href="/pricing.html" class="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90">Upgrade Now</a>
                     `;
                     return;
                 }
@@ -415,7 +415,7 @@
                         <div class="text-5xl mb-4">😅</div>
                         <p class="text-gray-500">No questions available yet for this practice set.</p>
                         <p class="text-sm text-gray-400 mt-2">Questions are being added. Check back soon!</p>
-                        <a href="/landing-page/dashboard.html" class="inline-block mt-4 text-primary hover:underline">Back to Dashboard</a>
+                        <a href="/dashboard.html" class="inline-block mt-4 text-primary hover:underline">Back to Dashboard</a>
                     `;
                 }
             } catch (error) {
@@ -679,7 +679,7 @@
             document.getElementById('paywallModal').classList.add('hidden');
             document.body.style.overflow = '';
             // Redirect to dashboard after closing
-            window.location.href = '/landing-page/dashboard.html';
+            window.location.href = '/dashboard.html';
         }
 
         // Upgrade action
