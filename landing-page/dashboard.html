@@ -114,7 +114,7 @@
     <nav class="glass sticky top-0 z-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/landing-page/dashboard.html" class="flex items-center space-x-2">
+                <a href="/dashboard.html" class="flex items-center space-x-2">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                         <span class="text-white font-bold text-lg">C</span>
                     </div>
@@ -122,11 +122,11 @@
                 </a>
 
                 <div class="flex items-center gap-6">
-                    <a href="/landing-page/quiz.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Practice</a>
-                    <a href="/landing-page/mock-exam-list.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Mock Exams</a>
-                    <a href="/landing-page/analytics.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Analytics</a>
-                    <a href="/landing-page/pricing.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Pricing</a>
-                    <a href="/landing-page/dashboard.html" class="text-primary font-medium">Dashboard</a>
+                    <a href="/quiz.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Practice</a>
+                    <a href="/mock-exam-list.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Mock Exams</a>
+                    <a href="/analytics.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Analytics</a>
+                    <a href="/pricing.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Pricing</a>
+                    <a href="/dashboard.html" class="text-primary font-medium">Dashboard</a>
                     <div class="relative group">
                         <button class="flex items-center gap-2 text-gray-600 hover:text-primary">
                             <span id="userName" class="font-medium">User</span>
@@ -209,7 +209,7 @@
                     </div>
 
                     <!-- Manage Link -->
-                    <a href="subscription.html" class="text-sm text-primary hover:underline inline-flex items-center gap-1">
+                    <a href="/subscription.html" class="text-sm text-primary hover:underline inline-flex items-center gap-1">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
@@ -220,7 +220,7 @@
                 
                 <!-- Upgrade Button (for FREE users) -->
                 <div id="upgradeButton">
-                    <a href="pricing.html" class="btn-glow bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl font-bold whitespace-nowrap inline-flex items-center gap-2">
+                    <a href="/pricing.html" class="btn-glow bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-xl font-bold whitespace-nowrap inline-flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
                         </svg>
@@ -252,7 +252,7 @@
                     <h2 class="font-heading text-2xl font-bold text-gray-900 mb-2">Ready to Practice?</h2>
                     <p class="text-gray-600">Jump into a quick practice session and test your knowledge.</p>
                 </div>
-                <a href="/landing-page/quiz.html" class="btn-glow bg-gradient-to-r from-primary to-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg whitespace-nowrap">
+                <a href="/quiz.html" class="btn-glow bg-gradient-to-r from-primary to-purple-500 text-white px-8 py-4 rounded-xl font-bold text-lg whitespace-nowrap">
                     Start Practice
                 </a>
             </div>
@@ -308,7 +308,7 @@
     </footer>
 
     <script>
-        const API_URL = 'http://localhost:5000/api';
+        const API_URL = '/api';
 
         // Check authentication
         const token = localStorage.getItem('token');
@@ -316,7 +316,7 @@
         let subscription = null;
 
         if (!token) {
-            window.location.href = '/landing-page/login.html';
+            window.location.href = '/login.html';
         }
 
         // Set user info
@@ -327,7 +327,7 @@
         function logout() {
             localStorage.removeItem('token');
             localStorage.removeItem('user');
-            window.location.href = '/landing-page/login.html';
+            window.location.href = '/login.html';
         }
 
         // Subject metadata
@@ -505,7 +505,7 @@
                 const delay = 0.1 * (index + 1);
 
                 subjectsGrid.innerHTML += `
-                    <a href="/landing-page/quiz.html?subject=${subject.subject_code}" class="subject-card glass rounded-2xl p-6 block hover:shadow-lg transition-all animate-fadeInUp" style="animation-delay: ${delay}s; opacity: 0;">
+                    <a href="/quiz.html?subject=${subject.subject_code}" class="subject-card glass rounded-2xl p-6 block hover:shadow-lg transition-all animate-fadeInUp" style="animation-delay: ${delay}s; opacity: 0;">
                         <div class="flex items-start justify-between mb-4">
                             <div class="w-14 h-14 bg-gradient-to-br ${meta.color} rounded-xl flex items-center justify-center text-2xl shadow-lg">
                                 ${meta.icon}
@@ -580,7 +580,7 @@
 
         // Start practice set
         function startPracticeSet(subject, setNumber) {
-            window.location.href = `/landing-page/quiz.html?subject=${subject}&practiceSet=${setNumber}`;
+            window.location.href = `/quiz.html?subject=${subject}&practiceSet=${setNumber}`;
         }
 
         // Render mock preboard for Advance users
@@ -616,7 +616,7 @@
         // Start mock preboard
         function startMockPreboard(subject) {
             if (confirm(`You are about to start a ${subject} Mock Preboard Exam.\n\n• 100 MCQs\n• 3-hour time limit\n• Results will be recorded\n\nAre you ready?`)) {
-                window.location.href = `/landing-page/quiz.html?subject=${subject}&mockPreboard=true`;
+                window.location.href = `/quiz.html?subject=${subject}&mockPreboard=true`;
             }
         }
 

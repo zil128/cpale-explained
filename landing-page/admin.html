@@ -205,12 +205,12 @@
     </div>
 
     <script>
-        const API_URL = 'http://localhost:5000/api';
+        const API_URL = '/api';
         const token = localStorage.getItem('token');
         let currentPaymentId = null;
 
         if (!token) {
-            window.location.href = 'login.html';
+            window.location.href = '/login.html';
         }
 
         function logout() {

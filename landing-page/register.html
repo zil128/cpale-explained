@@ -96,8 +96,8 @@
     <div class="w-full max-w-md relative z-10">
         <!-- Logo -->
         <div class="text-center mb-8">
-            <a href="/landing-page/" class="inline-block">
-                <img src="/landing-page/logos/logo-concept-1.svg" alt="CPALE Explained" class="h-12 mx-auto">
+            <a href="/" class="inline-block">
+                <img src="/logos/logo-concept-1.svg" alt="CPALE Explained" class="h-12 mx-auto">
             </a>
             <p class="text-gray-500 mt-4">Start your journey to becoming a CPA!</p>
         </div>
@@ -168,7 +168,7 @@
             <div class="mt-6 text-center">
                 <p class="text-gray-600">
                     Already have an account?
-                    <a href="/landing-page/login.html" class="text-primary font-semibold hover:underline">Login here</a>
+                    <a href="/login.html" class="text-primary font-semibold hover:underline">Login here</a>
                 </p>
             </div>
 
@@ -185,7 +185,7 @@
 
         <!-- Back to Home -->
         <div class="text-center mt-6">
-            <a href="/landing-page/" class="text-gray-500 hover:text-primary transition-colors text-sm">
+            <a href="/" class="text-gray-500 hover:text-primary transition-colors text-sm">
                 &larr; Back to Home
             </a>
         </div>
@@ -230,7 +230,7 @@
                     successMessage.classList.remove('hidden');
 
                     setTimeout(() => {
-                        window.location.href = '/landing-page/dashboard.html';
+                        window.location.href = '/dashboard.html';
                     }, 1500);
                 } else {
                     errorMessage.textContent = data.error || 'Registration failed. Please try again.';
@@ -244,7 +244,7 @@
 
         // Check if already logged in
         if (localStorage.getItem('token')) {
-            window.location.href = '/landing-page/dashboard.html';
+            window.location.href = '/dashboard.html';
         }
     </script>
 </body>

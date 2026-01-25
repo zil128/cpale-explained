@@ -225,7 +225,7 @@
     </div>
 
     <script>
-        const API_BASE = 'http://localhost:5000/api';
+        const API_BASE = '/api';
         
         let attemptId = null;
         let examData = null;
@@ -240,7 +240,7 @@
         function checkAuth() {
             const token = localStorage.getItem('token');
             if (!token) {
-                window.location.href = '/landing-page/login.html';
+                window.location.href = '/login.html';
                 return null;
             }
             return token;
@@ -257,7 +257,7 @@
 
             if (!attemptId) {
                 alert('No exam attempt specified');
-                window.location.href = '/landing-page/mock-exam-list.html';
+                window.location.href = '/mock-exam-list.html';
                 return;
             }
 
@@ -288,7 +288,7 @@
             } catch (error) {
                 console.error('Init exam error:', error);
                 alert(error.message || 'Failed to load exam');
-                window.location.href = '/landing-page/mock-exam-list.html';
+                window.location.href = '/mock-exam-list.html';
             }
         }
 
@@ -591,7 +591,7 @@
                 localStorage.removeItem(`exam_${attemptId}`);
 
                 // Redirect to results
-                window.location.href = `/landing-page/mock-exam-results.html?attemptId=${attemptId}`;
+                window.location.href = `/mock-exam-results.html?attemptId=${attemptId}`;
 
             } catch (error) {
                 console.error('Submit error:', error);

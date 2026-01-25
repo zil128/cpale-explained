@@ -49,7 +49,7 @@
     <nav class="glass sticky top-0 z-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <a href="/landing-page/dashboard.html" class="flex items-center space-x-2">
+                <a href="/dashboard.html" class="flex items-center space-x-2">
                     <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center">
                         <span class="text-white font-bold text-lg">C</span>
                     </div>
@@ -57,10 +57,10 @@
                 </a>
 
                 <div class="flex items-center gap-6">
-                    <a href="/landing-page/quiz.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Practice</a>
-                    <a href="/landing-page/analytics.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Analytics</a>
-                    <a href="/landing-page/mock-exam-list.html" class="text-primary font-medium">Mock Exams</a>
-                    <a href="/landing-page/dashboard.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dashboard</a>
+                    <a href="/quiz.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Practice</a>
+                    <a href="/analytics.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Analytics</a>
+                    <a href="/mock-exam-list.html" class="text-primary font-medium">Mock Exams</a>
+                    <a href="/dashboard.html" class="text-gray-600 hover:text-primary font-medium transition-colors">Dashboard</a>
                 </div>
             </div>
         </div>
@@ -162,7 +162,7 @@
     </div>
 
     <script>
-        const API_BASE = 'http://localhost:5000/api';
+        const API_BASE = '/api';
         let selectedExamId = null;
         let inProgressAttemptId = null;
 
@@ -170,7 +170,7 @@
         function checkAuth() {
             const token = localStorage.getItem('token');
             if (!token) {
-                window.location.href = '/landing-page/login.html';
+                window.location.href = '/login.html';
                 return null;
             }
             return token;
@@ -303,13 +303,13 @@
                 if (!res.ok) {
                     if (data.attemptId) {
                         // Has in-progress exam
-                        window.location.href = `/landing-page/mock-exam.html?attemptId=${data.attemptId}`;
+                        window.location.href = `/mock-exam.html?attemptId=${data.attemptId}`;
                         return;
                     }
                     throw new Error(data.error);
                 }
 
-                window.location.href = `/landing-page/mock-exam.html?attemptId=${data.attemptId}`;
+                window.location.href = `/mock-exam.html?attemptId=${data.attemptId}`;
 
             } catch (error) {
                 alert(error.message || 'Failed to start exam');
@@ -319,7 +319,7 @@
 
         function resumeExam() {
             if (inProgressAttemptId) {
-                window.location.href = `/landing-page/mock-exam.html?attemptId=${inProgressAttemptId}`;
+                window.location.href = `/mock-exam.html?attemptId=${inProgressAttemptId}`;
             }
         }
 
