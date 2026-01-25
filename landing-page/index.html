@@ -726,26 +726,179 @@
         <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
 
-        <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
-            <div class="mb-8">
-                <h3 class="font-heading text-white text-3xl font-bold mb-3">
-                    <span class="gradient-text">CPALE</span> Explained
-                </h3>
-                <p class="text-gray-400">Your AI practice study bestie for affordable and smarter way of CPALE prep</p>
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <!-- Main Footer Content -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- About Section -->
+                <div>
+                    <h4 class="font-heading text-white text-xl font-bold mb-4">About CPALE Explained</h4>
+                    <p class="text-gray-400 text-sm mb-4">Your AI-powered practice study bestie designed to help CPALE review students prepare smarter, not harder.</p>
+                    <p class="text-gray-400 text-sm">We focus on clear explanations, exam-aligned practice questions, and structured learning that matches how CPALE questions are actually asked.</p>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-heading text-white text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="/dashboard.html" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block">Dashboard</a></li>
+                        <li><a href="/quiz.html" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block">Practice Questions</a></li>
+                        <li><a href="/mock-exam-list.html" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block">Mock Exams</a></li>
+                        <li><a href="/pricing.html" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-heading text-white text-xl font-bold mb-4">Contact Us</h4>
+                    <div class="space-y-3 text-sm">
+                        <p class="text-gray-400">We'd love to hear from you. If you have questions, suggestions, or concerns, feel free to reach out.</p>
+                        <div class="space-y-2">
+                            <p class="text-gray-300">
+                                <span class="text-gray-500">Email:</span><br>
+                                <a href="mailto:support@cpaleexplained.com" class="hover:text-primary transition-colors">support@cpaleexplained.com</a>
+                            </p>
+                            <p class="text-gray-300">
+                                <span class="text-gray-500">Website:</span><br>
+                                <a href="https://cpaleexplained.com" class="hover:text-primary transition-colors">cpaleexplained.com</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="font-heading text-white text-xl font-bold mb-4">Legal</h4>
+                    <ul class="space-y-3 mb-6">
+                        <li><a href="#privacy" onclick="showPrivacy(event)" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block">Privacy Policy</a></li>
+                        <li><a href="#terms" onclick="showTerms(event)" class="text-gray-400 hover:text-white transition-colors hover:translate-x-1 transform inline-block">Terms & Conditions</a></li>
+                    </ul>
+                    <div class="text-xs text-gray-500 space-y-2">
+                        <p>CPALE Explained is for educational purposes only. We do not guarantee passing the CPALE.</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="flex justify-center gap-8 mb-8">
-                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">About</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">Contact</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">Privacy</a>
-                <a href="#" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform inline-block">Terms</a>
-            </div>
-
+            <!-- Bottom Bar -->
             <div class="pt-8 border-t border-gray-700">
-                <p class="text-sm text-gray-500">© 2026 CPALE Explained. Built with 💜 for CPA students.</p>
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-center md:text-left">
+                        <h3 class="font-heading text-white text-2xl font-bold mb-2">
+                            <span class="gradient-text">CPALE</span> Explained
+                        </h3>
+                        <p class="text-sm text-gray-500">Your AI practice study bestie for affordable and smarter way of CPALE prep</p>
+                    </div>
+                    <p class="text-sm text-gray-500">© 2026 CPALE Explained. Built with 💜 for CPA students.</p>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+                <h3 class="font-heading text-2xl font-bold text-gray-900">Privacy Policy</h3>
+                <button onclick="closePrivacy()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="px-6 py-6 space-y-6 text-gray-700">
+                <p class="text-lg font-medium">At CPALE Explained, your privacy is important to us.</p>
+                
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Information We Collect</h4>
+                    <p class="mb-2">We may collect basic information such as:</p>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Name and email address</li>
+                        <li>Account and usage activity within the platform</li>
+                        <li>Feedback or messages you send to us</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">How We Use Your Information</h4>
+                    <p class="mb-2">This information is used only to:</p>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>Provide and improve our services</li>
+                        <li>Manage your account</li>
+                        <li>Communicate important updates</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Data Protection</h4>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>We do not sell, rent, or trade your personal information to third parties</li>
+                        <li>We take reasonable steps to protect your data from unauthorized access</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Third-Party Services</h4>
+                    <p>Some features may rely on third-party tools (such as analytics or hosting services). These services follow their own privacy policies.</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-sm">By using CPALE Explained, you agree to the collection and use of information as described in this policy.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="hidden fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
+                <h3 class="font-heading text-2xl font-bold text-gray-900">Terms and Conditions</h3>
+                <button onclick="closeTerms()" class="text-gray-500 hover:text-gray-700">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="px-6 py-6 space-y-6 text-gray-700">
+                <p class="text-lg font-medium">By accessing and using CPALE Explained, you agree to the following terms:</p>
+                
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Use of the Platform</h4>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>CPALE Explained is for educational purposes only</li>
+                        <li>Content is intended to support CPALE review and practice</li>
+                        <li>You agree not to misuse, copy, or redistribute content without permission</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Account Responsibility</h4>
+                    <ul class="list-disc pl-6 space-y-1">
+                        <li>You are responsible for maintaining the confidentiality of your account</li>
+                        <li>Any activity under your account is your responsibility</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Intellectual Property</h4>
+                    <p>All content, including questions, explanations, and system features, are owned by CPALE Explained unless stated otherwise. Unauthorized reproduction is not allowed.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">No Guarantee</h4>
+                    <p>While we aim to help you prepare effectively, CPALE Explained does not guarantee passing the CPALE. Results depend on individual effort and study habits.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-2">Changes to Terms</h4>
+                    <p>We may update these terms from time to time. Continued use of the platform means you accept any changes.</p>
+                </div>
+
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <p class="text-sm font-medium">Thank you for choosing CPALE Explained as your study partner!</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript -->
     <script>
@@ -759,6 +912,45 @@
         function scrollToHowItWorks() {
             document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Privacy Policy Modal
+        function showPrivacy(event) {
+            event.preventDefault();
+            document.getElementById('privacyModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePrivacy() {
+            document.getElementById('privacyModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Terms & Conditions Modal
+        function showTerms(event) {
+            event.preventDefault();
+            document.getElementById('termsModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTerms() {
+            document.getElementById('termsModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modals on outside click
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('privacyModal')?.addEventListener('click', (e) => {
+                if (e.target === document.getElementById('privacyModal')) {
+                    closePrivacy();
+                }
+            });
+
+            document.getElementById('termsModal')?.addEventListener('click', (e) => {
+                if (e.target === document.getElementById('termsModal')) {
+                    closeTerms();
+                }
+            });
+        });
 
         // Scroll reveal animation
         function reveal() {
