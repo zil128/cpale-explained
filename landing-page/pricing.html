@@ -813,38 +813,6 @@
             }
         }
 
-            try {
-                const response = await fetch(`${API_URL}/payment/create`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify({
-                        planCode: selectedPlanCode,
-                        paymentProvider: selectedPaymentMethod,
-                        promoCode: appliedPromo?.code || null
-                    })
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    // Show confirmation modal
-                    closePaymentModal();
-                    document.getElementById('referenceNumber').textContent = data.transaction.reference;
-                    document.getElementById('confirmInstructions').textContent = data.transaction.instructions;
-                    document.getElementById('confirmationModal').classList.remove('hidden');
-                    document.getElementById('confirmationModal').classList.add('flex');
-                } else {
-                    alert(data.error || 'Failed to create payment');
-                }
-            } catch (error) {
-                console.error('Payment creation error:', error);
-                alert('Failed to create payment. Please try again.');
-            }
-        }
-
         window.closeConfirmationModal = function closeConfirmationModal() {
             document.getElementById('confirmationModal').classList.add('hidden');
             document.getElementById('confirmationModal').classList.remove('flex');
