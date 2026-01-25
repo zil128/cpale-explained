@@ -299,9 +299,9 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4 mb-10">
-                        <a href="/register.html" class="btn-glow btn-secondary-glow bg-gradient-to-r from-secondary to-emerald-400 hover:from-emerald-400 hover:to-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg animate-gradient inline-block text-center">
+<button onclick="scrollToSignup()" class="btn-glow btn-secondary-glow bg-gradient-to-r from-secondary to-emerald-400 hover:from-emerald-400 hover:to-secondary text-white px-8 py-4 rounded-2xl font-bold text-lg animate-gradient">
                             50 FREE Questions
-                        </a>
+                        </button>
                         <button onclick="scrollToHowItWorks()" class="btn-glow glass text-primary px-8 py-4 rounded-2xl font-bold text-lg border-2 border-primary/20 hover:border-primary/40">
                             How It Works
                         </button>
@@ -568,11 +568,167 @@
 
             </div>
 
-            <!-- CTA -->
+            <!-- CTA & PRICING PREVIEW -->
             <div class="text-center mt-16 reveal">
-                <a href="/register.html" class="btn-glow bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg animate-gradient inline-block">
+<button onclick="scrollToSignup()" class="btn-glow bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-10 py-5 rounded-2xl font-bold text-lg shadow-lg animate-gradient">
                     50 FREE Questions
-                </a>
+                </button>
+                <p class="text-gray-500 text-sm mt-4">Experience the AI difference. Upgrade anytime for premium features.</p>
+                
+                <!-- Pricing Preview -->
+                <div class="mt-12 glass rounded-3xl p-8 max-w-3xl mx-auto">
+                    <h3 class="font-heading text-2xl font-bold text-gray-900 mb-8 text-center">Choose Your Study Plan</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- FREE Plan -->
+                        <div class="glass rounded-2xl p-6 text-center hover:shadow-xl transition-all">
+                            <div class="mb-4">
+                                <h4 class="font-heading text-xl font-bold text-gray-900 mb-2">FREE</h4>
+                                <div class="text-4xl font-heading font-bold text-gray-700 mb-2">₱0</div>
+                                <p class="text-gray-500 text-sm">Forever free</p>
+                            </div>
+                            <ul class="text-left space-y-3 mb-6 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">50 MCQs across all subjects</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Unlimited repetition</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Basic progress tracking</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 text-xs mt-0.5">✗</span>
+                                    <span class="text-gray-400">Practice Sets</span>
+                                </li>
+                            </ul>
+                            <button onclick="scrollToSignup()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+                                Get Started Free
+                            </button>
+                        </div>
+
+                        <!-- PAID Plan -->
+                        <div class="glass-dark rounded-2xl p-6 text-center hover:shadow-xl transition-all border-2 border-primary/30 relative">
+                            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-primary to-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                                BEST VALUE
+                            </div>
+                            <div class="mb-4">
+                                <h4 class="font-heading text-xl font-bold text-gray-900 mb-2">PAID</h4>
+                                <div class="text-4xl font-heading font-bold text-primary mb-2">₱149</div>
+                                <p class="text-gray-500 text-sm">per month (30 days)</p>
+                            </div>
+                            <ul class="text-left space-y-3 mb-6 text-sm">
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Unlimited MCQs</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Practice Sets (75 MCQs each)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Basic analytics</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="w-5 h-5 bg-primary/20 rounded-full flex items-center justify-center text-primary text-xs mt-0.5">✓</span>
+                                    <span class="text-gray-700">Email support</span>
+                                </li>
+                            </ul>
+                            <a href="pricing.html" class="block w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-bold hover:shadow-lg transition-all">
+                                Upgrade to Paid
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EMAIL SIGNUP FORM -->
+    <section id="signup" class="py-24 relative overflow-hidden">
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-primary via-purple-500 to-accent animate-gradient"></div>
+
+        <!-- Decorative blobs -->
+        <div class="blob w-80 h-80 bg-white/10 top-10 -left-20 animate-blob"></div>
+        <div class="blob w-64 h-64 bg-white/10 bottom-10 right-10 animate-blob" style="animation-delay: 3s;"></div>
+
+        <div class="max-w-2xl mx-auto px-6 text-center relative z-10">
+            <div class="reveal">
+                <span class="inline-block bg-white/20 backdrop-blur rounded-full px-4 py-2 text-sm font-semibold text-white mb-6">Limited Time Offer</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-6 text-white">Start Your CPALE Winning Streak</h2>
+                <p class="text-xl text-white/80 mb-10">
+                    Join 1,000+ students preparing smarter. No credit card required.
+                </p>
+            </div>
+
+            <form id="signupForm" class="glass rounded-3xl p-8 md:p-10 shadow-2xl reveal">
+                <div class="mb-5">
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email address"
+                        required
+                        class="input-glow w-full px-6 py-4 text-lg rounded-2xl border-2 border-gray-200 focus:outline-none text-gray-900 transition-all bg-white/80"
+                    >
+                </div>
+
+                <div class="mb-5">
+                    <input
+                        type="text"
+                        id="firstName"
+                        placeholder="Your first name (optional)"
+                        class="input-glow w-full px-6 py-4 text-lg rounded-2xl border-2 border-gray-200 focus:outline-none text-gray-900 transition-all bg-white/80"
+                    >
+                </div>
+
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-700 mb-3">Choose Your Plan:</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <label class="relative">
+                            <input type="radio" name="plan" value="FREE" checked class="peer sr-only">
+                            <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-primary peer-checked:bg-primary/5 transition-all hover:shadow-md">
+                                <div class="font-bold text-gray-900 mb-1">FREE</div>
+                                <div class="text-2xl font-heading text-primary">₱0</div>
+                                <div class="text-xs text-gray-500">50 MCQs</div>
+                            </div>
+                        </label>
+                        <label class="relative">
+                            <input type="radio" name="plan" value="PAID_MONTHLY" class="peer sr-only">
+                            <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all hover:shadow-md">
+                                <div class="font-bold text-gray-900 mb-1">PAID</div>
+                                <div class="text-2xl font-heading text-secondary">₱149</div>
+                                <div class="text-xs text-gray-500">Unlimited MCQs</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn-glow w-full bg-gradient-to-r from-primary to-accent hover:from-accent hover:to-primary text-white px-8 py-5 rounded-2xl font-bold text-lg shadow-lg animate-gradient"
+                >
+                    Start Practicing Now
+                </button>
+
+                <p class="text-gray-500 text-sm mt-6">
+                    By signing up, you agree to receive study tips and updates. Unsubscribe anytime.
+                </p>
+            </form>
+
+            <div id="successMessage" class="hidden glass rounded-3xl p-8 mt-6 border-2 border-secondary">
+                <div class="text-5xl mb-4">🎉</div>
+                <h3 class="font-heading text-2xl font-bold mb-2 text-gray-900">Success!</h3>
+                <p class="text-lg text-gray-700">Check your email for access to your FREE 50 questions!</p>
+            </div>
+
+            <div id="errorMessage" class="hidden glass rounded-3xl p-8 mt-6 border-2 border-red-400">
+                <div class="text-5xl mb-4">😅</div>
+                <h3 class="font-heading text-2xl font-bold mb-2 text-gray-900">Oops!</h3>
+                <p class="text-lg text-gray-700" id="errorText">Something went wrong. Please try again.</p>
             </div>
         </div>
     </section>
@@ -756,6 +912,10 @@
         }
 
         // Smooth scroll functions
+        function scrollToSignup() {
+            document.getElementById('signup').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function scrollToHowItWorks() {
             document.getElementById('how-it-works').scrollIntoView({ behavior: 'smooth' });
         }
@@ -777,6 +937,81 @@
 
         window.addEventListener('scroll', reveal);
         reveal(); // Initial check
+
+        // Select plan function (from pricing cards)
+        function selectPlan(planType) {
+            const planInputs = document.querySelectorAll('input[name="plan"]');
+            planInputs.forEach(input => {
+                if (input.value === planType) {
+                    input.checked = true;
+                }
+            });
+            scrollToSignup();
+        }
+
+        // Form submission
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const firstName = document.getElementById('firstName').value;
+            const selectedPlan = document.querySelector('input[name="plan"]:checked').value;
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const form = document.getElementById('signupForm');
+
+            // Hide previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+
+            try {
+                const response = await fetch('/api/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        firstName: firstName || null,
+                        plan: selectedPlan,
+                        source: 'WEBSITE'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Success - redirect based on plan
+                    if (selectedPlan === 'FREE') {
+                        // Redirect FREE users to register page
+                        window.location.href = '/register.html?plan=FREE';
+                    } else {
+                        // For paid plans (PAID_MONTHLY), open payment modal
+                        // First, redirect to register if not logged in, otherwise show payment modal
+                        const token = localStorage.getItem('token');
+                        if (!token) {
+                            // Redirect to register page with plan info
+                            window.location.href = '/register.html?plan=' + selectedPlan;
+                        } else {
+                            // User is logged in, show payment modal
+                            selectPlan(selectedPlan);
+                        }
+                    }
+
+                    // Track signup (you can add analytics here)
+                    console.log('Signup successful:', data, 'Plan:', selectedPlan);
+                } else {
+                    // Error from API
+                    errorMessage.classList.remove('hidden');
+                    document.getElementById('errorText').textContent = data.error || 'Something went wrong';
+                }
+            } catch (error) {
+                // Network error
+                errorMessage.classList.remove('hidden');
+                document.getElementById('errorText').textContent = 'Unable to connect. Please check your internet connection.';
+                console.error('Signup error:', error);
+            }
+        });
 
         // ========================================
         // PAYMENT SYSTEM - Full Integration
