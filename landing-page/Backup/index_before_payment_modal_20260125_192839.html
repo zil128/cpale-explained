@@ -211,21 +211,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Payment Modal Styles */
-        .payment-btn {
-            transition: all 0.3s ease;
-        }
-
-        .payment-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
-        }
-
-        .payment-btn.selected {
-            border-color: #7C3AED;
-            background: rgba(124, 58, 237, 0.1);
-        }
     </style>
 </head>
 <body class="bg-lavender font-body">
@@ -697,11 +682,19 @@
                             </div>
                         </label>
                         <label class="relative">
-                            <input type="radio" name="plan" value="PAID_MONTHLY" class="peer sr-only">
+                            <input type="radio" name="plan" value="BASIC" class="peer sr-only">
                             <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-secondary peer-checked:bg-secondary/5 transition-all hover:shadow-md">
-                                <div class="font-bold text-gray-900 mb-1">PAID</div>
+                                <div class="font-bold text-gray-900 mb-1">BASIC</div>
                                 <div class="text-2xl font-heading text-secondary">₱149</div>
-                                <div class="text-xs text-gray-500">Unlimited MCQs</div>
+                                <div class="text-xs text-gray-500">200/subject</div>
+                            </div>
+                        </label>
+                        <label class="relative">
+                            <input type="radio" name="plan" value="ADVANCE" class="peer sr-only">
+                            <div class="glass rounded-xl p-4 text-center cursor-pointer border-2 border-transparent peer-checked:border-accent peer-checked:bg-accent/5 transition-all hover:shadow-md">
+                                <div class="font-bold text-gray-900 mb-1">ADVANCE</div>
+                                <div class="text-2xl font-heading text-accent">₱449</div>
+                                <div class="text-xs text-gray-500">All MCQs</div>
                             </div>
                         </label>
                     </div>
@@ -732,150 +725,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Payment Modal -->
-    <div id="paymentModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-        <div class="glass rounded-3xl max-w-lg w-full p-8 relative animate-float">
-            <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
-
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Complete Your Purchase</h3>
-            <p class="text-gray-600 mb-6" id="selectedPlanInfo">You selected: Paid Monthly - P149</p>
-
-            <!-- Promo Code -->
-            <div class="mb-6">
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Have a promo code?</label>
-                <div class="flex space-x-2">
-                    <input type="text" id="promoCodeInput" placeholder="Enter code" class="flex-1 px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
-                    <button onclick="applyPromoCode()" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 transition font-semibold">
-                        Apply
-                    </button>
-                </div>
-                <p id="promoMessage" class="text-sm mt-2 hidden"></p>
-            </div>
-
-            <!-- Price Summary -->
-            <div class="bg-gray-50 rounded-xl p-4 mb-6">
-                <div class="flex justify-between mb-2">
-                    <span class="text-gray-600">Subtotal</span>
-                    <span id="subtotalPrice" class="font-semibold">P149.00</span>
-                </div>
-                <div id="discountRow" class="flex justify-between mb-2 hidden">
-                    <span class="text-emerald-600">Discount</span>
-                    <span id="discountAmount" class="text-emerald-600 font-semibold">-P0.00</span>
-                </div>
-                <div class="border-t border-gray-200 pt-2 flex justify-between">
-                    <span class="font-bold text-gray-800">Total</span>
-                    <span id="totalPrice" class="font-bold text-xl text-primary">P149.00</span>
-                </div>
-            </div>
-
-            <!-- Payment Methods -->
-            <div class="mb-6">
-                <label class="block text-sm font-semibold text-gray-700 mb-3">Choose payment method</label>
-                <div class="grid grid-cols-3 gap-3" id="paymentMethods">
-                    <button onclick="selectPaymentMethod('GCASH')" class="payment-btn flex flex-col items-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary">
-                        <div class="text-3xl mb-2">💚</div>
-                        <span class="text-sm font-medium text-gray-700">GCash</span>
-                    </button>
-                    <button onclick="selectPaymentMethod('PAYMAYA')" class="payment-btn flex flex-col items-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary">
-                        <div class="text-3xl mb-2">💳</div>
-                        <span class="text-sm font-medium text-gray-700">Maya</span>
-                    </button>
-                    <button onclick="selectPaymentMethod('BANK_TRANSFER')" class="payment-btn flex flex-col items-center p-4 border-2 border-gray-200 rounded-xl hover:border-primary">
-                        <div class="text-3xl mb-2">🏦</div>
-                        <span class="text-sm font-medium text-gray-700">Bank</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Payment Instructions -->
-            <div id="paymentInstructions" class="hidden bg-lavender rounded-xl p-4 mb-6">
-                <h4 class="font-semibold text-gray-800 mb-2">Payment Instructions</h4>
-                <div id="instructionsText" class="text-sm text-gray-700 whitespace-pre-line mb-4"></div>
-                <div class="bg-white rounded-lg p-3 mb-3">
-                    <p class="text-xs font-semibold text-gray-600 mb-1">Account Details:</p>
-                    <p class="text-sm font-mono text-gray-800" id="accountDetails"></p>
-                </div>
-            </div>
-
-            <!-- Payment Proof Upload (shown after initiating payment) -->
-            <div id="uploadSection" class="hidden mb-6">
-                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-4">
-                    <p class="text-sm text-blue-800 font-semibold mb-2">✓ Payment initiated!</p>
-                    <p class="text-xs text-blue-700">Reference: <span id="paymentReference" class="font-mono font-bold"></span></p>
-                </div>
-                
-                <label class="block text-sm font-semibold text-gray-700 mb-2">Upload Payment Proof</label>
-                <div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-primary transition">
-                    <input type="file" id="proofFile" accept="image/*,.pdf" class="hidden" onchange="handleFileSelect(event)">
-                    <label for="proofFile" class="cursor-pointer">
-                        <svg class="w-12 h-12 mx-auto text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                        </svg>
-                        <p class="text-sm text-gray-600 mb-1">Click to upload screenshot/receipt</p>
-                        <p class="text-xs text-gray-400">PNG, JPG or PDF (max 5MB)</p>
-                    </label>
-                </div>
-                <div id="selectedFile" class="hidden mt-3 p-3 bg-green-50 border border-green-200 rounded-lg">
-                    <p class="text-sm text-green-800">
-                        <span class="font-semibold">Selected:</span> 
-                        <span id="fileName"></span>
-                    </p>
-                </div>
-
-                <!-- Additional Info -->
-                <div class="mt-4 space-y-3">
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Your Name (on payment)</label>
-                        <input type="text" id="payerName" placeholder="Juan Dela Cruz" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Contact Number</label>
-                        <input type="text" id="payerContact" placeholder="09171234567" class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-gray-700 mb-1">Notes (optional)</label>
-                        <textarea id="paymentNotes" placeholder="Transaction reference, remarks, etc." class="w-full px-4 py-2 border border-gray-200 rounded-xl focus:outline-none focus:border-primary" rows="2"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Proceed Button -->
-            <button onclick="proceedToPayment()" id="proceedBtn" disabled class="w-full py-4 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-primary/30 transition">
-                <span id="proceedBtnText">Select Payment Method</span>
-            </button>
-
-            <p class="text-xs text-center text-gray-500 mt-4">
-                By proceeding, you agree to our Terms of Service and Privacy Policy.
-            </p>
-        </div>
-    </div>
-
-    <!-- Payment Confirmation Modal -->
-    <div id="confirmationModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-        <div class="glass rounded-3xl max-w-md w-full p-8 text-center">
-            <div class="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
-                </svg>
-            </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">Payment Initiated!</h3>
-            <p class="text-gray-600 mb-4">Your reference number:</p>
-            <div class="bg-gray-100 rounded-xl p-4 mb-6">
-                <span id="referenceNumber" class="text-xl font-mono font-bold text-primary">CPALE-20260125-XXXXX</span>
-            </div>
-            <p class="text-sm text-gray-600 mb-6" id="confirmInstructions">
-                Please complete your payment using the selected method. Once confirmed, your subscription will be activated within 24 hours.
-            </p>
-            <button onclick="closeConfirmationModal()" class="w-full py-3 bg-gradient-to-r from-primary to-accent text-white font-bold rounded-xl hover:shadow-lg transition">
-                Got it!
-            </button>
-        </div>
-    </div>
 
     <!-- FOOTER -->
     <footer class="relative overflow-hidden py-16">
@@ -983,19 +832,16 @@
                 if (response.ok) {
                     // Success - redirect based on plan
                     if (selectedPlan === 'FREE') {
-                        // Redirect FREE users to register page
-                        window.location.href = '/register.html?plan=FREE';
+                        form.classList.add('hidden');
+                        successMessage.classList.remove('hidden');
+                        successMessage.innerHTML = `
+                            <div class="text-5xl mb-4">🎉</div>
+<h3 class="font-heading text-2xl font-bold mb-2 text-gray-900">Welcome to your AI study bestie!</h3>
+                            <p class="text-lg text-gray-700">Check your email and start your CPALE winning streak!</p>
+                        `;
                     } else {
-                        // For paid plans (PAID_MONTHLY), open payment modal
-                        // First, redirect to register if not logged in, otherwise show payment modal
-                        const token = localStorage.getItem('token');
-                        if (!token) {
-                            // Redirect to register page with plan info
-                            window.location.href = '/register.html?plan=' + selectedPlan;
-                        } else {
-                            // User is logged in, show payment modal
-                            selectPlan(selectedPlan);
-                        }
+                        // Redirect to payment page for paid plans
+                        showPaymentModal(selectedPlan, firstName, email);
                     }
 
                     // Track signup (you can add analytics here)
@@ -1013,359 +859,93 @@
             }
         });
 
-        // ========================================
-        // PAYMENT SYSTEM - Full Integration
-        // ========================================
-        
-        const API_URL = '/api';
+        // Payment modal for paid plans
+        function showPaymentModal(plan, firstName, email) {
+            const planDetails = {
+                'BASIC': {
+                    price: '₱149',
+                    period: 'per month',
+                    features: ['200 MCQs per subject', '50 practice sets per subject', 'Basic analytics', 'Email support'],
+                    color: 'from-secondary to-emerald-400'
+                },
+                'ADVANCE': {
+                    price: '₱449',
+                    period: 'per month',
+                    features: ['10,000+ MCQs for all subjects', 'AI-powered assessment', 'Advanced analytics', 'Priority support'],
+                    color: 'from-primary to-accent'
+                }
+            };
 
-        // State
-        let selectedPlanCode = null;
-        let selectedPaymentMethod = null;
-        let appliedPromo = null;
-        let currentPrice = 0;
-        let currentPaymentId = null;
-        let selectedFile = null;
-        let paymentMethods = [];
+            const details = planDetails[plan];
+            if (!details) return;
 
-        // Plans data
-        const plansData = {
-            'FREE': { code: 'FREE', price: 0, name: 'Free Plan' },
-            'PAID_MONTHLY': { code: 'PAID_MONTHLY', price: 149, name: 'Paid Monthly' }
-        };
+            // Create modal HTML
+            const modalHtml = `
+                <div id="paymentModal" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+                    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="closePaymentModal()"></div>
+                    <div class="relative glass rounded-3xl p-8 max-w-md w-full shadow-2xl">
+                        <button onclick="closePaymentModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
 
-        // Load payment methods on page load
-        async function loadPaymentMethods() {
-            try {
-                const response = await fetch(`${API_URL}/payment/methods`);
-                const data = await response.json();
-                paymentMethods = data.methods || [];
-            } catch (error) {
-                console.error('Failed to load payment methods:', error);
-            }
-        }
+                        <div class="text-center">
+                            <div class="w-20 h-20 bg-gradient-to-br ${details.color} rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                <span class="text-4xl">💳</span>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-gray-900 mb-3">Complete Your ${plan} Plan</h3>
+                            <p class="text-gray-600 mb-6">Welcome ${firstName}! You're just one step away from premium CPALE preparation.</p>
 
-        // Initialize
-        loadPaymentMethods();
+                            <div class="bg-gradient-to-r from-primary/10 to-accent/10 rounded-2xl p-6 mb-6">
+                                <div class="flex items-center justify-center gap-2 mb-2">
+                                    <span class="text-3xl font-heading font-bold text-primary">${details.price}</span>
+                                    <span class="text-gray-500 text-lg">${details.period}</span>
+                                </div>
+                                <p class="text-sm text-gray-600">Starting with ${plan} features</p>
+                            </div>
 
-        function selectPlan(planCode) {
-            console.log('selectPlan called with:', planCode);
-            
-            // Check if user is logged in
-            const token = localStorage.getItem('token');
-            console.log('Token exists:', !!token);
-            
-            if (!token) {
-                console.log('No token found, redirecting to register');
-                alert('Please login or register first to subscribe.');
-                window.location.href = '/register.html';
-                return;
-            }
+                            <ul class="text-left space-y-3 mb-6">
+                                ${details.features.map(feature => `
+                                    <li class="flex items-center gap-3 text-gray-700">
+                                        <span class="w-6 h-6 bg-secondary/20 rounded-full flex items-center justify-center text-secondary text-sm">✓</span>
+                                        ${feature}
+                                    </li>
+                                `).join('')}
+                            </ul>
 
-            const plan = plansData[planCode];
-            console.log('Selected plan:', plan);
-            
-            if (!plan) {
-                console.error('Plan not found:', planCode);
-                alert('Error: Invalid plan selected');
-                return;
-            }
-            
-            selectedPlanCode = plan.code;
-            currentPrice = plan.price;
+                            <div class="space-y-3">
+                                <button onclick="processPayment('${plan}', '${email}')" class="w-full bg-gradient-to-r ${details.color} text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all">
+                                    Pay ${details.price} ${details.period}
+                                </button>
+                                <button onclick="closePaymentModal()" class="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+                                    Maybe Later
+                                </button>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-4">Secure payment via GCash, Maya, or Credit Card</p>
+                        </div>
+                    </div>
+                </div>
+            `;
 
-            // Update modal info
-            document.getElementById('selectedPlanInfo').textContent = `You selected: ${plan.name} - P${plan.price.toLocaleString()}`;
-            document.getElementById('subtotalPrice').textContent = `P${plan.price.toLocaleString()}.00`;
-            document.getElementById('totalPrice').textContent = `P${plan.price.toLocaleString()}.00`;
-
-            // Reset state
-            appliedPromo = null;
-            selectedPaymentMethod = null;
-            currentPaymentId = null;
-            selectedFile = null;
-            
-            // Reset UI
-            document.getElementById('discountRow').classList.add('hidden');
-            document.getElementById('promoMessage').classList.add('hidden');
-            document.getElementById('promoCodeInput').value = '';
-            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
-            document.getElementById('paymentInstructions').classList.add('hidden');
-            document.getElementById('uploadSection').classList.add('hidden');
-            document.getElementById('selectedFile').classList.add('hidden');
-            document.getElementById('payerName').value = '';
-            document.getElementById('payerContact').value = '';
-            document.getElementById('paymentNotes').value = '';
-            document.getElementById('proceedBtn').disabled = true;
-            document.getElementById('proceedBtnText').textContent = 'Select Payment Method';
-            
-            // Reset payment methods opacity
-            const paymentMethodsEl = document.getElementById('paymentMethods');
-            if (paymentMethodsEl) {
-                paymentMethodsEl.style.opacity = '1';
-                paymentMethodsEl.style.pointerEvents = 'auto';
-            }
-
-            // Show modal
-            console.log('Showing payment modal...');
-            const modal = document.getElementById('paymentModal');
-            if (!modal) {
-                console.error('Payment modal not found!');
-                return;
-            }
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            console.log('Payment modal shown successfully');
+            // Add modal to body
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            document.body.style.overflow = 'hidden';
         }
 
         function closePaymentModal() {
-            document.getElementById('paymentModal').classList.add('hidden');
-            document.getElementById('paymentModal').classList.remove('flex');
-            
-            // Reset state
-            currentPaymentId = null;
-            selectedFile = null;
-            selectedPaymentMethod = null;
-        }
-
-        async function applyPromoCode() {
-            const code = document.getElementById('promoCodeInput').value.trim();
-            if (!code) return;
-
-            try {
-                const response = await fetch(`${API_URL}/payment/validate-promo`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ code, planCode: selectedPlanCode })
-                });
-
-                const data = await response.json();
-                const messageEl = document.getElementById('promoMessage');
-
-                if (data.valid) {
-                    appliedPromo = data.promo;
-                    let discount = 0;
-
-                    if (data.promo.discountType === 'PERCENTAGE') {
-                        discount = currentPrice * (data.promo.discountValue / 100);
-                    } else {
-                        discount = data.promo.discountValue;
-                    }
-
-                    const finalPrice = Math.max(0, currentPrice - discount);
-
-                    document.getElementById('discountRow').classList.remove('hidden');
-                    document.getElementById('discountAmount').textContent = `-P${discount.toFixed(2)}`;
-                    document.getElementById('totalPrice').textContent = `P${finalPrice.toFixed(2)}`;
-
-                    messageEl.textContent = `Promo applied: ${data.promo.description}`;
-                    messageEl.classList.remove('hidden', 'text-red-500');
-                    messageEl.classList.add('text-emerald-500');
-                } else {
-                    messageEl.textContent = data.error || 'Invalid promo code';
-                    messageEl.classList.remove('hidden', 'text-emerald-500');
-                    messageEl.classList.add('text-red-500');
-                }
-            } catch (error) {
-                console.error('Promo validation error:', error);
+            const modal = document.getElementById('paymentModal');
+            if (modal) {
+                modal.remove();
+                document.body.style.overflow = '';
             }
         }
 
-        function selectPaymentMethod(method) {
-            selectedPaymentMethod = method;
-
-            // Update UI
-            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
-
-            // Get payment method details from loaded data
-            const methodDetails = paymentMethods.find(m => m.payment_method === method);
-            
-            if (methodDetails) {
-                // Show instructions
-                document.getElementById('instructionsText').textContent = methodDetails.instructions || '';
-                
-                // Show account details
-                let accountInfo = '';
-                if (method === 'BANK_TRANSFER') {
-                    accountInfo = `${methodDetails.bank_name || ''}\nAccount: ${methodDetails.account_number || ''}\nName: ${methodDetails.account_name || ''}`;
-                } else {
-                    accountInfo = `${methodDetails.account_number || ''}\n${methodDetails.account_name || ''}`;
-                }
-                document.getElementById('accountDetails').textContent = accountInfo;
-                
-                document.getElementById('paymentInstructions').classList.remove('hidden');
-                document.getElementById('proceedBtn').disabled = false;
-                document.getElementById('proceedBtnText').textContent = 'Initiate Payment';
-            }
+        function processPayment(plan, email) {
+            // TODO: Integrate with payment gateway (GCash, Maya, etc.)
+            alert(`Payment integration coming soon for ${plan} plan! Contact us for early access at cpale.explained@gmail.com\n\nEmail: ${email}`);
+            closePaymentModal();
         }
-
-        function handleFileSelect(event) {
-            selectedFile = event.target.files[0];
-            if (selectedFile) {
-                // Validate file size (5MB)
-                if (selectedFile.size > 5 * 1024 * 1024) {
-                    alert('File size must be less than 5MB');
-                    selectedFile = null;
-                    return;
-                }
-                
-                // Show selected file
-                document.getElementById('fileName').textContent = selectedFile.name;
-                document.getElementById('selectedFile').classList.remove('hidden');
-                
-                // Enable submit if all required fields filled
-                updateSubmitButton();
-            }
-        }
-
-        function updateSubmitButton() {
-            const payerName = document.getElementById('payerName').value.trim();
-            const payerContact = document.getElementById('payerContact').value.trim();
-            const hasFile = selectedFile !== null;
-            
-            const canSubmit = hasFile && payerName && payerContact;
-            document.getElementById('proceedBtn').disabled = !canSubmit;
-            
-            if (canSubmit) {
-                document.getElementById('proceedBtnText').textContent = 'Submit Payment Proof';
-            }
-        }
-
-        // Add input listeners
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('payerName')?.addEventListener('input', updateSubmitButton);
-            document.getElementById('payerContact')?.addEventListener('input', updateSubmitButton);
-        });
-
-        async function proceedToPayment() {
-            if (!selectedPaymentMethod || !selectedPlanCode) return;
-
-            const token = localStorage.getItem('token');
-            if (!token) {
-                alert('Please login first');
-                return;
-            }
-
-            const btn = document.getElementById('proceedBtn');
-            const btnText = document.getElementById('proceedBtnText');
-            const originalText = btnText.textContent;
-
-            try {
-                // If payment not yet initiated, initiate it
-                if (!currentPaymentId) {
-                    btn.disabled = true;
-                    btnText.textContent = 'Initiating payment...';
-
-                    const response = await fetch(`${API_URL}/payment/initiate`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${token}`
-                        },
-                        body: JSON.stringify({
-                            plan_code: selectedPlanCode,
-                            payment_method: selectedPaymentMethod
-                        })
-                    });
-
-                    const data = await response.json();
-
-                    if (response.ok) {
-                        // Payment initiated successfully
-                        currentPaymentId = data.payment_id;
-                        
-                        // Show upload section
-                        document.getElementById('uploadSection').classList.remove('hidden');
-                        document.getElementById('paymentReference').textContent = data.reference_number;
-                        
-                        // Hide payment method selection
-                        document.getElementById('paymentMethods').style.opacity = '0.5';
-                        document.getElementById('paymentMethods').style.pointerEvents = 'none';
-                        
-                        // Update button
-                        btnText.textContent = 'Upload Payment Proof';
-                        btn.disabled = true; // Will be enabled when file selected
-                    } else {
-                        alert(data.error || 'Failed to initiate payment');
-                        btn.disabled = false;
-                        btnText.textContent = originalText;
-                    }
-                } 
-                // If payment initiated, upload proof
-                else {
-                    if (!selectedFile) {
-                        alert('Please select a payment proof file');
-                        return;
-                    }
-
-                    const payerName = document.getElementById('payerName').value.trim();
-                    const payerContact = document.getElementById('payerContact').value.trim();
-                    const paymentNotes = document.getElementById('paymentNotes').value.trim();
-
-                    if (!payerName || !payerContact) {
-                        alert('Please fill in your name and contact number');
-                        return;
-                    }
-
-                    btn.disabled = true;
-                    btnText.textContent = 'Uploading proof...';
-
-                    // Create FormData for file upload
-                    const formData = new FormData();
-                    formData.append('proof', selectedFile);
-                    formData.append('payer_name', payerName);
-                    formData.append('payer_contact', payerContact);
-                    formData.append('payment_notes', paymentNotes);
-
-                    const response = await fetch(`${API_URL}/payment/${currentPaymentId}/upload-proof`, {
-                        method: 'POST',
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        },
-                        body: formData
-                    });
-
-                    const data = await response.json();
-
-                    if (response.ok) {
-                        // Show success modal
-                        closePaymentModal();
-                        document.getElementById('referenceNumber').textContent = document.getElementById('paymentReference').textContent;
-                        document.getElementById('confirmInstructions').textContent = 
-                            'Your payment proof has been uploaded successfully! We will verify your payment within 24 hours and activate your subscription.';
-                        document.getElementById('confirmationModal').classList.remove('hidden');
-                        document.getElementById('confirmationModal').classList.add('flex');
-                        
-                        // Reset state
-                        currentPaymentId = null;
-                        selectedFile = null;
-                    } else {
-                        alert(data.error || 'Failed to upload payment proof');
-                        btn.disabled = false;
-                        btnText.textContent = 'Submit Payment Proof';
-                    }
-                }
-            } catch (error) {
-                console.error('Payment error:', error);
-                alert('Failed to process payment');
-                btn.disabled = false;
-                btnText.textContent = originalText;
-            }
-        }
-
-        function closeConfirmationModal() {
-            document.getElementById('confirmationModal').classList.add('hidden');
-            document.getElementById('confirmationModal').classList.remove('flex');
-            window.location.href = '/dashboard.html';
-        }
-
-        // Close modal on outside click
-        document.getElementById('paymentModal')?.addEventListener('click', (e) => {
-            if (e.target === document.getElementById('paymentModal')) {
-                closePaymentModal();
-            }
-        });
     </script>
 
 </body>
