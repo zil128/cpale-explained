@@ -475,7 +475,7 @@
     </div>
 
     <script>
-        const API_URL = 'http://localhost:5000/api';
+        const API_URL = '/api';
 
         // State
         let selectedPlanCode = null;
@@ -507,15 +507,28 @@
         loadPaymentMethods();
 
         function selectPlan(planCode) {
+            console.log('selectPlan called with:', planCode);
+            
             // Check if user is logged in
             const token = localStorage.getItem('token');
+            console.log('Token exists:', !!token);
+            
             if (!token) {
+                console.log('No token found, redirecting to register');
                 alert('Please login or register first to subscribe.');
                 window.location.href = 'register.html';
                 return;
             }
 
             const plan = plansData[planCode];
+            console.log('Selected plan:', plan);
+            
+            if (!plan) {
+                console.error('Plan not found:', planCode);
+                alert('Error: Invalid plan selected');
+                return;
+            }
+            
             selectedPlanCode = plan.code;
             currentPrice = plan.price;
 
@@ -552,8 +565,15 @@
             }
 
             // Show modal
-            document.getElementById('paymentModal').classList.remove('hidden');
-            document.getElementById('paymentModal').classList.add('flex');
+            console.log('Showing payment modal...');
+            const modal = document.getElementById('paymentModal');
+            if (!modal) {
+                console.error('Payment modal not found!');
+                return;
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            console.log('Payment modal shown successfully');
         }
 
         function closePaymentModal() {
